@@ -67,7 +67,7 @@ export default {
 .header {
   position: absolute;
   width: 100%;
-  height: 65px;
+  height: 75px;
   left: 0;
   top: 0;
   background: #FFFFFF;
@@ -130,7 +130,7 @@ export default {
   width: 30%;
   height: 50px;
   left: 500px;
-  top: 40px;
+  top: 50px;
 
   background: #D9D9D9;
   border-radius: 25px;

@@ -33,13 +33,25 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import Header from '../components/Header.vue'
 
-const phone = ref('')
-const password = ref('')
-const router = useRouter()
+export default {
+  components: { Header },
+  setup() {
+    const phone = ref('')
+    const password = ref('')
+    const router = useRouter()
 
-function handleLogin(){
-    
+    function handleLogin(){
+        
+    }
+
+    return {
+      phone,
+      password,
+      handleLogin
+    }
+  }
 }
+
 </script>
 
 <style scoped>
