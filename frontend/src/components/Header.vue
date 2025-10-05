@@ -72,7 +72,7 @@ export default {
   top: 0;
   background: #FFFFFF;
   display: flex;
-  align-items: center; /* vertical centering */
+  align-items: center; 
   justify-content: space-between;
   padding: 0 2rem;
   box-sizing: border-box;
@@ -85,7 +85,7 @@ export default {
 
 .logo {
     display: flex;
-  align-items: center; /* vertical centering inside logo block */
+  align-items: center; 
   height: 100%;
 }
 

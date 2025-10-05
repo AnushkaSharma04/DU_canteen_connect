@@ -33,13 +33,13 @@ export default {
 <style>
 .footer {
   width: 100%;
-  height: 200px; /* 👈 increased height */
+  height: 200px; 
   background: #474747;
   color: #DBDFD0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 2rem; /* 👈 more padding top/bottom */
+  padding: 2rem 2rem; 
   box-sizing: border-box;
 }
 

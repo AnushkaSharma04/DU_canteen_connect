@@ -16,14 +16,13 @@
         </div>
       </div>
 
-      <!-- Divider -->
       <div class="divider"></div>
 
       <!-- Right Section -->
       <div class="menu-section">
         <h3>Today's Menu</h3>
         <div class="menu-images">
-          <!-- Placeholder for menu images -->
+          
           <p style="color: #999;">Menu images will appear here soon...</p>
         </div>
       </div>

@@ -301,7 +301,6 @@ export default {
   color: #000;
 }
 
-/* Square image placeholders */
 .image-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -319,7 +318,6 @@ export default {
   font-size: 1.5rem;
   color: #333;
 }
-
 
 /* Review Card */
 .review-card {
