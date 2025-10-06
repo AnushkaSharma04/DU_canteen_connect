@@ -1,0 +1,338 @@
+2025-09-28 11:37:01,340 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-09-28 11:37:01,346 - app - INFO - Starting Flask application...
+2025-09-28 11:37:01,358 - app - INFO - Flask application created successfully
+2025-09-28 11:37:01,533 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.14:5000
+2025-09-28 11:37:01,534 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-28 11:37:01,537 - werkzeug - INFO -  * Restarting with stat
+2025-09-28 11:37:02,875 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-09-28 11:37:02,876 - app - INFO - Starting Flask application...
+2025-09-28 11:37:02,883 - app - INFO - Flask application created successfully
+2025-09-28 11:37:02,986 - werkzeug - WARNING -  * Debugger is active!
+2025-09-28 11:37:03,000 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 21:30:59,129 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 21:30:59,130 - app - INFO - Starting Flask application...
+2025-10-05 21:30:59,133 - app - INFO - Flask application created successfully
+2025-10-05 21:30:59,322 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.80.23.199:5000
+2025-10-05 21:30:59,323 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-05 21:30:59,327 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 21:31:02,069 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 21:31:02,070 - app - INFO - Starting Flask application...
+2025-10-05 21:31:02,073 - app - INFO - Flask application created successfully
+2025-10-05 21:31:02,135 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 21:31:02,142 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 21:47:58,095 - root - INFO - Database connection established.
+2025-10-05 21:47:58,102 - root - ERROR - Error fetching user: 1054 (42S22): Unknown column 'phone_number' in 'field list'
+2025-10-05 21:47:58,107 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 21:47:58] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-10-05 21:50:15,699 - root - INFO - Database connection established.
+2025-10-05 21:50:15,700 - root - ERROR - Error during signup: 1054 (42S22): Unknown column 'phone_number' in 'where clause'
+2025-10-05 21:50:15,701 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 21:50:15] "[35m[1mPOST /signup HTTP/1.1[0m" 500 -
+2025-10-05 21:52:16,779 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 21:52:16,779 - app - INFO - Starting Flask application...
+2025-10-05 21:52:16,781 - app - INFO - Flask application created successfully
+2025-10-05 21:52:16,984 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.80.23.199:5000
+2025-10-05 21:52:16,987 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-05 21:52:16,990 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 21:52:18,491 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 21:52:18,491 - app - INFO - Starting Flask application...
+2025-10-05 21:52:18,493 - app - INFO - Flask application created successfully
+2025-10-05 21:52:18,539 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 21:52:18,546 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 21:52:19,432 - root - INFO - Database connection established.
+2025-10-05 21:52:19,778 - root - INFO - Database connection established.
+2025-10-05 21:52:19,787 - root - ERROR - Error during signup: 1054 (42S22): Unknown column 'password' in 'field list'
+2025-10-05 21:52:19,789 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 21:52:19] "[35m[1mPOST /signup HTTP/1.1[0m" 500 -
+2025-10-05 21:52:55,183 - root - INFO - Database connection established.
+2025-10-05 21:52:55,527 - root - INFO - Database connection established.
+2025-10-05 21:52:55,529 - root - ERROR - Error during signup: 1054 (42S22): Unknown column 'password' in 'field list'
+2025-10-05 21:52:55,530 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 21:52:55] "[35m[1mPOST /signup HTTP/1.1[0m" 500 -
+2025-10-05 21:53:00,373 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\app\\models.py', reloading
+2025-10-05 21:53:00,595 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 21:53:01,932 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 21:53:01,939 - app - INFO - Starting Flask application...
+2025-10-05 21:53:01,945 - app - INFO - Flask application created successfully
+2025-10-05 21:53:02,038 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 21:53:02,046 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 21:53:31,652 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 21:53:31,652 - app - INFO - Starting Flask application...
+2025-10-05 21:53:31,654 - app - INFO - Flask application created successfully
+2025-10-05 21:53:31,714 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.80.23.199:5000
+2025-10-05 21:53:31,715 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-05 21:53:31,718 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 21:53:33,131 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 21:53:33,131 - app - INFO - Starting Flask application...
+2025-10-05 21:53:33,134 - app - INFO - Flask application created successfully
+2025-10-05 21:53:33,196 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 21:53:33,202 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 21:53:36,294 - root - INFO - Database connection established.
+2025-10-05 21:53:36,610 - root - INFO - Database connection established.
+2025-10-05 21:53:36,617 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 21:53:36] "[35m[1mPOST /signup HTTP/1.1[0m" 201 -
+2025-10-05 21:54:40,857 - root - INFO - Database connection established.
+2025-10-05 21:54:40,858 - root - ERROR - Error fetching user: 1054 (42S22): Unknown column 'password' in 'field list'
+2025-10-05 21:54:40,859 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 21:54:40] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-10-05 21:56:02,409 - root - INFO - Database connection established.
+2025-10-05 21:56:02,410 - root - ERROR - Error fetching user: 1054 (42S22): Unknown column 'password' in 'field list'
+2025-10-05 21:56:02,411 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 21:56:02] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-10-05 21:57:58,076 - root - INFO - Database connection established.
+2025-10-05 21:57:58,426 - root - INFO - Database connection established.
+2025-10-05 21:57:58,441 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 21:57:58] "[35m[1mPOST /signup HTTP/1.1[0m" 201 -
+2025-10-05 21:58:22,353 - root - INFO - Database connection established.
+2025-10-05 21:58:22,354 - root - ERROR - Error fetching user: 1054 (42S22): Unknown column 'password' in 'field list'
+2025-10-05 21:58:22,355 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 21:58:22] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-10-05 21:59:13,139 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\app\\models.py', reloading
+2025-10-05 21:59:13,353 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 21:59:15,433 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 21:59:15,434 - app - INFO - Starting Flask application...
+2025-10-05 21:59:15,436 - app - INFO - Flask application created successfully
+2025-10-05 21:59:15,482 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 21:59:15,489 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 21:59:19,835 - root - INFO - Database connection established.
+2025-10-05 21:59:20,205 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 21:59:20] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-10-05 22:00:19,806 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:00:19,807 - app - INFO - Starting Flask application...
+2025-10-05 22:00:19,809 - app - INFO - Flask application created successfully
+2025-10-05 22:00:19,867 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.80.23.199:5000
+2025-10-05 22:00:19,868 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-05 22:00:19,871 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 22:00:21,394 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:00:21,396 - app - INFO - Starting Flask application...
+2025-10-05 22:00:21,402 - app - INFO - Flask application created successfully
+2025-10-05 22:00:21,458 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 22:00:21,463 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 22:00:22,288 - root - INFO - Database connection established.
+2025-10-05 22:00:22,632 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:00:22] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-10-05 22:05:54,809 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\apis\\signup.py', reloading
+2025-10-05 22:05:54,915 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 22:05:58,865 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:05:58,865 - app - INFO - Starting Flask application...
+2025-10-05 22:05:58,867 - app - INFO - Flask application created successfully
+2025-10-05 22:05:58,931 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.80.23.199:5000
+2025-10-05 22:05:58,932 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-05 22:05:58,934 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 22:06:00,712 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:06:00,712 - app - INFO - Starting Flask application...
+2025-10-05 22:06:00,714 - app - INFO - Flask application created successfully
+2025-10-05 22:06:00,757 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 22:06:00,763 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 22:06:02,028 - root - INFO - Database connection established.
+2025-10-05 22:06:02,382 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:06:02] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-10-05 22:07:24,143 - root - INFO - Database connection established.
+2025-10-05 22:07:24,489 - root - INFO - Database connection established.
+2025-10-05 22:07:24,499 - root - ERROR - Error during signup: 1062 (23000): Duplicate entry 'louis@gmail.com' for key 'unique'
+2025-10-05 22:07:24,500 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:07:24] "[35m[1mPOST /signup HTTP/1.1[0m" 500 -
+2025-10-05 22:08:24,940 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:08:24,940 - app - INFO - Starting Flask application...
+2025-10-05 22:08:24,948 - app - INFO - Flask application created successfully
+2025-10-05 22:08:25,084 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.80.23.199:5000
+2025-10-05 22:08:25,084 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-05 22:08:25,087 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 22:08:26,580 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:08:26,580 - app - INFO - Starting Flask application...
+2025-10-05 22:08:26,582 - app - INFO - Flask application created successfully
+2025-10-05 22:08:26,641 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 22:08:26,647 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 22:08:28,538 - root - INFO - Database connection established.
+2025-10-05 22:08:28,885 - root - INFO - Database connection established.
+2025-10-05 22:08:28,892 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:08:28] "[35m[1mPOST /signup HTTP/1.1[0m" 201 -
+2025-10-05 22:08:47,547 - root - INFO - Database connection established.
+2025-10-05 22:08:47,896 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:08:47] "POST /login HTTP/1.1" 200 -
+2025-10-05 22:10:07,201 - root - INFO - Database connection established.
+2025-10-05 22:10:07,202 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:10:07] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-10-05 22:10:49,912 - root - INFO - Database connection established.
+2025-10-05 22:10:50,270 - root - INFO - Database connection established.
+2025-10-05 22:10:50,278 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:10:50] "[35m[1mPOST /signup HTTP/1.1[0m" 201 -
+2025-10-05 22:11:39,487 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\apis\\signup.py', reloading
+2025-10-05 22:11:39,584 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 22:11:41,588 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:11:41,588 - app - INFO - Starting Flask application...
+2025-10-05 22:11:41,590 - app - INFO - Flask application created successfully
+2025-10-05 22:11:41,635 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 22:11:41,641 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 22:12:36,075 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\apis\\signup.py', reloading
+2025-10-05 22:12:36,291 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 22:12:38,385 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:12:38,387 - app - INFO - Starting Flask application...
+2025-10-05 22:12:38,389 - app - INFO - Flask application created successfully
+2025-10-05 22:12:38,443 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 22:12:38,448 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 22:14:54,960 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\app\\models.py', reloading
+2025-10-05 22:14:55,130 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 22:14:56,892 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:14:56,892 - app - INFO - Starting Flask application...
+2025-10-05 22:14:56,896 - app - INFO - Flask application created successfully
+2025-10-05 22:14:56,945 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 22:14:56,952 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 22:14:59,312 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:14:59] "[31m[1mPOST /create_canteen_profile?phone_number=9805625278&owner_id=5 HTTP/1.1[0m" 400 -
+2025-10-05 22:16:42,144 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:16:42] "[31m[1mPOST /create_canteen_profile?phone_number=9805625278&owner_id=5 HTTP/1.1[0m" 400 -
+2025-10-05 22:17:16,949 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\apis\\signup.py', reloading
+2025-10-05 22:17:17,083 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 22:17:18,987 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:17:18,988 - app - INFO - Starting Flask application...
+2025-10-05 22:17:18,991 - app - INFO - Flask application created successfully
+2025-10-05 22:17:19,040 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 22:17:19,048 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 22:17:19,740 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:17:19] "[31m[1mPOST /create_canteen_profile?phone_number=9805625278&owner_id=5 HTTP/1.1[0m" 400 -
+2025-10-05 22:18:08,316 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:18:08] "[31m[1mPOST /create_canteen_profile?phone_number=9805625278&owner_id=5 HTTP/1.1[0m" 400 -
+2025-10-05 22:18:12,546 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\apis\\signup.py', reloading
+2025-10-05 22:18:12,659 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 22:18:14,560 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:18:14,560 - app - INFO - Starting Flask application...
+2025-10-05 22:18:14,563 - app - INFO - Flask application created successfully
+2025-10-05 22:18:14,637 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 22:18:14,645 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 22:18:15,536 - root - INFO - Database connection established.
+2025-10-05 22:18:15,538 - root - ERROR - Error adding canteen profile: 1146 (42S02): Table 'du_canteen_hub.canteen_profiles' doesn't exist
+2025-10-05 22:18:15,539 - root - ERROR - Error creating canteen profile: 'tuple' object has no attribute 'get'
+2025-10-05 22:18:15,541 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:18:15] "[35m[1mPOST /create_canteen_profile?phone_number=9805625278&owner_id=5 HTTP/1.1[0m" 500 -
+2025-10-05 22:18:30,238 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\apis\\signup.py', reloading
+2025-10-05 22:18:30,469 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 22:18:32,084 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:18:32,085 - app - INFO - Starting Flask application...
+2025-10-05 22:18:32,087 - app - INFO - Flask application created successfully
+2025-10-05 22:18:32,145 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 22:18:32,151 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 22:18:41,728 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:18:41] "[31m[1mPOST /create_canteen_profile?phone_number=9805625278&owner_id=5 HTTP/1.1[0m" 400 -
+2025-10-05 22:19:38,680 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\app\\models.py', reloading
+2025-10-05 22:19:38,876 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 22:19:41,979 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:19:41,981 - app - INFO - Starting Flask application...
+2025-10-05 22:19:41,983 - app - INFO - Flask application created successfully
+2025-10-05 22:19:42,168 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 22:19:42,185 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 22:19:43,048 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:19:43] "[31m[1mPOST /create_canteen_profile?phone_number=9805625278&owner_id=5 HTTP/1.1[0m" 400 -
+2025-10-05 22:20:00,280 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:20:00,280 - app - INFO - Starting Flask application...
+2025-10-05 22:20:00,282 - app - INFO - Flask application created successfully
+2025-10-05 22:20:00,348 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.80.23.199:5000
+2025-10-05 22:20:00,349 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-05 22:20:00,353 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 22:20:02,467 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:20:02,471 - app - INFO - Starting Flask application...
+2025-10-05 22:20:02,474 - app - INFO - Flask application created successfully
+2025-10-05 22:20:02,526 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 22:20:02,532 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 22:20:03,581 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:20:03] "[31m[1mPOST /create_canteen_profile?phone_number=9805625278&owner_id=5 HTTP/1.1[0m" 400 -
+2025-10-05 22:23:00,124 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:23:00] "[31m[1mPOST /create_canteen_profile?phone_number=9805625278&owner_id=5 HTTP/1.1[0m" 400 -
+2025-10-05 22:24:21,108 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\apis\\signup.py', reloading
+2025-10-05 22:24:21,222 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 22:24:23,371 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:24:23,371 - app - INFO - Starting Flask application...
+2025-10-05 22:24:23,374 - app - INFO - Flask application created successfully
+2025-10-05 22:24:23,424 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 22:24:23,429 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 22:24:25,206 - root - ERROR - Error creating canteen profile: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+2025-10-05 22:24:25,208 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:24:25] "[35m[1mPOST /create_canteen_profile?phone_number=9805625278&owner_id=5 HTTP/1.1[0m" 500 -
+2025-10-05 22:25:49,085 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\apis\\signup.py', reloading
+2025-10-05 22:25:49,166 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 22:25:51,123 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:25:51,124 - app - INFO - Starting Flask application...
+2025-10-05 22:25:51,127 - app - INFO - Flask application created successfully
+2025-10-05 22:25:51,186 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 22:25:51,194 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 22:25:52,959 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:25:52] "[31m[1mPOST /create_canteen_profile?phone_number=9805625278&owner_id=5 HTTP/1.1[0m" 400 -
+2025-10-05 22:26:04,472 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\apis\\signup.py', reloading
+2025-10-05 22:26:04,581 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 22:26:06,236 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:26:06,236 - app - INFO - Starting Flask application...
+2025-10-05 22:26:06,239 - app - INFO - Flask application created successfully
+2025-10-05 22:26:06,297 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 22:26:06,307 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 22:26:07,719 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:26:07] "[31m[1mPOST /create_canteen_profile?phone_number=9805625278&owner_id=5 HTTP/1.1[0m" 400 -
+2025-10-05 22:28:12,204 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\apis\\signup.py', reloading
+2025-10-05 22:28:12,341 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 22:28:13,966 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:28:13,966 - app - INFO - Starting Flask application...
+2025-10-05 22:28:13,967 - app - INFO - Flask application created successfully
+2025-10-05 22:28:14,008 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 22:28:14,012 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 22:28:37,184 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:28:37] "[31m[1mPOST /create_canteen_profile?phone_number=9805625278&owner_id=5 HTTP/1.1[0m" 400 -
+2025-10-05 22:28:43,248 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:28:43,248 - app - INFO - Starting Flask application...
+2025-10-05 22:28:43,250 - app - INFO - Flask application created successfully
+2025-10-05 22:28:43,313 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.80.23.199:5000
+2025-10-05 22:28:43,314 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-05 22:28:43,318 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 22:28:45,254 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:28:45,254 - app - INFO - Starting Flask application...
+2025-10-05 22:28:45,256 - app - INFO - Flask application created successfully
+2025-10-05 22:28:45,297 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 22:28:45,305 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 22:28:50,530 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:28:50] "[31m[1mPOST /create_canteen_profile?phone_number=9805625278&owner_id=5 HTTP/1.1[0m" 400 -
+2025-10-05 22:29:48,665 - root - INFO - Database connection established.
+2025-10-05 22:29:48,988 - root - INFO - Database connection established.
+2025-10-05 22:29:48,999 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:29:48] "[35m[1mPOST /signup HTTP/1.1[0m" 201 -
+2025-10-05 22:31:51,668 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:31:51] "[31m[1mGET /create_canteen_profile?phone_number=123456789&owner_id=6 HTTP/1.1[0m" 405 -
+2025-10-05 22:31:56,992 - root - INFO - Database connection established.
+2025-10-05 22:31:56,993 - root - ERROR - Error adding canteen profile: 1054 (42S22): Unknown column 'canteen_name' in 'field list'
+2025-10-05 22:31:56,994 - root - ERROR - Error creating canteen profile: 'tuple' object has no attribute 'get'
+2025-10-05 22:31:56,997 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:31:56] "[35m[1mPOST /create_canteen_profile?phone_number=123456789&owner_id=6 HTTP/1.1[0m" 500 -
+2025-10-05 22:32:36,966 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\app\\models.py', reloading
+2025-10-05 22:32:37,140 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 22:32:39,227 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:32:39,227 - app - INFO - Starting Flask application...
+2025-10-05 22:32:39,231 - app - INFO - Flask application created successfully
+2025-10-05 22:32:39,300 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 22:32:39,308 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 22:32:40,433 - root - INFO - Database connection established.
+2025-10-05 22:32:40,434 - root - ERROR - Error adding canteen profile: 1054 (42S22): Unknown column 'contact_number' in 'field list'
+2025-10-05 22:32:40,435 - root - ERROR - Error creating canteen profile: 'tuple' object has no attribute 'get'
+2025-10-05 22:32:40,436 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:32:40] "[35m[1mPOST /create_canteen_profile?phone_number=123456789&owner_id=6 HTTP/1.1[0m" 500 -
+2025-10-05 22:33:01,322 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\app\\models.py', reloading
+2025-10-05 22:33:01,540 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 22:33:03,629 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:33:03,629 - app - INFO - Starting Flask application...
+2025-10-05 22:33:03,631 - app - INFO - Flask application created successfully
+2025-10-05 22:33:03,672 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 22:33:03,679 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 22:33:04,868 - root - INFO - Database connection established.
+2025-10-05 22:33:04,879 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:33:04] "[35m[1mPOST /create_canteen_profile?phone_number=123456789&owner_id=6 HTTP/1.1[0m" 201 -
+2025-10-05 22:33:43,640 - root - INFO - Database connection established.
+2025-10-05 22:33:43,642 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:33:43] "GET /canteens HTTP/1.1" 200 -
+2025-10-05 22:34:11,269 - root - INFO - Database connection established.
+2025-10-05 22:34:11,270 - root - ERROR - Error fetching canteen info from DB: 1054 (42S22): Unknown column 'contact_number' in 'field list'
+2025-10-05 22:34:11,271 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:34:11] "[33mGET /canteen_info HTTP/1.1[0m" 404 -
+2025-10-05 22:34:41,614 - root - INFO - Database connection established.
+2025-10-05 22:34:41,615 - root - ERROR - Error fetching canteen info from DB: 1054 (42S22): Unknown column 'contact_number' in 'field list'
+2025-10-05 22:34:41,616 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:34:41] "[33mGET /canteen_info HTTP/1.1[0m" 404 -
+2025-10-05 22:34:52,341 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\app\\models.py', reloading
+2025-10-05 22:34:52,474 - werkzeug - INFO -  * Restarting with stat
+2025-10-05 22:34:54,487 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-05 22:34:54,487 - app - INFO - Starting Flask application...
+2025-10-05 22:34:54,490 - app - INFO - Flask application created successfully
+2025-10-05 22:34:54,555 - werkzeug - WARNING -  * Debugger is active!
+2025-10-05 22:34:54,563 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-05 22:34:56,015 - root - INFO - Database connection established.
+2025-10-05 22:34:56,020 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:34:56] "GET /canteen_info HTTP/1.1" 200 -
+2025-10-05 22:35:18,001 - root - INFO - Database connection established.
+2025-10-05 22:35:18,007 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:35:18] "GET /canteen_review_ratings HTTP/1.1" 200 -
+2025-10-05 22:35:32,084 - root - INFO - Database connection established.
+2025-10-05 22:35:32,089 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:35:32] "GET /canteen_menu_details HTTP/1.1" 200 -
+2025-10-05 22:36:24,125 - root - INFO - Database connection established.
+2025-10-05 22:36:24,492 - root - INFO - Database connection established.
+2025-10-05 22:36:24,495 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:36:24] "[35m[1mPOST /signup HTTP/1.1[0m" 201 -
