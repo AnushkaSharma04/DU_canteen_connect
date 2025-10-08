@@ -99,5 +99,75 @@ export default {
   border-radius: 15px;
   padding: 2rem;
 }
+
+/* 📱 Responsive Layout for Mobile & Tablets */
+@media (max-width: 768px) {
+  .public-container {
+    flex-direction: column;
+    padding: 1.5rem;
+    margin: 2rem 1rem;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .canteen-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-images {
+    height: auto;
+    min-height: 200px;
+    padding: 1rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .canteen-card {
+    font-size: 0.95rem;
+    padding: 0.75rem;
+  }
+
+  .canteens-section,
+  .menu-section {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .public-container {
+    flex-direction: column;
+    padding: 1.5rem;
+    margin: 2rem 1rem;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .canteen-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-images {
+    height: auto;
+    min-height: 200px;
+    padding: 1rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .canteen-card {
+    font-size: 0.95rem;
+    padding: 0.75rem;
+  }
+
+  .canteens-section,
+  .menu-section {
+    padding: 0.5rem;
+  }
+}
+
 </style>
 

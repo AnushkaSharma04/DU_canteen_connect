@@ -179,4 +179,33 @@ input::placeholder {
 .create-btn:hover {
   background-color: #333;
 }
+ /* 📱 Responsive Layout for Mobile & Tablets */
+@media (max-width: 768px) {
+  .profile-container {
+    margin: 3rem 1rem;
+    padding: 1.5rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  input {
+    font-size: 0.95rem;
+    padding: 0.65rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .create-btn {
+    font-size: 1rem;
+    padding: 0.75rem;
+    margin-top: 1.5rem;
+  }
+}
+
 </style>

@@ -33,20 +33,24 @@ export default {
 <style>
 .footer {
   width: 100%;
-  height: 200px; 
+  min-height: 200px;
   background: #474747;
   color: #DBDFD0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 2rem; 
+  padding: 2rem;
   box-sizing: border-box;
+  flex-wrap: wrap; 
+  gap: 1.5rem;
 }
 
 .footer-left {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex: 1;
+  min-width: 200px;
 }
 
 .app-name {
@@ -61,6 +65,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 1;
+  min-width: 200px;
 }
 
 .map-wrapper {
@@ -69,6 +75,33 @@ export default {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  margin: 1rem 0; 
+  margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+
+  .app-name {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .footer-left,
+  .footer-right {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .map-wrapper {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+  }
 }
 </style>

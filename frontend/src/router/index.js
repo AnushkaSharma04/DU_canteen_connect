@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Login from '../views/Login.vue'
 import Account from '../views/Account.vue'
 import Signup from '@/views/Signup.vue'
-import CanteenPage from '@/views/CanteenPage.vue'
+import CanteensPage from '@/views/CanteensPage.vue'
 import CreateCanteenProfile from '@/views/CreateCanteenProfile.vue'
 import Home from '@/views/Home.vue'
 
@@ -12,7 +12,7 @@ const routes = [
   { path: '/login', component: Login },
   { path: '/account', component: Account },
   { path: '/signup', component: Signup},
-  { path:'/canteenpage', component: CanteenPage},
+  { path:'/canteenpage', component: CanteensPage},
   { path: '/signup/canteenprofile', component: CreateCanteenProfile}
 ]
 

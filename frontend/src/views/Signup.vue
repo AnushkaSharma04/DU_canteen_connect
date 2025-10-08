@@ -239,4 +239,46 @@ input::placeholder {
   font-weight: 500;
 }
 
+@media (max-width: 768px) {
+  .signup-container {
+    margin: 3rem 1rem;
+    padding: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  input {
+    font-size: 0.95rem;
+    padding: 0.65rem;
+  }
+
+  .signup-btn {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+
+  .radio-container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .radio-option {
+    width: 100%;
+    text-align: center;
+  }
+
+  .custom-radio {
+    font-size: 0.95rem;
+  }
+
+  .login-prompt {
+    font-size: 0.95rem;
+    margin-top: 1.5rem;
+  }
+}
+
+
 </style>

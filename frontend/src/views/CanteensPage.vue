@@ -391,4 +391,86 @@ export default {
   font-weight: bold;
 }
 
+/* 📱 Responsive Layout for Mobile & Tablets */
+@media (max-width: 768px) {
+  .canteen-page {
+    padding: 1rem;
+    margin: 100px 1rem 2rem;
+  }
+
+  .info-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .info-images {
+    grid-template-columns: 1fr;
+    margin-top: 1rem;
+  }
+
+  .menu-content {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .divider-line {
+    display: none;
+  }
+
+  .menu-list-wrapper,
+  .image-grid-wrapper {
+    margin: 0;
+    overflow: visible;
+  }
+
+  .menu-list li {
+    grid-template-columns: 1fr auto;
+    font-size: 0.95rem;
+  }
+
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ratings-breakdown {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .review-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .review-square {
+    margin-left: 0;
+    width: 100%;
+    max-width: 100px;
+  }
+
+  .review-text {
+    font-size: 0.95rem;
+  }
+
+  .canteen-name {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .menu-header h3,
+  .review-header-block h3 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .menu-header,
+  .review-header-block {
+    padding: 1rem;
+    text-align: center;
+  }
+}
+
+
 </style>
