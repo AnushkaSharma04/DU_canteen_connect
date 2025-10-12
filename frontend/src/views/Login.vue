@@ -7,7 +7,8 @@
       <form @submit.prevent="handleLogin">
         <div class="form-group">
           <label for="email">Phone</label>
-          <input v-model="phone" type="phone" id="phone" required />
+          <input v-model="phone_number" type="tel" id="phone" required />
+
         </div>
 
         <div class="form-group">
@@ -17,6 +18,9 @@
 
         <button type="submit" class="login-btn">Login</button>
       </form>
+      
+      <!--  Show backend error if any -->
+      <p v-if="errorMsg" style="color:red; text-align:center;">{{ errorMsg }}</p>
 
       <!-- Signup prompt -->
       <div class="signup-prompt">
@@ -34,27 +38,39 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
+import { loginUser } from '@/services/auth'
 
 export default {
   components: { Header, Footer },
   setup() {
-    const phone = ref('')
+    const phone_number = ref('')
     const password = ref('')
     const router = useRouter()
+    const errorMsg = ref('')
 
-    function handleLogin(){
-        
+    // 🔹 Main login handler using reusable auth function
+    const handleLogin = async () => {
+      try {
+        const data = await loginUser(phone_number.value, password.value)
+
+        // Save JWT and user info if login successful
+        if (data.token) {
+          localStorage.setItem('token', data.token)
+          localStorage.setItem('user', JSON.stringify(data.user))
+          router.push('/home')
+        }
+      } catch (err) {
+        console.error(err)
+        errorMsg.value = err.response?.data?.message || 'Login failed'
+      }
     }
 
-    return {
-      phone,
-      password,
-      handleLogin
-    }
+    return { phone_number, password, handleLogin, errorMsg }
   }
 }
-
 </script>
+
+  
 
 <style scoped>
 .wrapper{

@@ -16,29 +16,25 @@ def signup_api():
         phone_number = request.form.get("phone_number")
         set_password = request.form.get("set_password")
         confirm_password = request.form.get("confirm_password")
-        role = request.form.get("role").lower() if request.form.get("role") else None
+        role = request.form.get("role")
         email = request.form.get("email")
 
-        # Validate required fields
         if not all([name, phone_number, set_password, confirm_password, role]):
             return jsonify({"message": "Missing required fields"}), 400
 
-        # Validate role
+        role = role.lower()
         if role not in ["general", "canteen_owner"]:
             return jsonify({"message": "Invalid role provided"}), 400
 
-        # Check if user already exists (same phone number + role)
+        # Check if user already exists
         if check_user_exists(phone_number, role):
-            return jsonify({"message": "Account already exists for this phone number and role"}), 400
+            return jsonify({"message": "Account already exists"}), 400
 
-        # Password match validation
         if set_password != confirm_password:
             return jsonify({"message": "Passwords do not match"}), 400
 
-        # Hash password
         hashed_password = bcrypt.hashpw(set_password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
 
-        # Add user to DB
         user_data = {
             "name": name,
             "phone_number": phone_number,
@@ -46,28 +42,25 @@ def signup_api():
             "role": role,
             "email": email
         }
+
         user_id = add_user(user_data)
 
-        # If general user → generate token immediately
+        # Always return user_id for frontend
+        response_data = {"message": "Signup successful", "user": {"user_id": user_id}}
+
+        # Generate token only for general users
         if role == "general":
-            access_token = create_access_token(
-                identity={"user_id": user_id, "phone_number": phone_number, "role": role},
+            token = create_access_token(
+                identity={"user_id": user_id, "role": role},
                 expires_delta=timedelta(hours=24)
             )
-            return jsonify({
-                "message": "User account created successfully",
-                "token": access_token
-            }), 201
-
-        elif role == "canteen_owner":
-            return jsonify({
-                "message": "Proceed to canteen profile creation",
-                "next_url": f"/create_canteen_profile?phone_number={phone_number}&owner_id={user_id}"
-            }), 201
+            response_data["token"] = token
+        return jsonify(response_data), 201
 
     except Exception as e:
         logging.error(f"Error during signup: {str(e)}")
         return jsonify({"message": "Internal Server Error"}), 500
+
 
 def create_canteen_profile_api():
     try:
@@ -91,6 +84,9 @@ def create_canteen_profile_api():
         ]
         if not all(required_fields):
          return jsonify({"message": "All fields are required"}), 400
+        
+        if len(contact_number) != 10 or not contact_number.isdigit():
+            return jsonify({"message": "Invalid phone number format"}), 400
 
         profile_data = {
             "owner_id": owner_id,
@@ -131,7 +127,9 @@ def login_api():
         
         if not phone_number or not password:
             return jsonify({"message": "Phone number and password are required"}), 400
-
+        
+        if len(phone_number) != 10 or not phone_number.isdigit():
+            return jsonify({"message": "Invalid phone number format"}), 400
        
         user = get_user_by_phone(phone_number)
         if not user:

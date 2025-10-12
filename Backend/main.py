@@ -8,7 +8,12 @@ import os
 from apis.signup import signup_api, create_canteen_profile_api, login_api
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from apis.no_login import all_canteens_api, fetch_canteen_info, get_canteen_review_ratings_api, get_canteen_menu_details_api
+from flask_cors import CORS
+
 app = create_app()
+CORS(app)
+
+
 
 
 @app.route('/check_jwt_status', methods=['POST'])

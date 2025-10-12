@@ -36,23 +36,26 @@
         <div class="form-row">
           <div class="form-group">
             <label for="timings">Opening Time</label>
-            <input v-model="timings" type="text" id="atimings" />
+            <input v-model="openingTime" type="text" id="openingTime" />
           </div>
           <div class="form-group">
             <label for="timings">Closing Time</label>
-            <input v-model="timings" type="text" id="btimings" />
+            <input v-model="closingTime" type="text" id="closingTime" />
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label for="peakHours">Starting Peak Hour</label>
-            <input v-model="peakHours" type="text" id="apeakHours" />
+            <input v-model="peakStart" type="text" id="peakStart" />
           </div>
           <div class="form-group">
             <label for="peakHours">Closing Peak Hour</label>
-            <input v-model="peakHours" type="text" id="bpeakHours" />
+            <input v-model="peakEnd" type="text" id="peakEnd" />
           </div>
         </div>
+
+        
+
 
         <div class="form-group">
           <label for="menuUpload">Upload Menu</label>
@@ -61,6 +64,7 @@
 
         <button type="submit" class="create-btn">Create</button>
       </form>
+      <p v-if="errorMsg" style="color:red; text-align:center;">{{ errorMsg }}</p>
     </div>
     <Footer />
   </div>
@@ -68,43 +72,82 @@
 
 <script>
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
+import { createCanteenProfile } from '@/services/auth' // import API function
 
 export default {
   components: { Header, Footer },
   setup() {
     const router = useRouter()
+    const route = useRoute()
+    const owner_id = route.query.owner_id
+    const errorMsg = ref('')
 
     const name = ref('')
     const location = ref('')
     const description = ref('')
     const contact = ref('')
     const daysOpen = ref('')
-    const timings = ref('')
-    const peakHours = ref('')
+    const openingTime = ref('')
+    const closingTime = ref('')
+    const peakStart = ref('')
+    const peakEnd = ref('')
     const menuFile = ref(null)
 
     function handleFileUpload(event) {
       menuFile.value = event.target.files[0]
     }
 
-    function handleCanteenProfile() {
-      router.push('/canteenpage')
+    const handleCanteenProfile = async () => {
+      try {
+        // Get owner_id from query params (from signup redirect)
+        const urlParams = new URLSearchParams(window.location.search)
+        const owner_id = urlParams.get('owner_id')
+
+        if (!owner_id) {
+          errorMsg.value = "Owner ID missing"
+          return
+        }
+
+        const profileData = {
+          canteen_name: name.value,
+          location: location.value,
+          description: description.value,
+          contact_number: contact.value,
+          days_open: daysOpen.value,
+          opening_time: openingTime.value,
+          closing_time: closingTime.value,
+          peak_hr_start_time: peakStart.value,
+          peak_hr_end_time: peakEnd.value,
+          
+
+        }
+        if (menuFile.value) {
+      profileData.menu_file = menuFile.value
+    }
+
+        const res = await createCanteenProfile(owner_id, profileData)
+
+        // Save JWT token returned from backend
+        if (res.token) {
+          localStorage.setItem('token', res.token)
+        }
+
+        alert(res.message || "Canteen profile created!")
+        router.push('/canteenpage') // redirect to canteen dashboard
+
+      } catch (err) {
+        console.error(err)
+        errorMsg.value = err.response?.data?.message || "Failed to create profile"
+      }
     }
 
     return {
-      name,
-      location,
-      description,
-      contact,
-      daysOpen,
-      timings,
-      peakHours,
-      menuFile,
-      handleFileUpload,
-      handleCanteenProfile
+      name, location, description, contact, daysOpen,
+      openingTime, closingTime, peakStart, peakEnd, menuFile,
+      handleFileUpload, handleCanteenProfile, errorMsg
     }
   }
 }

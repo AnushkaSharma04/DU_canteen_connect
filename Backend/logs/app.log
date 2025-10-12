@@ -336,3 +336,232 @@
 2025-10-05 22:36:24,125 - root - INFO - Database connection established.
 2025-10-05 22:36:24,492 - root - INFO - Database connection established.
 2025-10-05 22:36:24,495 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2025 22:36:24] "[35m[1mPOST /signup HTTP/1.1[0m" 201 -
+2025-10-06 11:17:51,577 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-06 11:17:51,579 - app - INFO - Starting Flask application...
+2025-10-06 11:17:51,586 - app - INFO - Flask application created successfully
+2025-10-06 11:17:51,683 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.85.110.176:5000
+2025-10-06 11:17:51,684 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-06 11:17:51,689 - werkzeug - INFO -  * Restarting with stat
+2025-10-06 11:17:53,437 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-06 11:17:53,438 - app - INFO - Starting Flask application...
+2025-10-06 11:17:53,444 - app - INFO - Flask application created successfully
+2025-10-06 11:17:53,514 - werkzeug - WARNING -  * Debugger is active!
+2025-10-06 11:17:53,522 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-06 11:18:40,897 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\main.py', reloading
+2025-10-06 11:18:42,937 - werkzeug - INFO -  * Restarting with stat
+2025-10-06 11:18:57,951 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-06 11:18:57,953 - app - INFO - Starting Flask application...
+2025-10-06 11:18:57,956 - app - INFO - Flask application created successfully
+2025-10-06 11:18:58,060 - werkzeug - WARNING -  * Debugger is active!
+2025-10-06 11:18:58,075 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-06 11:19:18,730 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\main.py', reloading
+2025-10-06 11:19:18,966 - werkzeug - INFO -  * Restarting with stat
+2025-10-06 11:19:23,367 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-06 11:19:23,367 - app - INFO - Starting Flask application...
+2025-10-06 11:19:23,373 - app - INFO - Flask application created successfully
+2025-10-06 11:19:23,470 - werkzeug - WARNING -  * Debugger is active!
+2025-10-06 11:19:23,483 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-06 11:26:01,933 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\apis\\signup.py', reloading
+2025-10-06 11:26:02,011 - werkzeug - INFO -  * Restarting with stat
+2025-10-06 11:26:04,329 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-06 11:26:04,332 - app - INFO - Starting Flask application...
+2025-10-06 11:26:04,334 - app - INFO - Flask application created successfully
+2025-10-06 11:26:04,411 - werkzeug - WARNING -  * Debugger is active!
+2025-10-06 11:26:04,419 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-06 11:26:33,095 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\apis\\signup.py', reloading
+2025-10-06 11:26:33,470 - werkzeug - INFO -  * Restarting with stat
+2025-10-06 11:26:36,749 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-06 11:26:36,749 - app - INFO - Starting Flask application...
+2025-10-06 11:26:36,752 - app - INFO - Flask application created successfully
+2025-10-06 11:26:36,835 - werkzeug - WARNING -  * Debugger is active!
+2025-10-06 11:26:36,848 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-06 11:26:53,818 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\apis\\signup.py', reloading
+2025-10-06 11:26:53,922 - werkzeug - INFO -  * Restarting with stat
+2025-10-06 11:26:57,411 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-06 11:26:57,412 - app - INFO - Starting Flask application...
+2025-10-06 11:26:57,415 - app - INFO - Flask application created successfully
+2025-10-06 11:26:57,507 - werkzeug - WARNING -  * Debugger is active!
+2025-10-06 11:26:57,520 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-06 11:27:24,475 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\apis\\signup.py', reloading
+2025-10-06 11:27:24,605 - werkzeug - INFO -  * Restarting with stat
+2025-10-06 11:27:28,010 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-06 11:27:28,036 - app - INFO - Starting Flask application...
+2025-10-06 11:27:28,074 - app - INFO - Flask application created successfully
+2025-10-06 11:27:28,279 - werkzeug - WARNING -  * Debugger is active!
+2025-10-06 11:27:28,286 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-10-12 11:27:13,132 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-12 11:27:13,133 - app - INFO - Starting Flask application...
+2025-10-12 11:27:13,137 - app - INFO - Flask application created successfully
+2025-10-12 11:27:13,262 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.3:5000
+2025-10-12 11:27:13,262 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-12 11:27:13,267 - werkzeug - INFO -  * Restarting with stat
+2025-10-12 11:27:15,198 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-12 11:27:15,199 - app - INFO - Starting Flask application...
+2025-10-12 11:27:15,206 - app - INFO - Flask application created successfully
+2025-10-12 11:27:15,311 - werkzeug - WARNING -  * Debugger is active!
+2025-10-12 11:27:15,331 - werkzeug - INFO -  * Debugger PIN: 482-694-864
+2025-10-12 11:43:36,383 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 11:43:36] "[33mPOST /api/login HTTP/1.1[0m" 404 -
+2025-10-12 11:46:12,547 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 11:46:12] "[33mPOST /api/login HTTP/1.1[0m" 404 -
+2025-10-12 11:46:47,851 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 11:46:47] "[33mPOST /api/login HTTP/1.1[0m" 404 -
+2025-10-12 11:46:51,633 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 11:46:51] "[33mPOST /api/login HTTP/1.1[0m" 404 -
+2025-10-12 11:46:51,639 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 11:46:51] "[33mPOST /api/login HTTP/1.1[0m" 404 -
+2025-10-12 11:46:58,446 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 11:46:58] "[33mPOST /api/login HTTP/1.1[0m" 404 -
+2025-10-12 11:46:59,240 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 11:46:59] "[33mPOST /api/login HTTP/1.1[0m" 404 -
+2025-10-12 12:02:48,783 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:02:48] "[33mPOST /api/signup HTTP/1.1[0m" 404 -
+2025-10-12 12:05:11,884 - root - INFO - Database connection established.
+2025-10-12 12:05:12,530 - root - INFO - Database connection established.
+2025-10-12 12:05:12,546 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:05:12] "[35m[1mPOST /signup HTTP/1.1[0m" 201 -
+2025-10-12 12:06:16,967 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:06:16] "OPTIONS /login HTTP/1.1" 200 -
+2025-10-12 12:06:17,228 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:06:17] "[31m[1mPOST /login HTTP/1.1[0m" 400 -
+2025-10-12 12:06:41,377 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:06:41] "OPTIONS /login HTTP/1.1" 200 -
+2025-10-12 12:06:41,698 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:06:41] "[31m[1mPOST /login HTTP/1.1[0m" 400 -
+2025-10-12 12:07:44,775 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:07:44] "OPTIONS /login HTTP/1.1" 200 -
+2025-10-12 12:07:45,048 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:07:45] "[31m[1mPOST /login HTTP/1.1[0m" 400 -
+2025-10-12 12:07:45,090 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:07:45] "[31m[1mPOST /login HTTP/1.1[0m" 400 -
+2025-10-12 12:10:27,218 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:10:27] "OPTIONS /login HTTP/1.1" 200 -
+2025-10-12 12:10:27,469 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:10:27] "[31m[1mPOST /login HTTP/1.1[0m" 400 -
+2025-10-12 12:10:28,444 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:10:28] "[31m[1mPOST /login HTTP/1.1[0m" 400 -
+2025-10-12 12:16:18,265 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:16:18] "OPTIONS /login HTTP/1.1" 200 -
+2025-10-12 12:16:18,551 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:16:18] "[31m[1mPOST /login HTTP/1.1[0m" 400 -
+2025-10-12 12:22:12,212 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:22:12] "OPTIONS /login HTTP/1.1" 200 -
+2025-10-12 12:22:12,512 - root - INFO - Database connection established.
+2025-10-12 12:22:12,952 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:22:12] "POST /login HTTP/1.1" 200 -
+2025-10-12 12:24:39,054 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:24:39] "OPTIONS /login HTTP/1.1" 200 -
+2025-10-12 12:24:39,321 - root - INFO - Database connection established.
+2025-10-12 12:24:40,013 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:24:40] "POST /login HTTP/1.1" 200 -
+2025-10-12 12:25:00,272 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:25:00] "OPTIONS /login HTTP/1.1" 200 -
+2025-10-12 12:25:00,550 - root - INFO - Database connection established.
+2025-10-12 12:25:01,236 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:25:01] "POST /login HTTP/1.1" 200 -
+2025-10-12 12:26:14,175 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:26:14] "OPTIONS /signup HTTP/1.1" 200 -
+2025-10-12 12:26:14,453 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:26:14] "[31m[1mPOST /signup HTTP/1.1[0m" 400 -
+2025-10-12 12:36:17,005 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:36:17] "OPTIONS /signup HTTP/1.1" 200 -
+2025-10-12 12:36:17,258 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:36:17] "[31m[1mPOST /signup HTTP/1.1[0m" 400 -
+2025-10-12 12:36:24,849 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:36:24] "OPTIONS /signup HTTP/1.1" 200 -
+2025-10-12 12:36:25,081 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:36:25] "OPTIONS /signup HTTP/1.1" 200 -
+2025-10-12 12:36:25,113 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:36:25] "[31m[1mPOST /signup HTTP/1.1[0m" 400 -
+2025-10-12 12:36:25,162 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:36:25] "[31m[1mPOST /signup HTTP/1.1[0m" 400 -
+2025-10-12 12:37:49,355 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\apis\\signup.py', reloading
+2025-10-12 12:37:49,823 - werkzeug - INFO -  * Restarting with stat
+2025-10-12 12:37:53,980 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-12 12:37:53,981 - app - INFO - Starting Flask application...
+2025-10-12 12:37:53,988 - app - INFO - Flask application created successfully
+2025-10-12 12:37:54,098 - werkzeug - WARNING -  * Debugger is active!
+2025-10-12 12:37:54,112 - werkzeug - INFO -  * Debugger PIN: 482-694-864
+2025-10-12 12:38:18,144 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:38:18] "OPTIONS /signup HTTP/1.1" 200 -
+2025-10-12 12:38:18,402 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:38:18] "[31m[1mPOST /signup HTTP/1.1[0m" 400 -
+2025-10-12 12:38:22,273 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:38:22] "[31m[1mPOST /signup HTTP/1.1[0m" 400 -
+2025-10-12 12:38:49,500 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\apis\\signup.py', reloading
+2025-10-12 12:38:49,614 - werkzeug - INFO -  * Restarting with stat
+2025-10-12 12:38:52,558 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-12 12:38:52,559 - app - INFO - Starting Flask application...
+2025-10-12 12:38:52,562 - app - INFO - Flask application created successfully
+2025-10-12 12:38:52,614 - werkzeug - WARNING -  * Debugger is active!
+2025-10-12 12:38:52,620 - werkzeug - INFO -  * Debugger PIN: 482-694-864
+2025-10-12 12:39:15,879 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:39:15] "OPTIONS /signup HTTP/1.1" 200 -
+2025-10-12 12:39:16,141 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:39:16] "[31m[1mPOST /signup HTTP/1.1[0m" 400 -
+2025-10-12 12:39:34,112 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:39:34] "OPTIONS /signup HTTP/1.1" 200 -
+2025-10-12 12:39:34,382 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:39:34] "[31m[1mPOST /signup HTTP/1.1[0m" 400 -
+2025-10-12 12:39:40,828 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:39:40] "[31m[1mPOST /signup HTTP/1.1[0m" 400 -
+2025-10-12 12:40:05,723 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\apis\\signup.py', reloading
+2025-10-12 12:40:05,896 - werkzeug - INFO -  * Restarting with stat
+2025-10-12 12:40:07,960 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-12 12:40:07,961 - app - INFO - Starting Flask application...
+2025-10-12 12:40:07,963 - app - INFO - Flask application created successfully
+2025-10-12 12:40:08,012 - werkzeug - WARNING -  * Debugger is active!
+2025-10-12 12:40:08,024 - werkzeug - INFO -  * Debugger PIN: 482-694-864
+2025-10-12 12:40:18,000 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\apis\\signup.py', reloading
+2025-10-12 12:40:18,138 - werkzeug - INFO -  * Restarting with stat
+2025-10-12 12:40:23,044 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-12 12:40:23,044 - app - INFO - Starting Flask application...
+2025-10-12 12:40:23,052 - app - INFO - Flask application created successfully
+2025-10-12 12:40:23,136 - werkzeug - WARNING -  * Debugger is active!
+2025-10-12 12:40:23,151 - werkzeug - INFO -  * Debugger PIN: 482-694-864
+2025-10-12 12:43:44,521 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:43:44] "OPTIONS /signup HTTP/1.1" 200 -
+2025-10-12 12:43:44,774 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:43:44] "[31m[1mPOST /signup HTTP/1.1[0m" 400 -
+2025-10-12 12:43:48,518 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:43:48] "[31m[1mPOST /signup HTTP/1.1[0m" 400 -
+2025-10-12 12:44:51,034 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:44:51] "OPTIONS /signup HTTP/1.1" 200 -
+2025-10-12 12:44:51,665 - root - INFO - Database connection established.
+2025-10-12 12:44:52,404 - root - INFO - Database connection established.
+2025-10-12 12:44:52,411 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:44:52] "[35m[1mPOST /signup HTTP/1.1[0m" 201 -
+2025-10-12 12:52:02,488 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:52:02] "OPTIONS /signup HTTP/1.1" 200 -
+2025-10-12 12:52:02,741 - root - INFO - Database connection established.
+2025-10-12 12:52:02,742 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:52:02] "[31m[1mPOST /signup HTTP/1.1[0m" 400 -
+2025-10-12 12:52:41,515 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:52:41] "OPTIONS /signup HTTP/1.1" 200 -
+2025-10-12 12:52:41,772 - root - INFO - Database connection established.
+2025-10-12 12:52:41,959 - root - INFO - Database connection established.
+2025-10-12 12:52:42,152 - root - INFO - Database connection established.
+2025-10-12 12:52:42,164 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:52:42] "[35m[1mPOST /signup HTTP/1.1[0m" 201 -
+2025-10-12 12:52:42,316 - root - INFO - Database connection established.
+2025-10-12 12:52:42,329 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:52:42] "[35m[1mPOST /signup HTTP/1.1[0m" 201 -
+2025-10-12 12:52:44,828 - root - INFO - Database connection established.
+2025-10-12 12:52:44,831 - root - ERROR - Error during signup: Unread result found
+2025-10-12 12:52:44,832 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:52:44] "[35m[1mPOST /signup HTTP/1.1[0m" 500 -
+2025-10-12 12:53:20,519 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:53:20] "OPTIONS /signup HTTP/1.1" 200 -
+2025-10-12 12:53:20,521 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:53:20] "OPTIONS /signup HTTP/1.1" 200 -
+2025-10-12 12:53:20,791 - root - INFO - Database connection established.
+2025-10-12 12:53:20,793 - root - ERROR - Error during signup: Unread result found
+2025-10-12 12:53:20,795 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:53:20] "[35m[1mPOST /signup HTTP/1.1[0m" 500 -
+2025-10-12 12:53:20,858 - root - INFO - Database connection established.
+2025-10-12 12:53:20,858 - root - ERROR - Error during signup: Unread result found
+2025-10-12 12:53:20,858 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:53:20] "[35m[1mPOST /signup HTTP/1.1[0m" 500 -
+2025-10-12 12:58:59,658 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:58:59] "OPTIONS /signup HTTP/1.1" 200 -
+2025-10-12 12:58:59,903 - root - INFO - Database connection established.
+2025-10-12 12:58:59,904 - root - ERROR - Error during signup: Unread result found
+2025-10-12 12:58:59,905 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:58:59] "[35m[1mPOST /signup HTTP/1.1[0m" 500 -
+2025-10-12 12:59:41,910 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:59:41] "OPTIONS /signup HTTP/1.1" 200 -
+2025-10-12 12:59:42,166 - root - INFO - Database connection established.
+2025-10-12 12:59:42,787 - root - INFO - Database connection established.
+2025-10-12 12:59:42,793 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:59:42] "[35m[1mPOST /signup HTTP/1.1[0m" 201 -
+2025-10-12 12:59:46,286 - root - INFO - Database connection established.
+2025-10-12 12:59:46,307 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 12:59:46] "[31m[1mPOST /signup HTTP/1.1[0m" 400 -
+2025-10-12 13:00:47,129 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:00:47] "OPTIONS /signup HTTP/1.1" 200 -
+2025-10-12 13:00:47,403 - root - INFO - Database connection established.
+2025-10-12 13:00:47,407 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:00:47] "[31m[1mPOST /signup HTTP/1.1[0m" 400 -
+2025-10-12 13:00:48,797 - root - INFO - Database connection established.
+2025-10-12 13:00:48,801 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:00:48] "[31m[1mPOST /signup HTTP/1.1[0m" 400 -
+2025-10-12 13:01:08,667 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:01:08] "OPTIONS /signup HTTP/1.1" 200 -
+2025-10-12 13:01:08,940 - root - INFO - Database connection established.
+2025-10-12 13:01:09,553 - root - INFO - Database connection established.
+2025-10-12 13:01:09,565 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:01:09] "[35m[1mPOST /signup HTTP/1.1[0m" 201 -
+2025-10-12 13:01:09,611 - root - INFO - Database connection established.
+2025-10-12 13:01:09,614 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:01:09] "[31m[1mPOST /signup HTTP/1.1[0m" 400 -
+2025-10-12 13:01:50,488 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:01:50] "OPTIONS /signup HTTP/1.1" 200 -
+2025-10-12 13:01:50,776 - root - INFO - Database connection established.
+2025-10-12 13:01:50,779 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:01:50] "[31m[1mPOST /signup HTTP/1.1[0m" 400 -
+2025-10-12 13:08:43,754 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\apis\\signup.py', reloading
+2025-10-12 13:08:44,076 - werkzeug - INFO -  * Restarting with stat
+2025-10-12 13:08:47,288 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-10-12 13:08:47,299 - app - INFO - Starting Flask application...
+2025-10-12 13:08:47,322 - app - INFO - Flask application created successfully
+2025-10-12 13:08:47,494 - werkzeug - WARNING -  * Debugger is active!
+2025-10-12 13:08:47,526 - werkzeug - INFO -  * Debugger PIN: 482-694-864
+2025-10-12 13:12:16,709 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:12:16] "OPTIONS /signup HTTP/1.1" 200 -
+2025-10-12 13:12:17,154 - root - INFO - Database connection established.
+2025-10-12 13:12:17,506 - root - INFO - Database connection established.
+2025-10-12 13:12:17,520 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:12:17] "[35m[1mPOST /signup HTTP/1.1[0m" 201 -
+2025-10-12 13:13:08,897 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:13:08] "OPTIONS /create_canteen_profile?owner_id=14 HTTP/1.1" 200 -
+2025-10-12 13:13:09,166 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:13:09] "[31m[1mPOST /create_canteen_profile?owner_id=14 HTTP/1.1[0m" 400 -
+2025-10-12 13:13:21,088 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:13:21] "OPTIONS /create_canteen_profile?owner_id=14 HTTP/1.1" 200 -
+2025-10-12 13:13:21,417 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:13:21] "[31m[1mPOST /create_canteen_profile?owner_id=14 HTTP/1.1[0m" 400 -
+2025-10-12 13:16:45,215 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:16:45] "OPTIONS /create_canteen_profile?owner_id=14 HTTP/1.1" 200 -
+2025-10-12 13:16:45,474 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:16:45] "[31m[1mPOST /create_canteen_profile?owner_id=14 HTTP/1.1[0m" 400 -
+2025-10-12 13:16:55,353 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:16:55] "OPTIONS /create_canteen_profile?owner_id=14 HTTP/1.1" 200 -
+2025-10-12 13:16:55,599 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:16:55] "[31m[1mPOST /create_canteen_profile?owner_id=14 HTTP/1.1[0m" 400 -
+2025-10-12 13:17:47,187 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:17:47] "OPTIONS /signup HTTP/1.1" 200 -
+2025-10-12 13:17:51,685 - root - INFO - Database connection established.
+2025-10-12 13:17:52,160 - root - INFO - Database connection established.
+2025-10-12 13:17:52,171 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:17:52] "[35m[1mPOST /signup HTTP/1.1[0m" 201 -
+2025-10-12 13:17:59,837 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:17:59] "OPTIONS /create_canteen_profile?owner_id=15 HTTP/1.1" 200 -
+2025-10-12 13:18:00,212 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:18:00] "[31m[1mPOST /create_canteen_profile?owner_id=15 HTTP/1.1[0m" 400 -
+2025-10-12 13:18:55,998 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:18:55] "OPTIONS /create_canteen_profile?owner_id=15 HTTP/1.1" 200 -
+2025-10-12 13:18:55,998 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:18:55] "OPTIONS /create_canteen_profile?owner_id=15 HTTP/1.1" 200 -
+2025-10-12 13:18:56,269 - root - INFO - Database connection established.
+2025-10-12 13:18:56,378 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:18:56] "[35m[1mPOST /create_canteen_profile?owner_id=15 HTTP/1.1[0m" 201 -
+2025-10-12 13:18:56,423 - root - INFO - Database connection established.
+2025-10-12 13:18:56,434 - werkzeug - INFO - 127.0.0.1 - - [12/Oct/2025 13:18:56] "[35m[1mPOST /create_canteen_profile?owner_id=15 HTTP/1.1[0m" 201 -

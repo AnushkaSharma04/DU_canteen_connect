@@ -53,9 +53,12 @@
           <p v-if="passwordMismatch" class="error-text">Passwords do not match</p>
         </div>
 
-
-        <button @click="handleProfile" type="submit" class="signup-btn">Signup</button>
+        <button type="submit" class="signup-btn" :disabled="loading">
+          {{ loading ? "Signing up..." : "Signup" }}
+        </button>
       </form>
+
+      <p v-if="errorMsg" class="error-text">{{ errorMsg }}</p>
 
       <div class="login-prompt">
         <p>Already have an account?</p>
@@ -66,58 +69,91 @@
   </div>
 </template>
 
-
 <script>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-import Header from '../components/Header.vue'
-import Footer from '../components/Footer.vue'
+import { ref } from "vue"
+import { useRouter } from "vue-router"
+import Header from "../components/Header.vue"
+import Footer from "../components/Footer.vue"
+import { signupUser } from "@/services/auth"
 
 export default {
   components: { Header, Footer },
 
+  setup() {
+    const name = ref("")
+    const phone = ref("")
+    const password = ref("")
+    const confirmPassword = ref("")
+    const email = ref("")
+    const passwordMismatch = ref(false)
+    const roles = ["General", "Canteen Owner"]
+    const selectedRole = ref("")
+    const errorMsg = ref("")
+    const loading = ref(false)
+    const router = useRouter()
 
-    setup() {
-        const name = ref('')
-        const phone = ref('')
-        const password = ref('')
-        const email = ref('')
-        const confirmPassword = ref('')
-        const passwordMismatch = ref(false)
-        const roles = ['General', 'Canteen Owner'] 
-        const selectedRole = ref('')
-        
-        const router = useRouter()
+    const handleSignup = async () => {
+      if (loading.value) return
+      loading.value = true
 
-        function handleProfile() {
-          if (password.value !== confirmPassword.value) {
-            passwordMismatch.value = true
-            return
-          } else {
-            passwordMismatch.value = false
-          }
+      // Password match validation
+      if (password.value !== confirmPassword.value) {
+        passwordMismatch.value = true
+        loading.value = false
+        return
+      } else {
+        passwordMismatch.value = false
+      }
 
-          if (selectedRole.value === "General") {
-            router.push('/home')
-          } else {
-            router.push('/signup/canteenprofile')
-          }
+      try {
+        const roleMap = {
+          General: "general",
+          "Canteen Owner": "canteen_owner"
         }
-        return {
-          name,
-          phone,
-          email,
-          password,
-          confirmPassword,
-          passwordMismatch,
-          roles,
-          selectedRole,
-          handleProfile
+
+        const data = await signupUser({
+          name: name.value,
+          phone_number: phone.value,
+          email: email.value,
+          set_password: password.value,
+          confirm_password: confirmPassword.value,
+          role: roleMap[selectedRole.value]
+        })
+
+        if (selectedRole.value === "General" && data.token) {
+          localStorage.setItem("token", data.token)
+          alert("Signup successful!")
+          router.push("/home")
+        } else if (selectedRole.value === "Canteen Owner" && data.user?.user_id) {
+          router.push({
+            path: "/signup/canteenprofile",
+            query: { owner_id: data.user.user_id }
+          })
         }
+      } catch (err) {
+        console.error(err)
+        errorMsg.value = err.response?.data?.message || "Signup failed"
+      } finally {
+        loading.value = false
+      }
+    }
+
+    return {
+      name,
+      phone,
+      email,
+      password,
+      confirmPassword,
+      passwordMismatch,
+      roles,
+      selectedRole,
+      handleSignup,
+      errorMsg,
+      loading
     }
   }
+}
 </script>
-
 
 <style scoped>
 .error-text {
@@ -126,11 +162,12 @@ export default {
   margin-top: 0.5rem;
 }
 
-.wrapper{
-    padding-top: 60px;
+.wrapper {
+  padding-top: 60px;
 }
+
 .signup-container {
-  position:relative;
+  position: relative;
   max-width: 500px;
   margin: 5rem auto;
   padding: 2rem;
@@ -144,16 +181,17 @@ export default {
   margin-bottom: 1.5rem;
 }
 
-label,h2 {
+label,
+h2 {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 500;
-  color: #696D5F;
+  color: #696d5f;
 }
 
-h2{
-    position: relative;
-    text-align: center;
+h2 {
+  position: relative;
+  text-align: center;
 }
 
 input {
@@ -190,19 +228,19 @@ input::placeholder {
   text-align: center;
   margin-top: 2rem;
   font-size: 1rem;
-  color: #696D5F;
+  color: #696d5f;
 }
 
 .login-prompt a {
   text-decoration: underline;
-  color: #696D5F;
+  color: #696d5f;
 }
 
 .radio-group label {
   margin-bottom: 0.75rem;
   font-size: 1rem;
   font-weight: 500;
-  color: #696D5F;
+  color: #696d5f;
 }
 
 .radio-container {
@@ -225,7 +263,7 @@ input::placeholder {
 }
 
 .radio-option.selected {
-  border-color: #DBDFD0;
+  border-color: #dbdfd0;
   background: rgba(71, 71, 71, 0.6);
 }
 
@@ -279,6 +317,4 @@ input::placeholder {
     margin-top: 1.5rem;
   }
 }
-
-
 </style>
