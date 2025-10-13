@@ -125,6 +125,8 @@ export default {
           alert("Signup successful!")
           router.push("/home")
         } else if (selectedRole.value === "Canteen Owner" && data.user?.user_id) {
+
+          localStorage.setItem("owner_id", data.user.user_id)
           router.push({
             path: "/signup/canteenprofile",
             query: { owner_id: data.user.user_id }

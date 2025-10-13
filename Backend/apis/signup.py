@@ -64,7 +64,7 @@ def signup_api():
 
 def create_canteen_profile_api():
     try:
-        owner_id = request.args.get("owner_id")
+        owner_id = request.form.get("owner_id")
         data = request.form
 
         
@@ -102,7 +102,9 @@ def create_canteen_profile_api():
             "peak_hr_end_time": peak_hr_end_time
         }
 
-        response = add_canteen_profile(profile_data)
+        canteen_id, response = add_canteen_profile(profile_data)
+        if canteen_id is None:
+            return jsonify({"message": response.get("message", "Failed to create canteen profile")}), 500
 
         access_token = create_access_token(
             identity={"user_id": owner_id, "role": "canteen_owner"},
@@ -111,7 +113,9 @@ def create_canteen_profile_api():
 
         return jsonify({
             "message": response.get("message", "Canteen profile created successfully"),
-            "token": access_token
+            "token": access_token,
+            "canteen_id": canteen_id,
+            "redirect_url": f"http://localhost:5173/canteenpage?canteen_id={canteen_id}"
         }), 201
 
     except Exception as e:

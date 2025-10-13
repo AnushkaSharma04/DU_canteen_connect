@@ -94,9 +94,11 @@ def add_canteen_profile(profile_data):
             profile_data["peak_hr_end_time"]
         ))
         conn.commit()
+        canteen_id = cursor.lastrowid 
         cursor.close()
         conn.close()
-        return {"message": "Canteen profile created successfully"}
+        return canteen_id, {"message": "Canteen profile created successfully"}
+
     except Exception as e:
         logging.error(f"Error adding canteen profile: {str(e)}")
         return {"message": "Failed to create canteen profile"}, 500

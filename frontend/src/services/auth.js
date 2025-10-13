@@ -37,26 +37,44 @@ export const signupUser = async ({ name, phone_number, email, set_password, conf
 
 
 
+
+
 // Create Canteen Profile API
-export const createCanteenProfile = async (owner_id, profileData) => {
-  const formData = new FormData()
-  formData.append('canteen_name', profileData.canteen_name)
-  formData.append('location', profileData.location)
-  formData.append('description', profileData.description)
-  formData.append('contact_number', profileData.contact_number)
-  formData.append('days_open', profileData.days_open)
-  formData.append('opening_time', profileData.opening_time)
-  formData.append('closing_time', profileData.closing_time)
-  formData.append('peak_hr_start_time', profileData.peak_hr_start_time)
-  formData.append('peak_hr_end_time', profileData.peak_hr_end_time)
+export const createCanteenProfile = async (ownerId, profileData) => {
+  try {
+    // Create a FormData object for multipart/form-data
+    const formData = new FormData();
 
-  // Optional: if menu file upload is supported
-  if (profileData.menu_file) {
-    formData.append('menu_file', profileData.menu_file)
+    // Add all profile fields
+    formData.append("owner_id", ownerId);
+    formData.append("canteen_name", profileData.canteen_name);
+    formData.append("location", profileData.location);
+    formData.append("description", profileData.description);
+    formData.append("contact_number", profileData.contact_number);
+    formData.append("days_open", profileData.days_open);
+    formData.append("opening_time", profileData.opening_time);
+    formData.append("closing_time", profileData.closing_time);
+    formData.append("peak_hr_start_time", profileData.peak_hr_start_time);
+    formData.append("peak_hr_end_time", profileData.peak_hr_end_time);
+
+    // If menu file exists, append it
+    if (profileData.menu_file) {
+      formData.append("menu_file", profileData.menu_file);
+    }
+
+    // ✅ Use api.post instead of axios.post
+    const response = await api.post('/create_canteen_profile', formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        "Authorization": `Bearer ${localStorage.getItem("token") || ""}`
+      }
+    });
+
+    // Expect backend to return { token?, redirect_url?, message? }
+    return response.data;
+
+  } catch (err) {
+    console.error("Error creating canteen profile:", err);
+    throw err; // Let component handle errorMsg
   }
-
-  const res = await api.post(`/create_canteen_profile?owner_id=${owner_id}`, formData, {
-    headers: { 'Content-Type': 'multipart/form-data' }
-  })
-  return res.data
-}
+};

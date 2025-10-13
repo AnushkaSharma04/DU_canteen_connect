@@ -45,7 +45,7 @@ def canteens_route():
 @app.route('/canteen_info', methods=['GET'])
 def canteen_info_route():
     try:
-        canteen_id = request.form.get('canteen_id')
+        canteen_id = request.args.get('canteen_id')
         if not canteen_id:
             return jsonify({"message": "canteen_id is required"}), 400
         return fetch_canteen_info(canteen_id)
@@ -55,7 +55,7 @@ def canteen_info_route():
 @app.route('/canteen_review_ratings', methods=['GET'])
 def get_canteen_reviews_and_ratings_route():
     try:
-        canteen_id = request.form.get('canteen_id')
+        canteen_id = request.args.get('canteen_id')
         if not canteen_id:
             return jsonify({"message": "canteen_id is required"}), 400
         return get_canteen_review_ratings_api(canteen_id)
@@ -66,7 +66,7 @@ def get_canteen_reviews_and_ratings_route():
 @app.route('/canteen_menu_details', methods=['GET'])
 def canteen_menu_details_route():
     try:
-        canteen_id = request.form.get('canteen_id')
+        canteen_id = request.args.get('canteen_id')
         if not canteen_id:
             return jsonify({"message": "canteen_id is required"}), 400
         return get_canteen_menu_details_api(canteen_id)

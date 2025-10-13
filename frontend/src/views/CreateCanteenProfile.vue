@@ -82,7 +82,7 @@ export default {
   setup() {
     const router = useRouter()
     const route = useRoute()
-    const owner_id = route.query.owner_id
+    const owner_id = route.query.owner_id || localStorage.getItem("owner_id")
     const errorMsg = ref('')
 
     const name = ref('')
@@ -104,7 +104,7 @@ export default {
       try {
         // Get owner_id from query params (from signup redirect)
         const urlParams = new URLSearchParams(window.location.search)
-        const owner_id = urlParams.get('owner_id')
+        
 
         if (!owner_id) {
           errorMsg.value = "Owner ID missing"
@@ -134,11 +134,19 @@ export default {
         if (res.token) {
           localStorage.setItem('token', res.token)
         }
+        if (res.redirect_url) {
+        window.location.href = res.redirect_url
+        return
+      }
 
-        alert(res.message || "Canteen profile created!")
-        router.push('/canteenpage') // redirect to canteen dashboard
 
-      } catch (err) {
+        // Fallback message if redirect_url is missing
+        alert(response.message || 'Canteen profile created successfully!')
+
+      } 
+
+        
+        catch (err) {
         console.error(err)
         errorMsg.value = err.response?.data?.message || "Failed to create profile"
       }
