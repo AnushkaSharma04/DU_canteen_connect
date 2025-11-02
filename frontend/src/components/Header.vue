@@ -38,11 +38,12 @@
 
 <script>
 import { ref, computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 export default {
   setup() {
     const route = useRoute()
+    const router = useRouter()
     const isLoggedIn = ref(false)
     const searchQuery = ref('')
     const menuOpen = ref(false)
@@ -57,7 +58,9 @@ export default {
     }
 
     function handleSearch() {
-      console.log('Searching for:', searchQuery.value)
+      console. log(' Searching for: ',searchQuery.value)
+      if (!searchQuery.value.trim()) return
+      router.push(`/desktop11?q=${encodeURIComponent(searchQuery.value)}`)
     }
 
     return {

@@ -974,3 +974,157 @@
 2025-11-03 00:41:21,394 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 00:41:21] "GET /canteens HTTP/1.1" 200 -
 2025-11-03 00:41:23,644 - root - INFO - Database connection established.
 2025-11-03 00:41:23,649 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 00:41:23] "GET /canteens HTTP/1.1" 200 -
+2025-11-03 01:31:13,649 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-03 01:31:13,650 - app - INFO - Starting Flask application...
+2025-11-03 01:31:13,651 - app - INFO - Flask application created successfully
+2025-11-03 01:31:13,727 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.158.11.186:5000
+2025-11-03 01:31:13,727 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-03 01:31:13,729 - werkzeug - INFO -  * Restarting with stat
+2025-11-03 01:31:14,119 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-03 01:31:14,119 - app - INFO - Starting Flask application...
+2025-11-03 01:31:14,120 - app - INFO - Flask application created successfully
+2025-11-03 01:31:14,141 - werkzeug - WARNING -  * Debugger is active!
+2025-11-03 01:31:14,147 - werkzeug - INFO -  * Debugger PIN: 836-941-807
+2025-11-03 01:31:18,024 - root - INFO - Database connection established.
+2025-11-03 01:31:18,026 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 01:31:18] "GET /canteens HTTP/1.1" 200 -
+2025-11-03 01:31:28,803 - root - INFO - Database connection established.
+2025-11-03 01:31:28,805 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 01:31:28] "GET /canteens HTTP/1.1" 200 -
+2025-11-03 01:31:42,717 - root - INFO - Database connection established.
+2025-11-03 01:31:42,719 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 01:31:42] "GET /canteens HTTP/1.1" 200 -
+2025-11-03 01:38:13,951 - root - INFO - Database connection established.
+2025-11-03 01:38:13,952 - root - ERROR - Error fetching user: Unread result found
+2025-11-03 01:38:13,953 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 01:38:13] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-03 01:38:24,769 - root - INFO - Database connection established.
+2025-11-03 01:38:24,770 - root - ERROR - Error fetching user: Unread result found
+2025-11-03 01:38:24,771 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 01:38:24] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-03 01:38:41,175 - root - INFO - Database connection established.
+2025-11-03 01:38:41,176 - root - ERROR - Error fetching user: Unread result found
+2025-11-03 01:38:41,177 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 01:38:41] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-03 01:39:11,644 - root - INFO - Database connection established.
+2025-11-03 01:39:11,646 - root - ERROR - Error fetching user: Unread result found
+2025-11-03 01:39:11,646 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 01:39:11] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-03 01:39:35,456 - root - INFO - Database connection established.
+2025-11-03 01:39:35,458 - root - ERROR - Error fetching user: Unread result found
+2025-11-03 01:39:35,459 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 01:39:35] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-03 01:39:35,819 - root - INFO - Database connection established.
+2025-11-03 01:39:35,820 - root - ERROR - Error fetching user: Unread result found
+2025-11-03 01:39:35,821 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 01:39:35] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-03 01:39:36,642 - root - INFO - Database connection established.
+2025-11-03 01:39:36,643 - root - ERROR - Error fetching user: Unread result found
+2025-11-03 01:39:36,643 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 01:39:36] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-03 01:47:40,309 - root - INFO - Database connection established.
+2025-11-03 01:47:40,310 - root - ERROR - Error fetching user: Unread result found
+2025-11-03 01:47:40,311 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 01:47:40] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-03 01:58:50,034 - werkzeug - INFO -  * Detected change in 'D:\\CIC\\SEM V\\sd\\DU_canteen_connect1\\Backend\\app\\models.py', reloading
+2025-11-03 01:58:50,080 - werkzeug - INFO -  * Restarting with stat
+2025-11-03 01:58:50,478 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-03 01:58:50,478 - app - INFO - Starting Flask application...
+2025-11-03 01:58:50,479 - app - INFO - Flask application created successfully
+2025-11-03 01:58:50,501 - werkzeug - WARNING -  * Debugger is active!
+2025-11-03 01:58:50,506 - werkzeug - INFO -  * Debugger PIN: 836-941-807
+2025-11-03 01:59:34,598 - root - INFO - Database connection established.
+2025-11-03 01:59:34,599 - root - ERROR - Error fetching user: 1054 (42S22): Unknown column 'password' in 'field list'
+2025-11-03 01:59:34,600 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 01:59:34] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-03 01:59:52,265 - root - INFO - Database connection established.
+2025-11-03 01:59:52,266 - root - ERROR - Error fetching user: 1054 (42S22): Unknown column 'password' in 'field list'
+2025-11-03 01:59:52,266 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 01:59:52] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-03 01:59:53,982 - root - INFO - Database connection established.
+2025-11-03 01:59:53,982 - root - ERROR - Error fetching user: 1054 (42S22): Unknown column 'password' in 'field list'
+2025-11-03 01:59:53,984 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 01:59:53] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-03 01:59:54,433 - root - INFO - Database connection established.
+2025-11-03 01:59:54,435 - root - ERROR - Error fetching user: 1054 (42S22): Unknown column 'password' in 'field list'
+2025-11-03 01:59:54,435 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 01:59:54] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-03 02:00:19,498 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-03 02:00:19,498 - app - INFO - Starting Flask application...
+2025-11-03 02:00:19,500 - app - INFO - Flask application created successfully
+2025-11-03 02:00:19,539 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.158.11.186:5000
+2025-11-03 02:00:19,540 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-03 02:00:19,541 - werkzeug - INFO -  * Restarting with stat
+2025-11-03 02:00:19,956 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-03 02:00:19,956 - app - INFO - Starting Flask application...
+2025-11-03 02:00:19,958 - app - INFO - Flask application created successfully
+2025-11-03 02:00:19,981 - werkzeug - WARNING -  * Debugger is active!
+2025-11-03 02:00:19,987 - werkzeug - INFO -  * Debugger PIN: 836-941-807
+2025-11-03 02:00:57,871 - root - INFO - Database connection established.
+2025-11-03 02:00:57,872 - root - ERROR - Error fetching user: 1054 (42S22): Unknown column 'password' in 'field list'
+2025-11-03 02:00:57,872 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 02:00:57] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-03 02:04:26,206 - root - INFO - Database connection established.
+2025-11-03 02:04:26,207 - root - ERROR - Error fetching user: 1054 (42S22): Unknown column 'password' in 'field list'
+2025-11-03 02:04:26,208 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 02:04:26] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-03 02:05:10,942 - werkzeug - INFO -  * Detected change in 'D:\\CIC\\SEM V\\sd\\DU_canteen_connect1\\Backend\\app\\models.py', reloading
+2025-11-03 02:05:10,990 - werkzeug - INFO -  * Detected change in 'D:\\CIC\\SEM V\\sd\\DU_canteen_connect1\\Backend\\app\\models.py', reloading
+2025-11-03 02:05:10,995 - werkzeug - INFO -  * Restarting with stat
+2025-11-03 02:05:11,058 - werkzeug - INFO -  * Restarting with stat
+2025-11-03 02:05:11,396 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-03 02:05:11,397 - app - INFO - Starting Flask application...
+2025-11-03 02:05:11,398 - app - INFO - Flask application created successfully
+2025-11-03 02:05:11,411 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-03 02:05:11,412 - app - INFO - Starting Flask application...
+2025-11-03 02:05:11,413 - app - INFO - Flask application created successfully
+2025-11-03 02:05:11,418 - werkzeug - WARNING -  * Debugger is active!
+2025-11-03 02:05:11,424 - werkzeug - INFO -  * Debugger PIN: 836-941-807
+2025-11-03 02:05:11,434 - werkzeug - WARNING -  * Debugger is active!
+2025-11-03 02:05:11,440 - werkzeug - INFO -  * Debugger PIN: 836-941-807
+2025-11-03 02:05:28,645 - werkzeug - INFO -  * Detected change in 'D:\\CIC\\SEM V\\sd\\DU_canteen_connect1\\Backend\\apis\\signup.py', reloading
+2025-11-03 02:05:28,685 - werkzeug - INFO -  * Restarting with stat
+2025-11-03 02:05:28,814 - werkzeug - INFO -  * Detected change in 'D:\\CIC\\SEM V\\sd\\DU_canteen_connect1\\Backend\\apis\\signup.py', reloading
+2025-11-03 02:05:28,859 - werkzeug - INFO -  * Restarting with stat
+2025-11-03 02:05:29,056 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-03 02:05:29,056 - app - INFO - Starting Flask application...
+2025-11-03 02:05:29,057 - app - INFO - Flask application created successfully
+2025-11-03 02:05:29,077 - werkzeug - WARNING -  * Debugger is active!
+2025-11-03 02:05:29,084 - werkzeug - INFO -  * Debugger PIN: 836-941-807
+2025-11-03 02:05:29,222 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-03 02:05:29,222 - app - INFO - Starting Flask application...
+2025-11-03 02:05:29,223 - app - INFO - Flask application created successfully
+2025-11-03 02:05:29,245 - werkzeug - WARNING -  * Debugger is active!
+2025-11-03 02:05:29,251 - werkzeug - INFO -  * Debugger PIN: 836-941-807
+2025-11-03 02:07:00,153 - werkzeug - INFO -  * Detected change in 'D:\\CIC\\SEM V\\sd\\DU_canteen_connect1\\Backend\\apis\\signup.py', reloading
+2025-11-03 02:07:00,225 - werkzeug - INFO -  * Restarting with stat
+2025-11-03 02:07:00,390 - werkzeug - INFO -  * Detected change in 'D:\\CIC\\SEM V\\sd\\DU_canteen_connect1\\Backend\\apis\\signup.py', reloading
+2025-11-03 02:07:00,437 - werkzeug - INFO -  * Restarting with stat
+2025-11-03 02:07:00,621 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-03 02:07:00,621 - app - INFO - Starting Flask application...
+2025-11-03 02:07:00,623 - app - INFO - Flask application created successfully
+2025-11-03 02:07:00,643 - werkzeug - WARNING -  * Debugger is active!
+2025-11-03 02:07:00,649 - werkzeug - INFO -  * Debugger PIN: 836-941-807
+2025-11-03 02:07:00,799 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-03 02:07:00,799 - app - INFO - Starting Flask application...
+2025-11-03 02:07:00,801 - app - INFO - Flask application created successfully
+2025-11-03 02:07:00,824 - werkzeug - WARNING -  * Debugger is active!
+2025-11-03 02:07:00,828 - werkzeug - INFO -  * Debugger PIN: 836-941-807
+2025-11-03 02:08:02,345 - werkzeug - INFO -  * Detected change in 'D:\\CIC\\SEM V\\sd\\DU_canteen_connect1\\Backend\\app\\models.py', reloading
+2025-11-03 02:08:02,428 - werkzeug - INFO -  * Restarting with stat
+2025-11-03 02:08:02,621 - werkzeug - INFO -  * Detected change in 'D:\\CIC\\SEM V\\sd\\DU_canteen_connect1\\Backend\\app\\models.py', reloading
+2025-11-03 02:08:02,681 - werkzeug - INFO -  * Restarting with stat
+2025-11-03 02:08:02,848 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-03 02:08:02,849 - app - INFO - Starting Flask application...
+2025-11-03 02:08:02,850 - app - INFO - Flask application created successfully
+2025-11-03 02:08:02,871 - werkzeug - WARNING -  * Debugger is active!
+2025-11-03 02:08:02,876 - werkzeug - INFO -  * Debugger PIN: 836-941-807
+2025-11-03 02:08:03,083 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-03 02:08:03,083 - app - INFO - Starting Flask application...
+2025-11-03 02:08:03,084 - app - INFO - Flask application created successfully
+2025-11-03 02:08:03,106 - werkzeug - WARNING -  * Debugger is active!
+2025-11-03 02:08:03,111 - werkzeug - INFO -  * Debugger PIN: 836-941-807
+2025-11-03 02:08:29,432 - root - INFO - Database connection established.
+2025-11-03 02:08:29,434 - root - ERROR - Error fetching user: Unread result found
+2025-11-03 02:08:29,434 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 02:08:29] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-03 02:17:44,839 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 02:17:44] "[31m[1mGET /display_user_info HTTP/1.1[0m" 401 -
+2025-11-03 02:17:44,842 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 02:17:44] "[35m[1mGET /display_user_reviews HTTP/1.1[0m" 500 -
+2025-11-03 02:18:55,101 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 02:18:55] "[31m[1mGET /display_user_info HTTP/1.1[0m" 401 -
+2025-11-03 02:18:55,102 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 02:18:55] "[35m[1mGET /display_user_reviews HTTP/1.1[0m" 500 -
+2025-11-03 02:20:08,820 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 02:20:08] "[31m[1mGET /display_user_info HTTP/1.1[0m" 401 -
+2025-11-03 02:20:08,820 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 02:20:08] "[35m[1mGET /display_user_reviews HTTP/1.1[0m" 500 -
+2025-11-03 02:20:15,878 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 02:20:15] "[31m[1mGET /display_user_info HTTP/1.1[0m" 401 -
+2025-11-03 02:20:16,180 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 02:20:16] "[35m[1mGET /display_user_reviews HTTP/1.1[0m" 500 -
+2025-11-03 02:28:07,423 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 02:28:07] "[31m[1mGET /display_user_info HTTP/1.1[0m" 401 -
+2025-11-03 02:28:07,423 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 02:28:07] "[35m[1mGET /display_user_reviews HTTP/1.1[0m" 500 -
+2025-11-03 02:33:41,723 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 02:33:41] "[31m[1mGET /display_user_info HTTP/1.1[0m" 401 -
+2025-11-03 02:33:41,727 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 02:33:41] "[35m[1mGET /display_user_reviews HTTP/1.1[0m" 500 -

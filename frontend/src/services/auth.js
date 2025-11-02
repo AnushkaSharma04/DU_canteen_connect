@@ -78,3 +78,13 @@ export const createCanteenProfile = async (ownerId, profileData) => {
     throw err; // Let component handle errorMsg
   }
 };
+// gpt told me to add these functions
+export const getUserProfile = async () => {
+  const res = await api.get('/display_user_info')
+  return res.data.user_info
+}
+
+export const getUserReviews = async () => {
+  const res = await api.get('/display_user_reviews')
+  return res.data.reviews || []
+}

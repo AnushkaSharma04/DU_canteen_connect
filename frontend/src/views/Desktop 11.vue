@@ -42,6 +42,7 @@
 <script>
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
+import { searchCanteens } from '@/services/canteen.js'
 
 export default {
   name: 'SearchResults',
@@ -49,28 +50,7 @@ export default {
   data() {
     return {
       searchQuery: '',
-      canteens: [
-        {
-          name: 'Canteen1',
-          location: 'North Campus',
-          timings: '9 AM – 6 PM',
-          rating: 4,
-          items: [
-            { name: 'item1', price: '₹50' },
-            { name: 'item2', price: '₹30' }
-          ]
-        },
-        {
-          name: 'Canteen2',
-          location: 'South Campus',
-          timings: '10 AM – 5 PM',
-          rating: 5,
-          items: [
-            { name: 'item3', price: '₹40' },
-            { name: 'item4', price: '₹35' }
-          ]
-        }
-      ]
+      canteens: []
     }
   },
   computed: {
@@ -87,7 +67,21 @@ export default {
   methods: {
     getStars(rating) {
       return '★'.repeat(rating) + '☆'.repeat(5 - rating)
+    },// added by gpt
+    async performSearch() {
+      const query = this.$route.query.q
+      if (!query) return
+
+      this.searchQuery = query
+      try {
+        this.canteens = await searchCanteens(query)
+      } catch (error) {
+        console.error('Search failed:', error)
+      }
     }
+  },
+  mounted() {
+    this.performSearch()
   }
 }
 </script>

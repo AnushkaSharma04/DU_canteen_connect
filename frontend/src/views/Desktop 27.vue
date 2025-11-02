@@ -6,7 +6,7 @@
     <div class="card info-card" v-if="canteenInfo">
       <div class="info-content">
         <div class="info-text">
-          <h2 class="canteen-name">{{ canteenInfo?.canteen_name || 'Canteen Name' }}</h2>
+          <h2 class="canteen-name">{{ canteenInfo?.name || 'Canteen Name' }}</h2>
           <div class="info-row">
             <span class="label">Location:</span>
             <span class="value">{{ canteenInfo?.location || 'Not specified' }}</span>
@@ -139,7 +139,7 @@
 <script>
 import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
-import { fetchCanteenInfo, fetchCanteenMenu, fetchCanteenReviews } from '@/services/canteen'
+import { fetchCanteenInfo, fetchCanteenMenu, fetchCanteenReviews, submitCanteenReview } from '@/services/canteen'
 
 export default {
   name: 'CanteensPage',
@@ -152,7 +152,7 @@ export default {
       reviews: [],
       ratings: null,
       errorMsg: '',
-      isLoggedIn: true,
+      isLoggedIn: !!localStorage.getItem('token'),// check this line please
       newReviewText: '',
       newFoodRating: '',
       newStaffRating: '',
@@ -168,7 +168,7 @@ export default {
       return '★'.repeat(Math.round(rating))
     },
 
-    submitReview() {
+    async submitReview() {
       if (
         !this.newReviewText ||
         !this.newFoodRating ||
@@ -180,22 +180,36 @@ export default {
         return
       }
 
-      const newReview = {
-        text: this.newReviewText,
-        foodRating: this.newFoodRating,
-        staffRating: this.newStaffRating,
-        hygieneRating: this.newHygieneRating,
-        facilityRating: this.newFacilityRating
+      const canteenId = this.$route.query.canteen_id
+      const overallRating = Math.round(
+        (Number(this.newFoodRating) + Number(this.newStaffRating) + 
+         Number(this.newHygieneRating) + Number(this.newFacilityRating)) / 4
+      )
+
+      try {
+        await submitCanteenReview(canteenId, {
+          overallRating,
+          foodRating: this.newFoodRating,
+          staffRating: this.newStaffRating,
+          hygieneRating: this.newHygieneRating,
+          facilityRating: this.newFacilityRating,
+          text: this.newReviewText
+        })
+
+        this.newReviewText = ''
+        this.newFoodRating = ''
+        this.newStaffRating = ''
+        this.newHygieneRating = ''
+        this.newFacilityRating = ''
+
+        alert('Review posted successfully!')
+        
+        const reviewsData = await fetchCanteenReviews(canteenId)
+        this.reviews = reviewsData?.top_reviews || []
+      } catch (error) {
+        console.error('Failed to submit review:', error)
+        alert('Failed to post review')
       }
-
-      this.reviews.unshift(newReview)
-      this.newReviewText = ''
-      this.newFoodRating = ''
-      this.newStaffRating = ''
-      this.newHygieneRating = ''
-      this.newFacilityRating = ''
-
-      alert('Review posted!')
     }
   },
 

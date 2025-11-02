@@ -9,7 +9,7 @@
         <h2>Canteens around you</h2>
         <p style="color: #666; padding: 10px;">Total canteens: {{ canteens.length }}</p>
         <div class="canteen-grid">
-          <div class="canteen-box" v-for="canteen in filteredCanteens" :key="canteen.canteen_id">
+          <div class="canteen-box" v-for="canteen in filteredCanteens" :key="canteen.canteen_id" @click="goToCanteen(canteen.canteen_id)">
             <p><strong>Name:</strong> {{ canteen.name }}</p>
             <p><strong>Location:</strong> {{ canteen.location }}</p>
             <p><strong>Timings:</strong> {{ canteen.opening_time }} – {{ canteen.closing_time }}</p>
@@ -61,6 +61,9 @@ export default {
   methods: {
     getStars(rating) {
       return '★'.repeat(rating) + '☆'.repeat(5 - rating)
+    },
+    goToCanteen(canteenId) {
+      this.$router.push(`/desktop27?canteen_id=${canteenId}`)
     },
     async loadCanteens() {
       try {
@@ -121,6 +124,13 @@ export default {
   border-radius: 12px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   position: relative;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.canteen-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .arrow {
