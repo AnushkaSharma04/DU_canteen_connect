@@ -859,3 +859,58 @@
 2025-10-13 11:37:32,811 - werkzeug - INFO - 127.0.0.1 - - [13/Oct/2025 11:37:32] "OPTIONS /login HTTP/1.1" 200 -
 2025-10-13 11:37:33,042 - root - INFO - Database connection established.
 2025-10-13 11:37:33,635 - werkzeug - INFO - 127.0.0.1 - - [13/Oct/2025 11:37:33] "POST /login HTTP/1.1" 200 -
+2025-11-02 15:39:45,087 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-02 15:39:45,087 - app - INFO - Starting Flask application...
+2025-11-02 15:39:45,087 - app - INFO - Flask application created successfully
+2025-11-02 15:40:21,061 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-02 15:40:21,061 - app - INFO - Starting Flask application...
+2025-11-02 15:40:21,061 - app - INFO - Flask application created successfully
+2025-11-02 15:40:21,147 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.80.23.199:5000
+2025-11-02 15:40:21,147 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-02 15:40:21,147 - werkzeug - INFO -  * Restarting with stat
+2025-11-02 15:40:22,318 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-02 15:40:22,318 - app - INFO - Starting Flask application...
+2025-11-02 15:40:22,320 - app - INFO - Flask application created successfully
+2025-11-02 15:40:22,372 - werkzeug - WARNING -  * Debugger is active!
+2025-11-02 15:40:22,382 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-11-02 15:49:57,977 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2025 15:49:57] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-02 15:49:58,606 - root - INFO - Database connection established.
+2025-11-02 15:49:58,606 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2025 15:49:58] "GET /canteens HTTP/1.1" 200 -
+2025-11-02 15:52:45,124 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2025 15:52:45] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-02 15:52:45,371 - root - INFO - Database connection established.
+2025-11-02 15:52:45,387 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2025 15:52:45] "GET /canteens HTTP/1.1" 200 -
+2025-11-02 15:52:49,695 - root - INFO - Database connection established.
+2025-11-02 15:52:49,704 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2025 15:52:49] "GET /canteens HTTP/1.1" 200 -
+2025-11-02 15:56:40,213 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2025 15:56:40] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-02 15:56:40,417 - root - INFO - Database connection established.
+2025-11-02 15:56:40,445 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2025 15:56:40] "GET /canteens HTTP/1.1" 200 -
+2025-11-02 15:57:07,939 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2025 15:57:07] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-02 15:57:08,161 - root - INFO - Database connection established.
+2025-11-02 15:57:08,163 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2025 15:57:08] "GET /canteens HTTP/1.1" 200 -
+2025-11-02 15:59:06,068 - root - INFO - Database connection established.
+2025-11-02 15:59:06,086 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2025 15:59:06] "GET /canteens HTTP/1.1" 200 -
+2025-11-02 15:59:06,418 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2025 15:59:06] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-11-02 15:59:38,608 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2025 15:59:38] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-02 15:59:38,872 - root - INFO - Database connection established.
+2025-11-02 15:59:38,874 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2025 15:59:38] "GET /canteens HTTP/1.1" 200 -
+2025-11-02 16:00:06,842 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2025 16:00:06] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-02 16:00:07,082 - root - INFO - Database connection established.
+2025-11-02 16:00:07,082 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2025 16:00:07] "GET /canteens HTTP/1.1" 200 -
+2025-11-02 16:00:14,083 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2025 16:00:14] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-02 16:00:14,264 - root - INFO - Database connection established.
+2025-11-02 16:00:14,282 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2025 16:00:14] "GET /canteens HTTP/1.1" 200 -
+2025-11-02 16:01:13,209 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2025 16:01:13] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-02 16:01:13,393 - root - INFO - Database connection established.
+2025-11-02 16:01:13,398 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2025 16:01:13] "GET /canteens HTTP/1.1" 200 -
+2025-11-02 16:25:18,198 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\main.py', reloading
+2025-11-02 16:25:18,965 - werkzeug - INFO -  * Restarting with stat
+2025-11-02 16:25:21,319 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-02 16:25:21,319 - app - INFO - Starting Flask application...
+2025-11-02 16:25:21,322 - app - INFO - Flask application created successfully
+2025-11-02 16:25:21,401 - werkzeug - WARNING -  * Debugger is active!
+2025-11-02 16:25:21,411 - werkzeug - INFO -  * Debugger PIN: 400-470-196
+2025-11-02 16:25:46,206 - werkzeug - INFO -  * Detected change in 'E:\\Semester_5\\DU_canteen_connect\\Backend\\main.py', reloading
+2025-11-02 16:25:46,275 - werkzeug - INFO -  * Restarting with stat

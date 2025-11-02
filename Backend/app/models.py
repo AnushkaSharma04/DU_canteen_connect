@@ -733,6 +733,7 @@ def get_canteen_reviews_and_ratings_from_db(canteen_id):
         cursor.close()
         conn.close()
 
+
         
         import base64
         for review in reviews:
@@ -754,6 +755,51 @@ def get_canteen_reviews_and_ratings_from_db(canteen_id):
         logging.error(f"Error fetching reviews and ratings for canteen_id {canteen_id}: {str(e)}")
         return None
     
+def get_menu_by_canteen_id(canteen_id):
+    """
+    Fetch the menu row for a given canteen_id.
+    Returns a dict with all menu columns (Monday, monday_price, ...), or None if not found/error.
+    """
+    conn = None
+    cursor = None
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        query = """
+            SELECT
+                menu_id,
+                canteen_id,
+                day_wise,
+                Monday, monday_price,
+                Tuesday, tuesday_price,
+                Wednesday, wednesday_price,
+                Thursday, thursday_price,
+                Friday, friday_price,
+                Saturday, saturday_price,
+                Sunday, sunday_price,
+                menu_file,
+                created_at,
+                updated_at
+            FROM menu
+            WHERE canteen_id = %s
+            LIMIT 1
+        """
+        cursor.execute(query, (canteen_id,))
+        row = cursor.fetchone()
+        return row if row else None
+    except Exception as e:
+        logging.exception(f"DB error in get_menu_by_canteen_id for canteen_id {canteen_id}: {e}")
+        return None
+    finally:
+        try:
+            if cursor: cursor.close()
+        except Exception:
+            pass
+        try:
+            if conn: conn.close()
+        except Exception:
+            pass
+
 def get_user_by_id_db(user_id):
     try:
         conn = get_db_connection()
@@ -1630,5 +1676,212 @@ def get_reviews_for_canteen(canteen_id):
         try:
             if conn:
                 conn.close()
+        except Exception:
+            pass
+
+def _parse_list_column(value):
+    if value is None:
+        return []
+    if isinstance(value, (list, tuple)):
+        return list(value)
+    s = str(value).strip()
+    if not s:
+        return []
+    # try parse JSON
+    try:
+        parsed = json.loads(s)
+        if isinstance(parsed, list):
+            return parsed
+        return [parsed]
+    except Exception:
+        # fallback split by comma
+        parts = [p.strip() for p in s.split(",") if p.strip() != ""]
+        return parts
+
+def get_menu_by_canteen_id(canteen_id):
+    """
+    Return dict for one menu row (dictionary cursor).
+    """
+    conn = None
+    cursor = None
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        query = """
+            SELECT menu_id, canteen_id, day_wise,
+                   Monday, monday_price, Tuesday, tuesday_price,
+                   Wednesday, wednesday_price, Thursday, thursday_price,
+                   Friday, friday_price, Saturday, saturday_price,
+                   Sunday, sunday_price, menu_file, created_at, updated_at
+            FROM menu
+            WHERE canteen_id = %s
+            LIMIT 1
+        """
+        cursor.execute(query, (canteen_id,))
+        row = cursor.fetchone()
+        return row if row else None
+    except Exception as e:
+        logging.exception(f"DB error in get_menu_by_canteen_id for canteen {canteen_id}: {e}")
+        return None
+    finally:
+        try:
+            if cursor: cursor.close()
+        except Exception:
+            pass
+        try:
+            if conn: conn.close()
+        except Exception:
+            pass
+
+
+def get_food_items_by_ids(menu_id, food_id_list):
+    """
+    Fetch food items matching menu_id and given food_ids.
+    Returns list of dicts: {food_id, name, price}
+    """
+    if not food_id_list:
+        return []
+    conn = None
+    cursor = None
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+
+        # Build parameter placeholders safely
+        placeholders = ",".join(["%s"] * len(food_id_list))
+        query = f"""
+            SELECT food_id, name, price
+            FROM food_items
+            WHERE menu_id = %s AND food_id IN ({placeholders})
+        """
+        params = [menu_id] + food_id_list
+        cursor.execute(query, tuple(params))
+        rows = cursor.fetchall() or []
+        return rows
+    except Exception as e:
+        logging.exception(f"DB error in get_food_items_by_ids for menu {menu_id}: {e}")
+        return None
+    finally:
+        try:
+            if cursor: cursor.close()
+        except Exception:
+            pass
+        try:
+            if conn: conn.close()
+        except Exception:
+            pass
+
+
+def update_menu_day_columns(menu_id, day_col, price_col, append_item_names, append_item_prices):
+    """
+    Atomically fetch current day lists, append provided items/prices, and update the row.
+    - day_col: e.g. "Monday"
+    - price_col: e.g. "monday_price"
+    - append_item_names: list[str]
+    - append_item_prices: list[float|None]
+    Returns:
+      {"updated_items": [...], "updated_prices": [...]} on success
+      None on error
+    """
+    conn = None
+    cursor = None
+    try:
+        if not append_item_names:
+            return {"updated_items": [], "updated_prices": []}
+
+        conn = get_db_connection()
+        cursor = conn.cursor()
+
+        # Fetch current values FOR UPDATE to avoid race condition (driver+DB must support it)
+        # We'll try a SELECT ... FOR UPDATE; if fails, fall back to simple SELECT
+        try:
+            sel_q = f"SELECT {day_col}, {price_col} FROM menu WHERE menu_id = %s FOR UPDATE"
+            cursor.execute(sel_q, (menu_id,))
+            row = cursor.fetchone()
+            # row may be tuple or dict depending on cursor type
+            if row is None:
+                return None
+            if isinstance(row, dict):
+                cur_items_raw = row.get(day_col)
+                cur_prices_raw = row.get(price_col)
+            else:
+                # when cursor returns tuple, order is as selected
+                cur_items_raw = row[0]
+                cur_prices_raw = row[1]
+        except Exception:
+            # fallback select
+            cursor.execute(f"SELECT {day_col}, {price_col} FROM menu WHERE menu_id = %s", (menu_id,))
+            row = cursor.fetchone()
+            if row is None:
+                return None
+            if isinstance(row, dict):
+                cur_items_raw = row.get(day_col)
+                cur_prices_raw = row.get(price_col)
+            else:
+                cur_items_raw = row[0]
+                cur_prices_raw = row[1]
+
+        # Parse current lists
+        cur_items = _parse_list_column(cur_items_raw)
+        cur_prices = _parse_list_column(cur_prices_raw)
+
+        # Convert existing price strings to floats where possible
+        def _to_float_list(lst):
+            new = []
+            for x in lst:
+                if x is None or x == "":
+                    new.append(None)
+                    continue
+                try:
+                    new.append(float(x))
+                except Exception:
+                    # strip non-numeric
+                    s = ''.join(ch for ch in str(x) if (ch.isdigit() or ch in ".-"))
+                    try:
+                        new.append(float(s) if s else None)
+                    except Exception:
+                        new.append(None)
+            return new
+
+        cur_prices = _to_float_list(cur_prices)
+
+        # Append new ones (keeping indices aligned)
+        for nm, pr in zip(append_item_names, append_item_prices):
+            cur_items.append(nm)
+            cur_prices.append(pr)
+
+        # Serialize to JSON string for storage
+        items_to_store = json.dumps(cur_items, ensure_ascii=False)
+        prices_to_store = json.dumps(cur_prices)
+
+        # Update row
+        update_q = f"""
+            UPDATE menu
+            SET {day_col} = %s,
+                {price_col} = %s,
+                updated_at = %s
+            WHERE menu_id = %s
+        """
+        now = datetime.utcnow()
+        cursor.execute(update_q, (items_to_store, prices_to_store, now, menu_id))
+        conn.commit()
+
+        return {"updated_items": cur_items, "updated_prices": cur_prices}
+
+    except Exception as e:
+        logging.exception(f"DB error in update_menu_day_columns for menu {menu_id}: {e}")
+        try:
+            if conn:
+                conn.rollback()
+        except Exception:
+            pass
+        return None
+    finally:
+        try:
+            if cursor: cursor.close()
+        except Exception:
+            pass
+        try:
+            if conn: conn.close()
         except Exception:
             pass

@@ -10,7 +10,7 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 from apis.no_login import all_canteens_api, fetch_canteen_info, get_canteen_review_ratings_api, get_canteen_menu_details_api,  search_canteens_handler, search_food_items_handler
 from apis.need_login import submit_canteen_review_handler, admin_get_open_issues_handler, admin_get_app_feedbacks_handler
 import logging
-from apis.no_login import all_canteens_api, fetch_canteen_info, get_canteen_review_ratings_api, get_canteen_menu_details_api
+from apis.no_login import all_canteens_api, fetch_canteen_info, get_canteen_review_ratings_api, get_canteen_menu_details_api, fetch_daywise_menu_handler, update_daywise_menu_handler
 from apis.need_login import display_user_info_api, display_user_reviews_api, give_app_feedback_api, report_app_issue_api, fetch_canteen_info_handler, add_food_item_handler, report_issue_by_canteen_owner_api, fetch_canteen_reviews_owner_handler
 from flask_cors import CORS
 from app.models import get_user_by_id_db
@@ -78,15 +78,7 @@ def canteen_menu_details_route():
     except Exception as e:
         return jsonify({"message": "Internal Server Error"}), 500
     
-@app.route('/display_user_info', methods=['GET'])
-def display_user_info_route():
-    try:
-        user_id = get_jwt_identity()
-        if not user_id:
-            return jsonify({"message": "user_id is required"}), 400
-        return display_user_info_api(user_id)
-    except Exception as e:
-        return jsonify({"message": "Internal Server Error"}), 500
+
 
 @app.route('/add_review_rating', methods=['POST'])
 @jwt_required()
@@ -328,6 +320,55 @@ def canteen_reviews_Owner_route():
 
     except Exception as e:
         logging.exception("Unexpected error in canteen_reviews_route")
+        return jsonify({"message": "Internal Server Error"}), 500
+    
+
+@app.route('/menu/daywise', methods=['POST'])
+def menu_daywise_route():
+    """
+    Expects form-data: canteen_id (required)
+    Returns day-wise menu mapping (Monday..Sunday) with list of {item_name, price}.
+    """
+    try:
+        canteen_id = request.form.get("canteen_id")
+        if not canteen_id:
+            return jsonify({"message": "canteen_id is required"}), 400
+
+        return fetch_daywise_menu_handler(canteen_id)
+
+    except Exception as e:
+        logging.exception("Unexpected error in /menu/daywise")
+        return jsonify({"message": "Internal Server Error"}), 500
+    
+@app.route("/menu/update_day", methods=["POST"])
+@jwt_required()
+def update_daywise_menu_route():
+    """
+    Form-data:
+      canteen_id: required
+      day: required (Monday..Sunday)
+      food_ids: repeated form field OR comma-separated string
+    """
+    try:
+        identity = get_jwt_identity()
+        user_id = identity.get("user_id") if isinstance(identity, dict) else identity
+        if not user_id:
+            return jsonify({"message": "Invalid token / user identity"}), 401
+
+        canteen_id = request.form.get("canteen_id")
+        day = (request.form.get("day") or "").strip()
+        # Accept multiple food_ids
+        food_ids = request.form.getlist("food_ids")
+        if not food_ids:
+            # maybe comma separated in a single field
+            s = request.form.get("food_ids")
+            if s:
+                food_ids = [p.strip() for p in s.split(",") if p.strip()]
+
+        return update_daywise_menu_handler(user_id=user_id, canteen_id=canteen_id, day=day, food_ids=food_ids)
+
+    except Exception as e:
+        logging.exception("Unexpected error in update_daywise_menu_route")
         return jsonify({"message": "Internal Server Error"}), 500
 
 if __name__ == "__main__":
