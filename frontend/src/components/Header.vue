@@ -43,7 +43,7 @@ import { useRoute } from 'vue-router'
 export default {
   setup() {
     const route = useRoute()
-    const isLoggedIn = ref(true)
+    const isLoggedIn = ref(false)
     const searchQuery = ref('')
     const menuOpen = ref(false)
 
