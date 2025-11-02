@@ -359,3 +359,357 @@ def get_canteen_menu_from_db(canteen_id):
     except Exception as e:
         logging.error(f"Error fetching canteen menu for canteen_id {canteen_id}: {str(e)}")
         return None
+    
+
+
+
+def get_canteen_by_id(canteen_id):
+    """
+    Return one canteen row dict (minimal check) or None if not found/error.
+    Uses dictionary cursor if supported by driver.
+    """
+    conn = None
+    cursor = None
+    try:
+        conn = get_db_connection()
+        # dictionary=True style cursor (adjust if your driver uses different arg)
+        cursor = conn.cursor(dictionary=True)
+        query = "SELECT canteen_id FROM canteens WHERE canteen_id = %s LIMIT 1"
+        cursor.execute(query, (canteen_id,))
+        row = cursor.fetchone()
+        return row if row else None
+    except Exception as e:
+        logging.exception(f"DB error in get_canteen_by_id for {canteen_id}: {e}")
+        return None
+    finally:
+        try:
+            if cursor:
+                cursor.close()
+        except Exception:
+            pass
+        try:
+            if conn:
+                conn.close()
+        except Exception:
+            pass
+
+
+def insert_review_for_canteen(canteen_id, user_id,
+                              overall_rating, food_rating=None, hygiene_rating=None,
+                              staff_rating=None, facilities_rating=None,
+                              review_text=None):
+    
+    conn = None
+    cursor = None
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+
+        now = datetime.utcnow()
+
+        # Try PostgreSQL RETURNING first, fallback to insert+lastrowid for MySQL
+        try:
+            insert_pg = """
+                INSERT INTO canteen_reviews
+                    (canteen_id, user_id, overall_rating, food_rating, hygiene_rating,
+                     staff_rating, facilities_rating, review_text, created_at)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                RETURNING review_id
+            """
+            cursor.execute(insert_pg, (
+                canteen_id, user_id, overall_rating, food_rating, hygiene_rating,
+                staff_rating, facilities_rating, review_text, now
+            ))
+            row = cursor.fetchone()
+            review_id = row[0] if row else None
+        except Exception:
+            # fallback path (MySQL, sqlite)
+            try:
+                conn.rollback()
+            except Exception:
+                pass
+            insert_q = """
+                INSERT INTO canteen_reviews
+                    (canteen_id, user_id, overall_rating, food_rating, hygiene_rating,
+                     staff_rating, facilities_rating, review_text, created_at)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            """
+            cursor.execute(insert_q, (
+                canteen_id, user_id, overall_rating, food_rating, hygiene_rating,
+                staff_rating, facilities_rating, review_text, now
+            ))
+            try:
+                review_id = cursor.lastrowid
+            except Exception:
+                review_id = None
+
+        conn.commit()
+        return {"review_id": review_id}
+
+    except Exception as e:
+        logging.exception(f"DB error in insert_review_for_canteen for canteen {canteen_id}: {e}")
+        if conn:
+            try:
+                conn.rollback()
+            except Exception:
+                pass
+        return None
+    finally:
+        try:
+            if cursor:
+                cursor.close()
+        except Exception:
+            pass
+        try:
+            if conn:
+                conn.close()
+        except Exception:
+            pass
+
+
+def recalc_canteen_aggregates(canteen_id):
+    
+    conn = None
+    cursor = None
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+
+        # Try Postgres-style (ROUND(..., 2)) update first; fallback to MySQL style if it errors.
+        try:
+            update_query_pg = """
+                UPDATE canteens
+                SET
+                    overall_rating = (
+                        SELECT ROUND(AVG(overall_rating)::numeric, 2) FROM canteen_reviews WHERE canteen_id = %s
+                    ),
+                    overall_food = (
+                        SELECT ROUND(AVG(food_rating)::numeric, 2) FROM canteen_reviews WHERE canteen_id = %s AND food_rating IS NOT NULL
+                    ),
+                    overall_hygiene = (
+                        SELECT ROUND(AVG(hygiene_rating)::numeric, 2) FROM canteen_reviews WHERE canteen_id = %s AND hygiene_rating IS NOT NULL
+                    ),
+                    overall_staff = (
+                        SELECT ROUND(AVG(staff_rating)::numeric, 2) FROM canteen_reviews WHERE canteen_id = %s AND staff_rating IS NOT NULL
+                    ),
+                    overall_facilities = (
+                        SELECT ROUND(AVG(facilities_rating)::numeric, 2) FROM canteen_reviews WHERE canteen_id = %s AND facilities_rating IS NOT NULL
+                    )
+                WHERE canteen_id = %s
+            """
+            cursor.execute(update_query_pg, (canteen_id, canteen_id, canteen_id, canteen_id, canteen_id, canteen_id))
+            conn.commit()
+        except Exception:
+            # fallback (MySQL): no ::numeric cast
+            try:
+                conn.rollback()
+            except Exception:
+                pass
+            update_query_mysql = """
+                UPDATE canteens
+                SET
+                    overall_rating = (SELECT ROUND(AVG(overall_rating), 2) FROM canteen_reviews WHERE canteen_id = %s),
+                    overall_food = (SELECT ROUND(AVG(food_rating), 2) FROM canteen_reviews WHERE canteen_id = %s AND food_rating IS NOT NULL),
+                    overall_hygiene = (SELECT ROUND(AVG(hygiene_rating), 2) FROM canteen_reviews WHERE canteen_id = %s AND hygiene_rating IS NOT NULL),
+                    overall_staff = (SELECT ROUND(AVG(staff_rating), 2) FROM canteen_reviews WHERE canteen_id = %s AND staff_rating IS NOT NULL),
+                    overall_facilities = (SELECT ROUND(AVG(facilities_rating), 2) FROM canteen_reviews WHERE canteen_id = %s AND facilities_rating IS NOT NULL)
+                WHERE canteen_id = %s
+            """
+            cursor.execute(update_query_mysql, (canteen_id, canteen_id, canteen_id, canteen_id, canteen_id, canteen_id))
+            conn.commit()
+
+        # fetch updated aggregates
+        fetch_q = """
+            SELECT overall_rating, overall_food, overall_hygiene, overall_staff, overall_facilities
+            FROM canteens
+            WHERE canteen_id = %s
+            LIMIT 1
+        """
+        # Use a new cursor to ensure compatibility with some drivers
+        cursor2 = conn.cursor()
+        cursor2.execute(fetch_q, (canteen_id,))
+        row = cursor2.fetchone()
+        try:
+            cursor2.close()
+        except Exception:
+            pass
+
+        if not row:
+            return None
+
+        # Row may be tuple or dict depending on cursor type
+        if isinstance(row, (list, tuple)):
+            overall_rating, overall_food, overall_hygiene, overall_staff, overall_facilities = row
+        elif isinstance(row, dict):
+            overall_rating = row.get("overall_rating")
+            overall_food = row.get("overall_food")
+            overall_hygiene = row.get("overall_hygiene")
+            overall_staff = row.get("overall_staff")
+            overall_facilities = row.get("overall_facilities")
+        else:
+            overall_rating = overall_food = overall_hygiene = overall_staff = overall_facilities = None
+
+        return {
+            "overall_rating": float(overall_rating) if overall_rating is not None else None,
+            "overall_food": float(overall_food) if overall_food is not None else None,
+            "overall_hygiene": float(overall_hygiene) if overall_hygiene is not None else None,
+            "overall_staff": float(overall_staff) if overall_staff is not None else None,
+            "overall_facilities": float(overall_facilities) if overall_facilities is not None else None
+        }
+
+    except Exception as e:
+        logging.exception(f"DB error in recalc_canteen_aggregates for {canteen_id}: {e}")
+        if conn:
+            try:
+                conn.rollback()
+            except Exception:
+                pass
+        return None
+    finally:
+        try:
+            if cursor:
+                cursor.close()
+        except Exception:
+            pass
+        try:
+            if conn:
+                conn.close()
+        except Exception:
+            pass
+
+
+def get_open_app_issues():
+    
+    conn = None
+    cursor = None
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+
+        
+        query = """
+            SELECT issue_id, user_id, role, issue_text, created_at
+            FROM app_issue
+            WHERE status = %s
+            ORDER BY created_at DESC
+        """
+        cursor.execute(query, ("open",))
+        rows = cursor.fetchall() or []
+        return rows
+    
+
+    except Exception as e:
+        logging.exception(f"DB error in get_open_app_issues: {e}")
+        return None
+    finally:
+        try:
+            if cursor: cursor.close()
+        except Exception:
+            pass
+        try:
+            if conn: conn.close()
+        except Exception:
+            pass
+
+def fetch_all_app_feedback_rows():
+   
+    conn = None
+    cursor = None
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        query = """
+            SELECT feedback_id, user_id, feedback_text_1, feedback_text_2, created_at
+            FROM app_feedback
+            ORDER BY created_at DESC
+        """
+        cursor.execute(query)
+        rows = cursor.fetchall() or []
+        return rows
+    except Exception as e:
+        logging.exception(f"DB error in fetch_all_app_feedback_rows: {e}")
+        return None
+    finally:
+        try:
+            if cursor: cursor.close()
+        except Exception:
+            pass
+        try:
+            if conn: conn.close()
+        except Exception:
+            pass
+
+def _like_pattern(q: str) -> str:
+    return f"%{q}%"
+
+def get_food_items_by_name(q: str, available_only: bool = False, limit: int = 50):
+    
+    conn = None
+    cursor = None
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+
+        query = """
+            SELECT
+                c.name AS canteen_name,
+                fi.name AS food_name,
+                fi.price
+            FROM food_items fi
+            JOIN menu m ON fi.menu_id = m.menu_id
+            JOIN canteens c ON m.canteen_id = c.canteen_id
+            WHERE LOWER(fi.name) LIKE LOWER(%s)
+        """
+        params = [_like_pattern(q)]
+
+        if available_only:
+            query += " AND (fi.status IS NULL OR LOWER(fi.status) IN ('available', '1', 'true', 'yes'))"
+
+        query += " ORDER BY c.name ASC, fi.name ASC LIMIT %s"
+        params.append(limit)
+
+        cursor.execute(query, tuple(params))
+        rows = cursor.fetchall() or []
+        return rows
+
+    except Exception as e:
+        logging.exception(f"DB error in get_food_items_by_name for q={q}: {e}")
+        return None
+    finally:
+        if cursor:
+            cursor.close()
+        if conn:
+            conn.close()
+
+def get_canteens_by_name(query: str, limit: int = 50):
+    
+    conn = None
+    cursor = None
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+
+        query_sql = """
+            SELECT
+                name AS canteen_name,
+                location,
+                CONCAT(opening_time, ' - ', closing_time) AS timings,
+                overall_rating
+            FROM canteens
+            WHERE LOWER(name) LIKE LOWER(%s)
+            ORDER BY overall_rating DESC
+            LIMIT %s
+        """
+
+        cursor.execute(query_sql, (_like_pattern(query), limit))
+        rows = cursor.fetchall() or []
+        return rows
+
+    except Exception as e:
+        logging.exception(f"DB error in get_canteens_by_name for query={query}: {e}")
+        return None
+    finally:
+        if cursor:
+            cursor.close()
+        if conn:
+            conn.close()

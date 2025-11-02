@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify, redirect, url_for
 from app.models import add_user, check_user_exists, add_canteen_profile, get_user_by_phone, get_all_canteens_from_db, get_canteen_info_from_db, get_canteen_reviews_and_ratings_from_db, get_canteen_menu_from_db
+from app.models import get_canteens_by_name, get_food_items_by_name
 import bcrypt
 import logging
 import jwt
@@ -66,3 +67,45 @@ def get_canteen_menu_details_api(canteen_id):
     except Exception as e:
         logging.error(f"Error fetching canteen menu details: {str(e)}")
         return jsonify({"message": "Internal Server Error"}), 500
+    
+def search_canteens_handler(query: str):
+    """
+    Fetch canteen info (name, location, timings, and rating)
+    matching the search query.
+    """
+    try:
+        results = get_canteens_by_name(query)
+        if results is None:
+            return jsonify({"message": "Internal Server Error", "results": []}), 500
+
+        if len(results) == 0:
+            return jsonify({"message": "No matching canteens found", "results": []}), 404
+
+        return jsonify({
+            "message": "Canteens fetched successfully",
+            "results": results
+        }), 200
+
+    except Exception as e:
+        logging.exception(f"Error in search_canteens_handler for query={query}: {e}")
+        return jsonify({"message": "Internal Server Error"}), 500
+
+
+def search_food_items_handler(q: str, available_only: bool = False):
+    """
+    Handles search for food items by name.
+    Returns only canteen_name, food_name, and price.
+    """
+    try:
+        rows = get_food_items_by_name(q, available_only=available_only)
+        if rows is None:
+            return jsonify({"message": "Internal Server Error", "results": []}), 500
+
+        return jsonify({
+            "message": "Food items fetched",
+            "results": rows
+        }), 200
+
+    except Exception as e:
+        logging.exception(f"Error in search_food_items_handler for q={q}: {e}")
+        return jsonify({"message": "Internal Server Error", "results": []}), 500
