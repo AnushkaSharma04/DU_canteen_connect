@@ -152,7 +152,7 @@ export default {
       reviews: [],
       ratings: null,
       errorMsg: '',
-      isLoggedIn: !!localStorage.getItem('token'),// check this line please
+      isLoggedIn: false,
       newReviewText: '',
       newFoodRating: '',
       newStaffRating: '',
@@ -160,6 +160,10 @@ export default {
       newFacilityRating: '',
 
     }
+  },
+
+  mounted() {
+    this.isLoggedIn = !!localStorage.getItem('token')
   },
 
   methods: {
