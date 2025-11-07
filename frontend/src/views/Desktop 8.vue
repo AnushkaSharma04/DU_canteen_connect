@@ -7,10 +7,10 @@
     <section class="card profile-section">
       <h2>Profile</h2>
       <div class="profile-fields">
-        <div class="field">Name</div>
-        <div class="field">Email</div>
-        <div class="field">Phone number</div>
-        <div class="field">Password</div>
+        <div class="field"><strong>Name:</strong> {{ userInfo.name || 'Loading...' }}</div>
+        <div class="field"><strong>Email:</strong> {{ userInfo.email || 'Loading...' }}</div>
+        <div class="field"><strong>Phone number:</strong> {{ userInfo.phone_number || 'Loading...' }}</div>
+        <div class="field"><strong>Password:</strong> ********</div>
       </div>
     </section>
 
@@ -19,8 +19,12 @@
       <h2>Report Issues</h2>
       <div class="report-fields">
         <div class="report-group">
-          <input type="text" placeholder="Report Issue" />
-          <button>Submit</button>
+          <input type="text" placeholder="Describe the issue" v-model="issueText" />
+          <button @click="handleReportIssue">Submit</button>
+        </div>
+        <div class="report-group" style="margin-top:1rem;">
+          <input type="text" placeholder="App feedback (optional)" v-model="feedbackText" />
+          <button @click="handleGiveFeedback">Send</button>
         </div>
       </div>
     </section>
@@ -52,32 +56,95 @@
 <script>
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
+import { getUserProfile, getUserReviews } from '@/services/auth'
 
 export default {
   name: 'DashboardPage',
   components: { Header, Footer },
   data() {
     return {
-      reviews: [
-        {
-          canteenName: 'North Campus Cafe',
-          rating: 4,
-          text: 'Great food and friendly staff. Loved the samosas!',
-          images: ['https://via.placeholder.com/100', 'https://via.placeholder.com/100']
-        },
-        {
-          canteenName: 'South Block Diner',
-          rating: 5,
-          text: 'Clean, spacious, and the thali was amazing!',
-          images: ['https://via.placeholder.com/100']
-        }
-      ]
+      userInfo: {},
+      reviews: [],
+      issueText: '',
+      feedbackText: ''
     }
   },
   methods: {
     getStars(rating) {
       return '★'.repeat(rating) + '☆'.repeat(5 - rating)
+    },
+
+    async loadUserProfile() {
+      try {
+        const data = await getUserProfile()
+        this.userInfo = data
+      } catch (error) {
+        console.error('Error loading user profile:', error)
+      }
+    },
+
+    async loadUserReviews() {
+      try {
+        const data = await getUserReviews()
+        // `getUserReviews()` returns an array (res.data.reviews) in services/auth.js.
+        // Accept either an array or an object with a `reviews` property to be robust.
+        this.reviews = Array.isArray(data) ? data : (data.reviews || [])
+      } catch (error) {
+        console.error('Error loading user reviews:', error)
+      }
     }
+
+
+    async handleReportIssue() {
+      if (!this.issueText.trim()) {
+        alert('Please enter issue details')
+        return
+      }
+
+      try {
+        await this.$root.$options.config.globalProperties.$api // noop to satisfy linter
+      } catch (e) {}
+
+      try {
+        // lazy import service function to avoid changing imports at top
+        const { reportAppIssue } = await import('@/services/auth')
+        await reportAppIssue(this.issueText)
+        this.issueText = ''
+        alert('Issue reported — admin will review it.')
+      } catch (error) {
+        console.error('Report issue failed:', error)
+        alert('Failed to report issue')
+      }
+    },
+
+    async handleGiveFeedback() {
+      if (!this.feedbackText.trim()) {
+        alert('Please enter feedback')
+        return
+      }
+
+      try {
+        const { giveAppFeedback } = await import('@/services/auth')
+        await giveAppFeedback(this.feedbackText)
+        this.feedbackText = ''
+        alert('Thank you for your feedback!')
+      } catch (error) {
+        console.error('Send feedback failed:', error)
+        alert('Failed to send feedback')
+      }
+    }
+  },
+  async mounted() {
+    // Require authentication for this page (minimal change)
+    if (!localStorage.getItem('token')) {
+      // redirect to login if not authenticated
+      this.$router.push('/desktop6')
+      return
+    }
+
+    // load profile and reviews
+    await this.loadUserProfile()
+    await this.loadUserReviews()
   }
 }
 </script>
@@ -123,6 +190,7 @@ export default {
   font-weight: 600;
   font-family: 'Playfair Display', serif;
   font-style: italic;
+      
   color: #474747;
 }
 
