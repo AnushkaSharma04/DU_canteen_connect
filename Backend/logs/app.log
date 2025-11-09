@@ -3654,3 +3654,164 @@ mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'image_1' doesn't have
 2025-11-09 22:24:10,419 - werkzeug - INFO - 127.0.0.1 - - [09/Nov/2025 22:24:10] "OPTIONS /canteen_review_ratings?canteen_id=34 HTTP/1.1" 200 -
 2025-11-09 22:24:10,756 - root - INFO - Database connection established.
 2025-11-09 22:24:10,769 - werkzeug - INFO - 127.0.0.1 - - [09/Nov/2025 22:24:10] "GET /canteen_review_ratings?canteen_id=34 HTTP/1.1" 200 -
+2025-11-09 22:56:13,974 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-09 22:56:13,975 - app - INFO - Starting Flask application...
+2025-11-09 22:56:13,975 - app - INFO - Flask application created successfully
+2025-11-09 22:56:14,011 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.219.215.12:5000
+2025-11-09 22:56:14,012 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-09 22:56:14,013 - werkzeug - INFO -  * Restarting with stat
+2025-11-09 22:56:14,386 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-09 22:56:14,387 - app - INFO - Starting Flask application...
+2025-11-09 22:56:14,388 - app - INFO - Flask application created successfully
+2025-11-09 22:56:14,410 - werkzeug - WARNING -  * Debugger is active!
+2025-11-09 22:56:14,416 - werkzeug - INFO -  * Debugger PIN: 127-183-975
+2025-11-09 22:56:40,840 - werkzeug - INFO - 127.0.0.1 - - [09/Nov/2025 22:56:40] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-09 22:56:41,097 - root - INFO - Database connection established.
+2025-11-09 22:56:41,102 - werkzeug - INFO - 127.0.0.1 - - [09/Nov/2025 22:56:41] "GET /canteens HTTP/1.1" 200 -
+2025-11-09 22:56:49,223 - werkzeug - INFO - 127.0.0.1 - - [09/Nov/2025 22:56:49] "OPTIONS /display_user_info HTTP/1.1" 200 -
+2025-11-09 22:56:49,531 - root - INFO - Got user_id from JWT: 32
+2025-11-09 22:56:49,534 - root - INFO - Database connection established.
+2025-11-09 22:56:49,536 - werkzeug - INFO - 127.0.0.1 - - [09/Nov/2025 22:56:49] "GET /display_user_info HTTP/1.1" 200 -
+2025-11-09 22:56:49,794 - werkzeug - INFO - 127.0.0.1 - - [09/Nov/2025 22:56:49] "OPTIONS /display_user_reviews HTTP/1.1" 200 -
+2025-11-09 22:56:49,858 - root - INFO - Database connection established.
+2025-11-09 22:56:49,860 - root - INFO - Database connection established.
+2025-11-09 22:56:49,860 - root - ERROR - DB error in get_top_reviews_by_user for user_id 32: name 'limit' is not defined
+Traceback (most recent call last):
+  File "D:\CIC\SEM V\sd\DU_canteen_connect1\Backend\app\models.py", line 1099, in get_reviews_by_id_db
+    cursor.execute(query, (user_id, limit))
+                                    ^^^^^
+NameError: name 'limit' is not defined. Did you mean: 'list'?
+2025-11-09 22:56:49,863 - werkzeug - INFO - 127.0.0.1 - - [09/Nov/2025 22:56:49] "[33mGET /display_user_reviews HTTP/1.1[0m" 404 -
+2025-11-09 22:59:21,095 - werkzeug - INFO - 127.0.0.1 - - [09/Nov/2025 22:59:21] "OPTIONS /report_app_issue HTTP/1.1" 200 -
+2025-11-09 22:59:21,361 - root - INFO - Database connection established.
+2025-11-09 22:59:21,368 - root - INFO - Database connection established.
+2025-11-09 22:59:21,370 - root - INFO - Database connection established.
+2025-11-09 22:59:21,385 - werkzeug - INFO - 127.0.0.1 - - [09/Nov/2025 22:59:21] "[35m[1mPOST /report_app_issue HTTP/1.1[0m" 201 -
+2025-11-09 23:54:31,212 - werkzeug - INFO -  * Detected change in 'D:\\CIC\\SEM V\\sd\\DU_canteen_connect1\\Backend\\apis\\signup.py', reloading
+2025-11-09 23:54:31,290 - werkzeug - INFO -  * Restarting with stat
+2025-11-09 23:54:31,805 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-09 23:54:31,805 - app - INFO - Starting Flask application...
+2025-11-09 23:54:31,806 - app - INFO - Flask application created successfully
+2025-11-09 23:54:31,833 - werkzeug - WARNING -  * Debugger is active!
+2025-11-09 23:54:31,837 - werkzeug - INFO -  * Debugger PIN: 127-183-975
+2025-11-09 23:56:29,247 - werkzeug - INFO - 127.0.0.1 - - [09/Nov/2025 23:56:29] "[33mOPTIONS /admin/open_issues HTTP/1.1[0m" 404 -
+2025-11-09 23:56:29,250 - werkzeug - INFO - 127.0.0.1 - - [09/Nov/2025 23:56:29] "OPTIONS /admin/app_feedbacks HTTP/1.1" 200 -
+2025-11-09 23:56:29,510 - root - INFO - Database connection established.
+2025-11-09 23:56:29,512 - werkzeug - INFO - 127.0.0.1 - - [09/Nov/2025 23:56:29] "[31m[1mGET /admin/app_feedbacks HTTP/1.1[0m" 403 -
+2025-11-09 23:56:31,324 - werkzeug - INFO - 127.0.0.1 - - [09/Nov/2025 23:56:31] "[33mOPTIONS /admin/open_issues HTTP/1.1[0m" 404 -
+2025-11-09 23:56:31,632 - root - INFO - Database connection established.
+2025-11-09 23:56:31,633 - werkzeug - INFO - 127.0.0.1 - - [09/Nov/2025 23:56:31] "[31m[1mGET /admin/app_feedbacks HTTP/1.1[0m" 403 -
+2025-11-09 23:56:50,567 - werkzeug - INFO - 127.0.0.1 - - [09/Nov/2025 23:56:50] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-09 23:56:50,834 - root - INFO - Database connection established.
+2025-11-09 23:56:50,836 - werkzeug - INFO - 127.0.0.1 - - [09/Nov/2025 23:56:50] "GET /canteens HTTP/1.1" 200 -
+2025-11-09 23:57:03,920 - root - INFO - Database connection established.
+2025-11-09 23:57:03,924 - werkzeug - INFO - 127.0.0.1 - - [09/Nov/2025 23:57:03] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 00:15:07,644 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:15:07] "[33mGET /admin/open_issues HTTP/1.1[0m" 404 -
+2025-11-10 00:15:07,646 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:15:07] "[31m[1mGET /admin/app_feedbacks HTTP/1.1[0m" 401 -
+2025-11-10 00:21:07,746 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:21:07] "[31m[1mGET /admin/app_issues/open HTTP/1.1[0m" 401 -
+2025-11-10 00:21:07,747 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:21:07] "[31m[1mGET /admin/app_feedbacks HTTP/1.1[0m" 401 -
+2025-11-10 00:21:18,482 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:21:18] "[31m[1mGET /admin/app_issues/open HTTP/1.1[0m" 401 -
+2025-11-10 00:21:18,788 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:21:18] "[31m[1mGET /admin/app_feedbacks HTTP/1.1[0m" 401 -
+2025-11-10 00:22:12,106 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:22:12] "[31m[1mGET /admin/app_issues/open HTTP/1.1[0m" 401 -
+2025-11-10 00:22:12,106 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:22:12] "[31m[1mGET /admin/app_feedbacks HTTP/1.1[0m" 401 -
+2025-11-10 00:24:06,819 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:24:06] "[31m[1mGET /admin/app_issues/open HTTP/1.1[0m" 401 -
+2025-11-10 00:24:06,822 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:24:06] "[31m[1mGET /admin/app_feedbacks HTTP/1.1[0m" 401 -
+2025-11-10 00:24:15,444 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:24:15] "[31m[1mGET /admin/app_issues/open HTTP/1.1[0m" 401 -
+2025-11-10 00:24:15,746 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:24:15] "[31m[1mGET /admin/app_feedbacks HTTP/1.1[0m" 401 -
+2025-11-10 00:27:10,369 - root - INFO - Database connection established.
+2025-11-10 00:27:10,370 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:27:10] "[31m[1mPOST /signup HTTP/1.1[0m" 400 -
+2025-11-10 00:27:21,716 - root - INFO - Database connection established.
+2025-11-10 00:27:21,943 - root - INFO - Database connection established.
+2025-11-10 00:27:21,952 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:27:21] "[35m[1mPOST /signup HTTP/1.1[0m" 201 -
+2025-11-10 00:27:24,176 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:27:24] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 00:27:24,443 - root - INFO - Database connection established.
+2025-11-10 00:27:24,446 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:27:24] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 00:29:05,779 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:29:05] "OPTIONS /display_user_info HTTP/1.1" 200 -
+2025-11-10 00:29:06,055 - root - INFO - Got user_id from JWT: 35
+2025-11-10 00:29:06,057 - root - INFO - Database connection established.
+2025-11-10 00:29:06,058 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:29:06] "GET /display_user_info HTTP/1.1" 200 -
+2025-11-10 00:29:06,086 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:29:06] "OPTIONS /display_user_reviews HTTP/1.1" 200 -
+2025-11-10 00:29:06,384 - root - INFO - Database connection established.
+2025-11-10 00:29:06,386 - root - INFO - Database connection established.
+2025-11-10 00:29:06,386 - root - ERROR - DB error in get_top_reviews_by_user for user_id 35: name 'limit' is not defined
+Traceback (most recent call last):
+  File "D:\CIC\SEM V\sd\DU_canteen_connect1\Backend\app\models.py", line 1099, in get_reviews_by_id_db
+    cursor.execute(query, (user_id, limit))
+                                    ^^^^^
+NameError: name 'limit' is not defined. Did you mean: 'list'?
+2025-11-10 00:29:06,389 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:29:06] "[33mGET /display_user_reviews HTTP/1.1[0m" 404 -
+2025-11-10 00:30:18,667 - root - INFO - Database connection established.
+2025-11-10 00:30:19,115 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:30:19] "POST /login HTTP/1.1" 200 -
+2025-11-10 00:30:19,148 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:30:19] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 00:30:19,463 - root - INFO - Database connection established.
+2025-11-10 00:30:19,466 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:30:19] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 00:31:54,081 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:31:54] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 00:31:54,345 - root - INFO - Database connection established.
+2025-11-10 00:31:54,348 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:31:54] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 00:32:01,314 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:32:01] "OPTIONS /admin/app_issues/open HTTP/1.1" 200 -
+2025-11-10 00:32:01,616 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:32:01] "OPTIONS /admin/app_feedbacks HTTP/1.1" 200 -
+2025-11-10 00:32:01,633 - root - INFO - Database connection established.
+2025-11-10 00:32:01,636 - root - INFO - Database connection established.
+2025-11-10 00:32:01,639 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:32:01] "GET /admin/app_issues/open HTTP/1.1" 200 -
+2025-11-10 00:32:01,923 - root - INFO - Database connection established.
+2025-11-10 00:32:01,926 - root - INFO - Database connection established.
+2025-11-10 00:32:01,927 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:32:01] "GET /admin/app_feedbacks HTTP/1.1" 200 -
+2025-11-10 00:32:59,607 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:32:59] "OPTIONS /admin/app_issues/open HTTP/1.1" 200 -
+2025-11-10 00:32:59,607 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:32:59] "OPTIONS /admin/app_feedbacks HTTP/1.1" 200 -
+2025-11-10 00:32:59,870 - root - INFO - Database connection established.
+2025-11-10 00:32:59,873 - root - INFO - Database connection established.
+2025-11-10 00:32:59,874 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:32:59] "GET /admin/app_issues/open HTTP/1.1" 200 -
+2025-11-10 00:32:59,919 - root - INFO - Database connection established.
+2025-11-10 00:32:59,921 - root - INFO - Database connection established.
+2025-11-10 00:32:59,922 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:32:59] "GET /admin/app_feedbacks HTTP/1.1" 200 -
+2025-11-10 00:35:58,819 - werkzeug - INFO -  * Detected change in 'D:\\CIC\\SEM V\\sd\\DU_canteen_connect1\\Backend\\apis\\need_login.py', reloading
+2025-11-10 00:35:58,865 - werkzeug - INFO -  * Restarting with stat
+2025-11-10 00:39:05,668 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-10 00:39:05,668 - app - INFO - Starting Flask application...
+2025-11-10 00:39:05,670 - app - INFO - Flask application created successfully
+2025-11-10 00:39:05,709 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.18.131.186:5000
+2025-11-10 00:39:05,709 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-10 00:39:05,710 - werkzeug - INFO -  * Restarting with stat
+2025-11-10 00:39:06,049 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-10 00:39:06,049 - app - INFO - Starting Flask application...
+2025-11-10 00:39:06,050 - app - INFO - Flask application created successfully
+2025-11-10 00:39:06,072 - werkzeug - WARNING -  * Debugger is active!
+2025-11-10 00:39:06,077 - werkzeug - INFO -  * Debugger PIN: 127-183-975
+2025-11-10 00:39:09,665 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:39:09] "OPTIONS /admin/app_issues/open HTTP/1.1" 200 -
+2025-11-10 00:39:09,666 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:39:09] "OPTIONS /admin/app_feedbacks HTTP/1.1" 200 -
+2025-11-10 00:39:09,934 - root - INFO - Database connection established.
+2025-11-10 00:39:09,937 - root - INFO - Database connection established.
+2025-11-10 00:39:09,938 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:39:09] "GET /admin/app_issues/open HTTP/1.1" 200 -
+2025-11-10 00:39:09,975 - root - INFO - Database connection established.
+2025-11-10 00:39:09,977 - root - INFO - Database connection established.
+2025-11-10 00:39:09,979 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:39:09] "GET /admin/app_feedbacks HTTP/1.1" 200 -
+2025-11-10 00:46:22,902 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:46:22] "OPTIONS /admin/app_issues/open HTTP/1.1" 200 -
+2025-11-10 00:46:22,902 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:46:22] "OPTIONS /admin/app_feedbacks HTTP/1.1" 200 -
+2025-11-10 00:46:23,164 - root - INFO - Database connection established.
+2025-11-10 00:46:23,166 - root - INFO - Database connection established.
+2025-11-10 00:46:23,168 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:46:23] "GET /admin/app_issues/open HTTP/1.1" 200 -
+2025-11-10 00:46:23,211 - root - INFO - Database connection established.
+2025-11-10 00:46:23,213 - root - INFO - Database connection established.
+2025-11-10 00:46:23,214 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:46:23] "GET /admin/app_feedbacks HTTP/1.1" 200 -
+2025-11-10 00:49:38,633 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:49:38] "OPTIONS /admin/app_issues/open HTTP/1.1" 200 -
+2025-11-10 00:49:38,636 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:49:38] "OPTIONS /admin/app_feedbacks HTTP/1.1" 200 -
+2025-11-10 00:49:38,899 - root - INFO - Database connection established.
+2025-11-10 00:49:38,903 - root - INFO - Database connection established.
+2025-11-10 00:49:38,905 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:49:38] "GET /admin/app_issues/open HTTP/1.1" 200 -
+2025-11-10 00:49:38,944 - root - INFO - Database connection established.
+2025-11-10 00:49:38,947 - root - INFO - Database connection established.
+2025-11-10 00:49:38,948 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:49:38] "GET /admin/app_feedbacks HTTP/1.1" 200 -
+2025-11-10 00:52:32,812 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:52:32] "OPTIONS /admin/app_issues/open HTTP/1.1" 200 -
+2025-11-10 00:52:32,813 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:52:32] "OPTIONS /admin/app_feedbacks HTTP/1.1" 200 -
+2025-11-10 00:52:33,067 - root - INFO - Database connection established.
+2025-11-10 00:52:33,069 - root - INFO - Database connection established.
+2025-11-10 00:52:33,071 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:52:33] "GET /admin/app_issues/open HTTP/1.1" 200 -
+2025-11-10 00:52:33,126 - root - INFO - Database connection established.
+2025-11-10 00:52:33,128 - root - INFO - Database connection established.
+2025-11-10 00:52:33,129 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:52:33] "GET /admin/app_feedbacks HTTP/1.1" 200 -

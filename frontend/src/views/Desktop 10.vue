@@ -3,40 +3,57 @@
     <!-- Header -->
     <Header />
 
-    <!-- Reported Issues -->
-    <section class="card issues-section">
-      <h2>Reported Issues</h2>
-      <ul class="issue-list">
-        <li v-for="(issue, index) in reportedIssues" :key="index">
-          {{ issue }}
-        </li>
-      </ul>
-    </section>
+    <!-- Loading State -->
+    <div v-if="loading" class="loading-message">
+      <p>Loading admin data...</p>
+    </div>
 
-    <!-- Feedback/Suggestions -->
-    <section class="card feedback-section">
-      <h2>Feedback/Suggestions</h2>
-      <ul class="feedback-list">
-        <li v-for="(feedback, index) in feedbackEntries" :key="index">
-          {{ feedback }}
-        </li>
-      </ul>
-    </section>
+    <!-- Error State -->
+    <div v-if="error" class="error-message">
+      <p>{{ error }}</p>
+      <button @click="loadAdminData">Retry</button>
+    </div>
 
-    <!-- Reviews and Ratings -->
-    <section class="card review-section">
-      <h2>Reviews and Ratings</h2>
-      <ul class="review-list">
-        <li v-for="(review, index) in reviews" :key="index" class="review-item">
-          <span class="stars">{{ getStars(review.rating) }}</span>
-          <span class="review-text">{{ review.text }}</span>
-          <div class="review-actions">
-            <button @click="editReview(index)">✎</button>
-            <button @click="deleteReview(index)">✕</button>
-          </div>
-        </li>
-      </ul>
-    </section>
+    <!-- Content (only show when not loading and no error) -->
+    <template v-if="!loading && !error">
+      <!-- Reported Issues -->
+      <section class="card issues-section">
+        <h2>Reported Issues</h2>
+        <ul class="issue-list" v-if="reportedIssues.length > 0">
+          <li v-for="issue in reportedIssues" :key="issue.id">
+            {{ issue.display }}
+          </li>
+        </ul>
+        <p v-else class="empty-message">No issues reported yet.</p>
+      </section>
+
+      <!-- Feedback/Suggestions -->
+      <section class="card feedback-section">
+        <h2>Feedback/Suggestions</h2>
+        <ul class="feedback-list" v-if="feedbackEntries.length > 0">
+          <li v-for="feedback in feedbackEntries" :key="`${feedback.id}-${feedback.slot}`">
+            {{ feedback.display }}
+          </li>
+        </ul>
+        <p v-else class="empty-message">No feedback received yet.</p>
+      </section>
+
+      <!-- Reviews and Ratings -->
+      <section class="card review-section">
+        <h2>Reviews and Ratings</h2>
+        <p class="info-message">Review management here.</p>
+        <ul class="review-list" v-if="reviews.length > 0">
+          <li v-for="(review, index) in reviews" :key="index" class="review-item">
+            <span class="stars">{{ getStars(review.rating) }}</span>
+            <span class="review-text">{{ review.text }}</span>
+            <div class="review-actions">
+              <button @click="editReview(index)">✎</button>
+              <button @click="deleteReview(index)">✕</button>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </template>
 
     <!-- Footer -->
     <Footer />
@@ -46,32 +63,79 @@
 <script>
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
+import { getOpenIssues, getAppFeedbacks } from '@/services/admin'
 
 export default {
   name: 'AdminDashboard',
   components: { Header, Footer },
   data() {
     return {
-      reportedIssues: [
-        'UserId Name Phone number Issue1',
-        'UserId Name Phone number Issue2',
-        'UserId Name Phone number Issue3'
-      ],
-      feedbackEntries: [
-        'UserId Name Phone number Feedback1',
-        'UserId Name Phone number Feedback2',
-        'UserId Name Phone number Feedback3'
-      ],
-      reviews: [
-        { rating: 5, text: 'review1' },
-        { rating: 5, text: 'review2' },
-        { rating: 5, text: 'review3' },
-        { rating: 5, text: 'review4' },
-        { rating: 5, text: 'review5' }
-      ]
+      reportedIssues: [],
+      feedbackEntries: [],
+      reviews: [],
+      loading: true,
+      error: null
     }
   },
+  async mounted() {
+    // Verify JWT token exists
+    const token = localStorage.getItem('token')
+    if (!token) {
+      this.$router.push('/desktop6')
+      return
+    }
+
+    await this.loadAdminData()
+  },
   methods: {
+    async loadAdminData() {
+      try {
+        this.loading = true
+        this.error = null
+
+        // Fetch issues and feedbacks in parallel
+        const [issuesResponse, feedbacksResponse] = await Promise.all([
+          getOpenIssues(),
+          getAppFeedbacks()
+        ])
+
+        // Process issues
+        if (issuesResponse.issues) {
+          this.reportedIssues = issuesResponse.issues.map(issue => ({
+            id: issue.issue_id,
+            userId: issue.user_id,
+            role: issue.role,
+            text: issue.issue_text,
+            createdAt: issue.created_at,
+            display: `User ${issue.user_id} (${issue.role}): ${issue.issue_text}`
+          }))
+        }
+
+        // Process feedbacks
+        if (feedbacksResponse.feedbacks) {
+          this.feedbackEntries = feedbacksResponse.feedbacks.map(feedback => ({
+            id: feedback.feedback_id,
+            userId: feedback.user_id,
+            text: feedback.feedback_text,
+            slot: feedback.slot,
+            createdAt: feedback.created_at,
+            display: `User ${feedback.user_id}: ${feedback.feedback_text}`
+          }))
+        }
+
+        this.loading = false
+      } catch (err) {
+        console.error('Error loading admin data:', err)
+        this.error = err.response?.data?.message || 'Failed to load admin data'
+        this.loading = false
+
+        // If unauthorized, redirect to login
+        if (err.response?.status === 401 || err.response?.status === 403) {
+          localStorage.removeItem('token')
+          this.$router.push('/desktop6')
+        }
+      }
+    },
     getStars(rating) {
       return '✪'.repeat(rating)
     },
@@ -156,6 +220,39 @@ export default {
   border-radius: 20px;
   padding: 2rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Loading and Error Messages */
+.loading-message,
+.error-message {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(219, 223, 208, 0.18);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.error-message {
+  color: #c0392b;
+}
+
+.error-message button {
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  background: #474747;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.empty-message,
+.info-message {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 1rem;
 }
 
 /* Lists */
