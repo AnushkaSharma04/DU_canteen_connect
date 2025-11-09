@@ -55,10 +55,13 @@
       <div class="menu-content">
         <div class="menu-list-wrapper">
           <ul class="menu-list">
-            <li v-for="(item, index) in menu" :key="index">
-              <span>{{ item?.name || 'Unnamed item' }}</span>
-              <span class="price">₹{{ item?.price || '-' }}</span>
+           <div v-for="(item, index) in menu" :key="index">
+           <h1>{{item?.day || '-'}}</h1>
+            <li v-for="(dayMenu ,idx) in zip(item.items, item.price)" :key="idx">
+              <span>{{ dayMenu[0] || 'Unnamed item' }}</span>
+              <span class="price">₹{{ dayMenu[1]|| '-' }}</span>
             </li>
+           </div>
           </ul>
         </div>
         <div class="divider-line"></div>
@@ -172,6 +175,11 @@ export default {
       return '★'.repeat(Math.round(rating))
     },
 
+    zip(a, b) {
+      if (!Array.isArray(a) || !Array.isArray(b)) return []
+      return a.map((item, i) => [item, b[i]])
+    },
+
     async submitReview() {
       if (
         !this.newReviewText ||
@@ -225,14 +233,15 @@ export default {
     }
 
     try {
-      const [info, menuData, reviewsData] = await Promise.all([
-        fetchCanteenInfo(canteenId),
-        fetchCanteenMenu(canteenId),
-        fetchCanteenReviews(canteenId)
-      ])
+      const info = await fetchCanteenInfo(canteenId);
+      const menuData = await fetchCanteenMenu(canteenId);
+      const reviewsData = await fetchCanteenReviews(canteenId)
+
+      console.log('info: ', info, 'menuData: ', menuData, 'reviewsData: ', reviewsData)
 
       this.canteenInfo = info
-      this.menu = menuData?.menu || []
+      console.log('menu data: ', menuData)
+      this.menu = menuData
       this.reviews = reviewsData?.top_reviews || []
       this.ratings = info?.ratings || null
     } catch (err) {

@@ -10,11 +10,11 @@ import re
 import logging
 import base64
 import random
+import json
 
 bcrypt = Bcrypt()
 
 def get_db_connection():
-
     try:
         db_host = os.getenv('DB_HOST', 'localhost')
         db_user = os.getenv('DB_USER', 'root')
@@ -1002,7 +1002,7 @@ def get_canteen_menu_from_db(canteen_id):
         if not menu:
             cursor.close()
             conn.close()
-            return {"message": "Menu not found for this canteen"}
+            return None # it is changed from {"message": "Menu not found for this canteen"} as we are already handling menu not found in parent functions
 
         # Step 2: If menu_file exists, return it directly
         if menu["menu_file"]:
@@ -1028,7 +1028,7 @@ def get_canteen_menu_from_db(canteen_id):
                 ("Saturday", "saturday_price"),
                 ("Sunday", "sunday_price")
             ]
-            day_wise_menu = {}
+            day_wise_menu = [] # changed from {}
 
             for day, price_col in day_columns:
                 food_ids_text = menu.get(day)
@@ -1037,23 +1037,31 @@ def get_canteen_menu_from_db(canteen_id):
                 if not food_ids_text:
                     continue
 
-                # Convert comma-separated food_ids into list
-                food_ids = [fid.strip() for fid in food_ids_text.split(",") if fid.strip().isdigit()]
+                # # Convert comma-separated food_ids into list
+                # food_ids = [fid.strip() for fid in food_ids_text.split(",") if fid.strip().isdigit()]
 
-                if not food_ids:
-                    continue
+                # if not food_ids:
+                #     continue
 
-                # Fetch food item names
-                format_strings = ','.join(['%s'] * len(food_ids))
-                query_foods = f"SELECT name FROM food_items WHERE food_id IN ({format_strings}) AND menu_id = %s"
-                cursor.execute(query_foods, (*food_ids, menu_id))
-                food_names = [row["name"] for row in cursor.fetchall()]
+                # # Fetch food item names
+                # format_strings = ','.join(['%s'] * len(food_ids))
+                # query_foods = f"SELECT name FROM food_items WHERE food_id IN ({format_strings}) AND menu_id = %s"
+                # cursor.execute(query_foods, (*food_ids, menu_id))
+                # food_names = [row["name"] for row in cursor.fetchall()]
 
-                # Combine food names with price info
-                day_wise_menu[day] = {
-                    "items": ", ".join(food_names),
-                    "price": prices_text
+                # # Combine food names with price info
+                # day_wise_menu[day] = {
+                #     "items": ", ".join(food_names),
+                #     "price": prices_text
+                # }
+
+                newEntry = {
+                    "day": day,
+                    "items": food_ids_text,
+                    "price": prices_text,
                 }
+
+                day_wise_menu.append(newEntry)
 
             cursor.close()
             conn.close()
