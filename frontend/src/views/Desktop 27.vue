@@ -80,10 +80,11 @@
       <div class="review-header-block">
         <h3>Reviews</h3>
         <div class="ratings-breakdown">
-          <span><strong>Food:</strong> {{ getStars(ratings?.foodRating) || 'N/A' }}</span>
-          <span><strong>Staff:</strong> {{ getStars(ratings?.staffRating) || 'N/A' }}</span>
-          <span><strong>Hygiene:</strong> {{ getStars(ratings?.hygieneRating) || 'N/A' }}</span>
-          <span><strong>Facility:</strong> {{ getStars(ratings?.facilityRating) || 'N/A' }}</span>
+          <span><strong>Food:</strong> {{ getStars(ratings.overall_food) || 'N/A' }}</span>
+          <span><strong>Staff:</strong> {{ getStars(ratings.overall_staff) || 'N/A' }}</span>
+          <span><strong>Hygiene:</strong> {{ getStars(ratings.overall_hygiene) || 'N/A' }}</span>
+          <span><strong>Facility:</strong> {{ getStars(ratings.overall_facilities) || 'N/A' }}</span>
+          <span><strong>Overall:</strong> {{ getStars(ratings.overall_rating) || 'N/A' }}</span>
         </div>
       </div>
 
@@ -92,7 +93,7 @@
           <li v-for="(review, index) in reviews || []" :key="index">
             <div class="review-item">
               <div class="review-text">
-                {{ review?.text || 'No review text' }} — <span class="stars">{{ review?.rating || 'N/A' }}</span>
+                {{ review?.review_text || 'No review text' }} — <span class="stars">({{ review?.overall_rating || 'N/A' }})</span>
               </div>
               <div class="review-square"></div>
             </div>
@@ -243,7 +244,7 @@ export default {
       console.log('menu data: ', menuData)
       this.menu = menuData
       this.reviews = reviewsData?.top_reviews || []
-      this.ratings = info?.ratings || null
+      this.ratings = reviewsData || null
     } catch (err) {
       console.error(err)
       this.errorMsg = 'Error fetching canteen data'

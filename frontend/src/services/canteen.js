@@ -1,8 +1,13 @@
 import api from './api'
 
 export const fetchAllCanteens = async () => {
-  const res = await api.get('/canteens')
-  return res.data.canteens || []
+  try {
+    const res = await api.get('/canteens')
+    return res.data.canteens || []
+  } catch (error) {
+    console.log(error)
+    return [];
+  }
 }
 
 export const fetchCanteenInfo = async (canteenId) => {
@@ -37,7 +42,9 @@ export const fetchCanteenMenu = async (canteenId) => {
 export const fetchCanteenReviews = async (canteenId) => {
   try {
     const res = await api.get(`/canteen_review_ratings?canteen_id=${canteenId}`)
-    return res.data.data || []
+    console.log('response from retings and review fetch: ', res)
+    console.log('ratings: ', res.data.data)
+    return res.data.data || null ;
   } catch (error) {
     console.log(error)
     return null ;

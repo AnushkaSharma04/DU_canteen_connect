@@ -379,44 +379,22 @@ def insert_review_for_canteen(canteen_id, user_id,
         cursor = conn.cursor()
 
         now = datetime.utcnow()
-
-        # Try PostgreSQL RETURNING first, fallback to insert+lastrowid for MySQL
-        try:
-            insert_pg = """
-                INSERT INTO canteen_reviews
-                    (canteen_id, user_id, overall_rating, food_rating, hygiene_rating,
-                     staff_rating, facilities_rating, review_text, created_at)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                RETURNING review_id
-            """
-            cursor.execute(insert_pg, (
-                canteen_id, user_id, overall_rating, food_rating, hygiene_rating,
-                staff_rating, facilities_rating, review_text, now
-            ))
-            row = cursor.fetchone()
-            review_id = row[0] if row else None
-        except Exception:
-            # fallback path (MySQL, sqlite)
-            try:
-                conn.rollback()
-            except Exception:
-                pass
-            insert_q = """
-                INSERT INTO canteen_reviews
-                    (canteen_id, user_id, overall_rating, food_rating, hygiene_rating,
-                     staff_rating, facilities_rating, review_text, created_at)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-            """
-            cursor.execute(insert_q, (
-                canteen_id, user_id, overall_rating, food_rating, hygiene_rating,
-                staff_rating, facilities_rating, review_text, now
-            ))
-            try:
-                review_id = cursor.lastrowid
-            except Exception:
-                review_id = None
+        
+        insert_q = """
+            INSERT INTO canteen_reviews
+                (canteen_id, user_id, overall_rating, food_rating, hygiene_rating,
+                 staff_rating, facilities_rating, review_text, created_at)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """
+        cursor.execute(insert_q, (
+            canteen_id, user_id, overall_rating, food_rating, hygiene_rating,
+            staff_rating, facilities_rating, review_text, now
+        ))
 
         conn.commit()
+        
+        review_id = cursor.lastrowid
+
         return {"review_id": review_id}
 
     except Exception as e:
@@ -942,7 +920,7 @@ def get_canteen_reviews_and_ratings_from_db(canteen_id):
         if not canteen:
             cursor.close()
             conn.close()
-            return None  
+            return None
 
         query_reviews = """
             SELECT 
@@ -967,8 +945,12 @@ def get_canteen_reviews_and_ratings_from_db(canteen_id):
         
         import base64
         for review in reviews:
-            if review["image"]:
-                review["image"] = base64.b64encode(review["image"]).decode("utf-8")
+            if review["image_1"]:
+                review["image_1"] = base64.b64encode(review["image_1"]).decode("utf-8")
+            if review["image_2"]:
+                review["image_2"] = base64.b64encode(review["image_2"]).decode("utf-8")
+            if review["image_3"]:
+                review["image_3"] = base64.b64encode(review["image_3"]).decode("utf-8")
 
         return {
             "canteen_id": canteen["canteen_id"],
