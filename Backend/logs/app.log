@@ -3815,3 +3815,531 @@ NameError: name 'limit' is not defined. Did you mean: 'list'?
 2025-11-10 00:52:33,126 - root - INFO - Database connection established.
 2025-11-10 00:52:33,128 - root - INFO - Database connection established.
 2025-11-10 00:52:33,129 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:52:33] "GET /admin/app_feedbacks HTTP/1.1" 200 -
+2025-11-10 00:57:45,098 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:57:45] "OPTIONS /admin/app_issues/open HTTP/1.1" 200 -
+2025-11-10 00:57:45,099 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:57:45] "OPTIONS /admin/app_feedbacks HTTP/1.1" 200 -
+2025-11-10 00:57:45,347 - root - INFO - Database connection established.
+2025-11-10 00:57:45,350 - root - INFO - Database connection established.
+2025-11-10 00:57:45,353 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:57:45] "GET /admin/app_issues/open HTTP/1.1" 200 -
+2025-11-10 00:57:45,410 - root - INFO - Database connection established.
+2025-11-10 00:57:45,412 - root - INFO - Database connection established.
+2025-11-10 00:57:45,414 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 00:57:45] "GET /admin/app_feedbacks HTTP/1.1" 200 -
+2025-11-10 10:44:47,240 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-10 10:44:47,242 - app - INFO - Starting Flask application...
+2025-11-10 10:44:47,246 - app - INFO - Flask application created successfully
+2025-11-10 10:44:47,357 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.18.131.186:5000
+2025-11-10 10:44:47,358 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-10 10:44:47,361 - werkzeug - INFO -  * Restarting with stat
+2025-11-10 10:44:48,358 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-10 10:44:48,359 - app - INFO - Starting Flask application...
+2025-11-10 10:44:48,362 - app - INFO - Flask application created successfully
+2025-11-10 10:44:48,423 - werkzeug - WARNING -  * Debugger is active!
+2025-11-10 10:44:48,437 - werkzeug - INFO -  * Debugger PIN: 127-183-975
+2025-11-10 10:46:18,665 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:46:18] "OPTIONS /display_user_info HTTP/1.1" 200 -
+2025-11-10 10:46:19,090 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:46:19] "[35m[1mGET /display_user_info HTTP/1.1[0m" 500 -
+2025-11-10 10:46:19,102 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:46:19] "OPTIONS /display_user_reviews HTTP/1.1" 200 -
+2025-11-10 10:46:19,472 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:46:19] "[35m[1mGET /display_user_reviews HTTP/1.1[0m" 500 -
+2025-11-10 10:46:23,309 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:46:23] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 10:46:23,640 - root - INFO - Database connection established.
+2025-11-10 10:46:23,685 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:46:23] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 10:48:07,561 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:48:07] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 10:48:07,817 - root - INFO - Database connection established.
+2025-11-10 10:48:07,823 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:48:07] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 10:48:29,028 - root - INFO - Database connection established.
+2025-11-10 10:48:30,051 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:48:30] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-10 10:52:23,186 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-10 10:52:23,187 - app - INFO - Starting Flask application...
+2025-11-10 10:52:23,189 - app - INFO - Flask application created successfully
+2025-11-10 10:52:23,291 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.18.131.186:5000
+2025-11-10 10:52:23,292 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-10 10:52:23,296 - werkzeug - INFO -  * Restarting with stat
+2025-11-10 10:52:24,274 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-10 10:52:24,275 - app - INFO - Starting Flask application...
+2025-11-10 10:52:24,277 - app - INFO - Flask application created successfully
+2025-11-10 10:52:24,331 - werkzeug - WARNING -  * Debugger is active!
+2025-11-10 10:52:24,343 - werkzeug - INFO -  * Debugger PIN: 127-183-975
+2025-11-10 10:52:51,391 - root - INFO - Database connection established.
+2025-11-10 10:52:52,432 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:52:52] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-10 10:53:25,328 - root - INFO - Database connection established.
+2025-11-10 10:53:26,325 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:53:26] "POST /login HTTP/1.1" 200 -
+2025-11-10 10:53:26,720 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:53:26] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 10:53:26,988 - root - INFO - Database connection established.
+2025-11-10 10:53:26,994 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:53:26] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 10:53:56,149 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:53:56] "OPTIONS /canteen_info?canteen_id=1 HTTP/1.1" 200 -
+2025-11-10 10:53:56,474 - root - INFO - Database connection established.
+2025-11-10 10:53:56,479 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:53:56] "GET /canteen_info?canteen_id=1 HTTP/1.1" 200 -
+2025-11-10 10:53:56,721 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:53:56] "OPTIONS /canteen_menu_details?canteen_id=1 HTTP/1.1" 200 -
+2025-11-10 10:53:56,801 - root - INFO - Database connection established.
+2025-11-10 10:53:56,807 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:53:56] "[33mGET /canteen_menu_details?canteen_id=1 HTTP/1.1[0m" 404 -
+2025-11-10 10:53:57,048 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:53:57] "OPTIONS /canteen_review_ratings?canteen_id=1 HTTP/1.1" 200 -
+2025-11-10 10:53:57,130 - root - INFO - Database connection established.
+2025-11-10 10:53:57,137 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:53:57] "GET /canteen_review_ratings?canteen_id=1 HTTP/1.1" 200 -
+2025-11-10 10:54:17,200 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:54:17] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 10:54:17,510 - root - INFO - Database connection established.
+2025-11-10 10:54:17,516 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:54:17] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 10:54:47,285 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:54:47] "OPTIONS /display_user_info HTTP/1.1" 200 -
+2025-11-10 10:54:47,601 - root - INFO - Got user_id from JWT: 35
+2025-11-10 10:54:47,605 - root - INFO - Database connection established.
+2025-11-10 10:54:47,608 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:54:47] "[31m[1mGET /display_user_info HTTP/1.1[0m" 403 -
+2025-11-10 10:54:47,849 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:54:47] "OPTIONS /display_user_reviews HTTP/1.1" 200 -
+2025-11-10 10:54:47,930 - root - INFO - Database connection established.
+2025-11-10 10:54:47,934 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:54:47] "[31m[1mGET /display_user_reviews HTTP/1.1[0m" 403 -
+2025-11-10 10:55:14,333 - root - INFO - Database connection established.
+2025-11-10 10:55:15,328 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:55:15] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-10 10:55:26,810 - root - INFO - Database connection established.
+2025-11-10 10:55:27,801 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:55:27] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-10 10:55:54,052 - root - INFO - Database connection established.
+2025-11-10 10:55:55,068 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:55:55] "POST /login HTTP/1.1" 200 -
+2025-11-10 10:55:55,460 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:55:55] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 10:55:55,715 - root - INFO - Database connection established.
+2025-11-10 10:55:55,720 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:55:55] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 10:56:08,837 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:56:08] "OPTIONS /display_user_info HTTP/1.1" 200 -
+2025-11-10 10:56:09,149 - root - INFO - Got user_id from JWT: 32
+2025-11-10 10:56:09,154 - root - INFO - Database connection established.
+2025-11-10 10:56:09,157 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:56:09] "GET /display_user_info HTTP/1.1" 200 -
+2025-11-10 10:56:09,403 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:56:09] "OPTIONS /display_user_reviews HTTP/1.1" 200 -
+2025-11-10 10:56:09,485 - root - INFO - Database connection established.
+2025-11-10 10:56:09,491 - root - INFO - Database connection established.
+2025-11-10 10:56:09,492 - root - ERROR - DB error in get_top_reviews_by_user for user_id 32: name 'limit' is not defined
+Traceback (most recent call last):
+  File "D:\CIC\SEM V\sd\DU_canteen_connect1\Backend\app\models.py", line 1099, in get_reviews_by_id_db
+    cursor.execute(query, (user_id, limit))
+                                    ^^^^^
+NameError: name 'limit' is not defined. Did you mean: 'list'?
+2025-11-10 10:56:09,499 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:56:09] "[33mGET /display_user_reviews HTTP/1.1[0m" 404 -
+2025-11-10 10:56:19,131 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:56:19] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 10:56:19,447 - root - INFO - Database connection established.
+2025-11-10 10:56:19,467 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:56:19] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 10:57:16,386 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:57:16] "OPTIONS /canteen_info?canteen_id=2 HTTP/1.1" 200 -
+2025-11-10 10:57:16,711 - root - INFO - Database connection established.
+2025-11-10 10:57:16,714 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:57:16] "GET /canteen_info?canteen_id=2 HTTP/1.1" 200 -
+2025-11-10 10:57:16,959 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:57:16] "OPTIONS /canteen_menu_details?canteen_id=2 HTTP/1.1" 200 -
+2025-11-10 10:57:17,039 - root - INFO - Database connection established.
+2025-11-10 10:57:17,042 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:57:17] "[33mGET /canteen_menu_details?canteen_id=2 HTTP/1.1[0m" 404 -
+2025-11-10 10:57:17,273 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:57:17] "OPTIONS /canteen_review_ratings?canteen_id=2 HTTP/1.1" 200 -
+2025-11-10 10:57:17,369 - root - INFO - Database connection established.
+2025-11-10 10:57:17,374 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:57:17] "GET /canteen_review_ratings?canteen_id=2 HTTP/1.1" 200 -
+2025-11-10 10:57:31,761 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:57:31] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 10:57:32,077 - root - INFO - Database connection established.
+2025-11-10 10:57:32,082 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:57:32] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 10:57:34,960 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:57:34] "OPTIONS /canteen_info?canteen_id=30 HTTP/1.1" 200 -
+2025-11-10 10:57:35,292 - root - INFO - Database connection established.
+2025-11-10 10:57:35,294 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:57:35] "GET /canteen_info?canteen_id=30 HTTP/1.1" 200 -
+2025-11-10 10:57:35,534 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:57:35] "OPTIONS /canteen_menu_details?canteen_id=30 HTTP/1.1" 200 -
+2025-11-10 10:57:35,621 - root - INFO - Database connection established.
+2025-11-10 10:57:35,636 - root - ERROR - Error fetching canteen menu for canteen_id 30: 'day_wise'
+2025-11-10 10:57:35,637 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:57:35] "[33mGET /canteen_menu_details?canteen_id=30 HTTP/1.1[0m" 404 -
+2025-11-10 10:57:35,852 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:57:35] "OPTIONS /canteen_review_ratings?canteen_id=30 HTTP/1.1" 200 -
+2025-11-10 10:57:35,962 - root - INFO - Database connection established.
+2025-11-10 10:57:35,967 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:57:35] "GET /canteen_review_ratings?canteen_id=30 HTTP/1.1" 200 -
+2025-11-10 10:57:39,290 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:57:39] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 10:57:39,605 - root - INFO - Database connection established.
+2025-11-10 10:57:39,611 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 10:57:39] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 11:00:33,015 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:00:33] "[31m[1mPOST /signup HTTP/1.1[0m" 400 -
+2025-11-10 11:00:44,577 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:00:44] "[31m[1mPOST /signup HTTP/1.1[0m" 400 -
+2025-11-10 11:01:00,565 - root - INFO - Database connection established.
+2025-11-10 11:01:01,065 - root - INFO - Database connection established.
+2025-11-10 11:01:01,072 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:01:01] "[35m[1mPOST /signup HTTP/1.1[0m" 201 -
+2025-11-10 11:06:16,946 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:06:16] "OPTIONS /create_canteen_profile HTTP/1.1" 200 -
+2025-11-10 11:06:17,216 - root - INFO - Database connection established.
+2025-11-10 11:06:17,233 - root - ERROR - Error adding canteen profile: Not all parameters were used in the SQL statement
+Traceback (most recent call last):
+  File "D:\CIC\SEM V\sd\DU_canteen_connect1\Backend\app\models.py", line 140, in add_canteen_profile
+    cursor.execute(menu_insert_query, menu_values)
+  File "C:\Users\Nitish\AppData\Roaming\Python\Python312\site-packages\mysql\connector\cursor.py", line 542, in execute
+    raise errors.ProgrammingError(
+mysql.connector.errors.ProgrammingError: Not all parameters were used in the SQL statement
+2025-11-10 11:06:17,261 - root - ERROR - Error creating canteen profile: 'int' object has no attribute 'get'
+2025-11-10 11:06:17,263 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:06:17] "[35m[1mPOST /create_canteen_profile HTTP/1.1[0m" 500 -
+2025-11-10 11:18:03,065 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-10 11:18:03,067 - app - INFO - Starting Flask application...
+2025-11-10 11:18:03,069 - app - INFO - Flask application created successfully
+2025-11-10 11:18:03,163 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.18.131.186:5000
+2025-11-10 11:18:03,164 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-10 11:18:03,167 - werkzeug - INFO -  * Restarting with stat
+2025-11-10 11:18:04,066 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-10 11:18:04,067 - app - INFO - Starting Flask application...
+2025-11-10 11:18:04,069 - app - INFO - Flask application created successfully
+2025-11-10 11:18:04,138 - werkzeug - WARNING -  * Debugger is active!
+2025-11-10 11:18:04,157 - werkzeug - INFO -  * Debugger PIN: 127-183-975
+2025-11-10 11:18:08,584 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:18:08] "OPTIONS /create_canteen_profile HTTP/1.1" 200 -
+2025-11-10 11:18:08,863 - root - INFO - Database connection established.
+2025-11-10 11:18:08,870 - root - ERROR - Error adding canteen profile: 1054 (42S22): Unknown column 'day_wise' in 'field list'
+Traceback (most recent call last):
+  File "D:\CIC\SEM V\sd\DU_canteen_connect1\Backend\app\models.py", line 157, in add_canteen_profile
+    cursor.execute(menu_insert_query, menu_values)
+  File "C:\Users\Nitish\AppData\Roaming\Python\Python312\site-packages\mysql\connector\cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nitish\AppData\Roaming\Python\Python312\site-packages\mysql\connector\connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nitish\AppData\Roaming\Python\Python312\site-packages\mysql\connector\connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'day_wise' in 'field list'
+2025-11-10 11:18:08,878 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:18:08] "[35m[1mPOST /create_canteen_profile HTTP/1.1[0m" 500 -
+2025-11-10 11:18:27,958 - werkzeug - INFO -  * Detected change in 'D:\\CIC\\SEM V\\sd\\DU_canteen_connect1\\Backend\\app\\models.py', reloading
+2025-11-10 11:18:28,094 - werkzeug - INFO -  * Restarting with stat
+2025-11-10 11:18:29,326 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-10 11:18:29,327 - app - INFO - Starting Flask application...
+2025-11-10 11:18:29,331 - app - INFO - Flask application created successfully
+2025-11-10 11:18:29,393 - werkzeug - WARNING -  * Debugger is active!
+2025-11-10 11:18:29,404 - werkzeug - INFO -  * Debugger PIN: 127-183-975
+2025-11-10 11:18:32,774 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:18:32] "OPTIONS /create_canteen_profile HTTP/1.1" 200 -
+2025-11-10 11:18:32,777 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:18:32] "OPTIONS /create_canteen_profile HTTP/1.1" 200 -
+2025-11-10 11:18:33,117 - root - INFO - Database connection established.
+2025-11-10 11:18:33,117 - root - INFO - Database connection established.
+2025-11-10 11:18:33,132 - root - ERROR - Error adding canteen profile: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(yes/no),
+                Monday, monday_price,
+                Tuesday, tues...' at line 3
+Traceback (most recent call last):
+  File "D:\CIC\SEM V\sd\DU_canteen_connect1\Backend\app\models.py", line 157, in add_canteen_profile
+    cursor.execute(menu_insert_query, menu_values)
+  File "C:\Users\Nitish\AppData\Roaming\Python\Python312\site-packages\mysql\connector\cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nitish\AppData\Roaming\Python\Python312\site-packages\mysql\connector\connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nitish\AppData\Roaming\Python\Python312\site-packages\mysql\connector\connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(yes/no),
+                Monday, monday_price,
+                Tuesday, tues...' at line 3
+2025-11-10 11:18:33,133 - root - ERROR - Error adding canteen profile: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(yes/no),
+                Monday, monday_price,
+                Tuesday, tues...' at line 3
+Traceback (most recent call last):
+  File "D:\CIC\SEM V\sd\DU_canteen_connect1\Backend\app\models.py", line 157, in add_canteen_profile
+    cursor.execute(menu_insert_query, menu_values)
+  File "C:\Users\Nitish\AppData\Roaming\Python\Python312\site-packages\mysql\connector\cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nitish\AppData\Roaming\Python\Python312\site-packages\mysql\connector\connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nitish\AppData\Roaming\Python\Python312\site-packages\mysql\connector\connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(yes/no),
+                Monday, monday_price,
+                Tuesday, tues...' at line 3
+2025-11-10 11:18:33,142 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:18:33] "[35m[1mPOST /create_canteen_profile HTTP/1.1[0m" 500 -
+2025-11-10 11:18:33,143 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:18:33] "[35m[1mPOST /create_canteen_profile HTTP/1.1[0m" 500 -
+2025-11-10 11:18:33,212 - root - INFO - Database connection established.
+2025-11-10 11:18:33,219 - root - ERROR - Error adding canteen profile: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(yes/no),
+                Monday, monday_price,
+                Tuesday, tues...' at line 3
+Traceback (most recent call last):
+  File "D:\CIC\SEM V\sd\DU_canteen_connect1\Backend\app\models.py", line 157, in add_canteen_profile
+    cursor.execute(menu_insert_query, menu_values)
+  File "C:\Users\Nitish\AppData\Roaming\Python\Python312\site-packages\mysql\connector\cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nitish\AppData\Roaming\Python\Python312\site-packages\mysql\connector\connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nitish\AppData\Roaming\Python\Python312\site-packages\mysql\connector\connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(yes/no),
+                Monday, monday_price,
+                Tuesday, tues...' at line 3
+2025-11-10 11:18:33,223 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:18:33] "[35m[1mPOST /create_canteen_profile HTTP/1.1[0m" 500 -
+2025-11-10 11:19:25,078 - werkzeug - INFO -  * Detected change in 'D:\\CIC\\SEM V\\sd\\DU_canteen_connect1\\Backend\\app\\models.py', reloading
+2025-11-10 11:19:25,208 - werkzeug - INFO -  * Restarting with stat
+2025-11-10 11:19:26,624 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-10 11:19:26,625 - app - INFO - Starting Flask application...
+2025-11-10 11:19:26,628 - app - INFO - Flask application created successfully
+2025-11-10 11:19:26,692 - werkzeug - WARNING -  * Debugger is active!
+2025-11-10 11:19:26,705 - werkzeug - INFO -  * Debugger PIN: 127-183-975
+2025-11-10 11:20:14,424 - werkzeug - INFO -  * Detected change in 'D:\\CIC\\SEM V\\sd\\DU_canteen_connect1\\Backend\\app\\models.py', reloading
+2025-11-10 11:20:14,510 - werkzeug - INFO -  * Restarting with stat
+2025-11-10 11:20:15,529 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-10 11:20:15,530 - app - INFO - Starting Flask application...
+2025-11-10 11:20:15,533 - app - INFO - Flask application created successfully
+2025-11-10 11:20:15,615 - werkzeug - WARNING -  * Debugger is active!
+2025-11-10 11:20:15,631 - werkzeug - INFO -  * Debugger PIN: 127-183-975
+2025-11-10 11:20:20,607 - werkzeug - INFO -  * Detected change in 'D:\\CIC\\SEM V\\sd\\DU_canteen_connect1\\Backend\\apis\\signup.py', reloading
+2025-11-10 11:20:20,690 - werkzeug - INFO -  * Restarting with stat
+2025-11-10 11:20:21,779 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-10 11:20:21,779 - app - INFO - Starting Flask application...
+2025-11-10 11:20:21,781 - app - INFO - Flask application created successfully
+2025-11-10 11:20:21,841 - werkzeug - WARNING -  * Debugger is active!
+2025-11-10 11:20:21,857 - werkzeug - INFO -  * Debugger PIN: 127-183-975
+2025-11-10 11:20:27,316 - werkzeug - INFO -  * Detected change in 'D:\\CIC\\SEM V\\sd\\DU_canteen_connect1\\Backend\\app\\models.py', reloading
+2025-11-10 11:20:27,435 - werkzeug - INFO -  * Restarting with stat
+2025-11-10 11:20:28,439 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-10 11:20:28,439 - app - INFO - Starting Flask application...
+2025-11-10 11:20:28,442 - app - INFO - Flask application created successfully
+2025-11-10 11:20:28,498 - werkzeug - WARNING -  * Debugger is active!
+2025-11-10 11:20:28,510 - werkzeug - INFO -  * Debugger PIN: 127-183-975
+2025-11-10 11:20:35,322 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:20:35] "OPTIONS /create_canteen_profile HTTP/1.1" 200 -
+2025-11-10 11:20:35,600 - root - INFO - Database connection established.
+2025-11-10 11:20:35,617 - root - ERROR - Error adding canteen profile: 1048 (23000): Column 'monday_price' cannot be null
+Traceback (most recent call last):
+  File "D:\CIC\SEM V\sd\DU_canteen_connect1\Backend\app\models.py", line 157, in add_canteen_profile
+    cursor.execute(menu_insert_query, menu_values)
+  File "C:\Users\Nitish\AppData\Roaming\Python\Python312\site-packages\mysql\connector\cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nitish\AppData\Roaming\Python\Python312\site-packages\mysql\connector\connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nitish\AppData\Roaming\Python\Python312\site-packages\mysql\connector\connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+mysql.connector.errors.IntegrityError: 1048 (23000): Column 'monday_price' cannot be null
+2025-11-10 11:20:35,623 - root - ERROR - Error creating canteen profile: too many values to unpack (expected 2)
+2025-11-10 11:20:35,624 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:20:35] "[35m[1mPOST /create_canteen_profile HTTP/1.1[0m" 500 -
+2025-11-10 11:23:01,701 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:23:01] "OPTIONS /create_canteen_profile HTTP/1.1" 200 -
+2025-11-10 11:23:01,956 - root - INFO - Database connection established.
+2025-11-10 11:23:01,965 - root - ERROR - Error creating canteen profile: too many values to unpack (expected 2)
+2025-11-10 11:23:01,966 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:23:01] "[35m[1mPOST /create_canteen_profile HTTP/1.1[0m" 500 -
+2025-11-10 11:23:04,081 - root - INFO - Database connection established.
+2025-11-10 11:23:04,099 - root - ERROR - Error creating canteen profile: too many values to unpack (expected 2)
+2025-11-10 11:23:04,099 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:23:04] "[35m[1mPOST /create_canteen_profile HTTP/1.1[0m" 500 -
+2025-11-10 11:24:37,568 - werkzeug - INFO -  * Detected change in 'D:\\CIC\\SEM V\\sd\\DU_canteen_connect1\\Backend\\apis\\signup.py', reloading
+2025-11-10 11:24:37,677 - werkzeug - INFO -  * Restarting with stat
+2025-11-10 11:28:54,801 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-10 11:28:54,802 - app - INFO - Starting Flask application...
+2025-11-10 11:28:54,804 - app - INFO - Flask application created successfully
+2025-11-10 11:28:54,893 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.18.131.186:5000
+2025-11-10 11:28:54,893 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-10 11:28:54,897 - werkzeug - INFO -  * Restarting with stat
+2025-11-10 11:28:55,719 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-10 11:28:55,720 - app - INFO - Starting Flask application...
+2025-11-10 11:28:55,722 - app - INFO - Flask application created successfully
+2025-11-10 11:28:55,772 - werkzeug - WARNING -  * Debugger is active!
+2025-11-10 11:28:55,783 - werkzeug - INFO -  * Debugger PIN: 127-183-975
+2025-11-10 11:29:00,250 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:29:00] "OPTIONS /create_canteen_profile HTTP/1.1" 200 -
+2025-11-10 11:29:00,530 - root - INFO - Database connection established.
+2025-11-10 11:29:00,549 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:29:00] "[35m[1mPOST /create_canteen_profile HTTP/1.1[0m" 201 -
+2025-11-10 11:32:18,605 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:32:18] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 11:32:18,874 - root - INFO - Database connection established.
+2025-11-10 11:32:18,880 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:32:18] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 11:32:40,319 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:32:40] "OPTIONS /display_user_info HTTP/1.1" 200 -
+2025-11-10 11:32:40,648 - root - INFO - Got user_id from JWT: 36
+2025-11-10 11:32:40,653 - root - INFO - Database connection established.
+2025-11-10 11:32:40,656 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:32:40] "[31m[1mGET /display_user_info HTTP/1.1[0m" 403 -
+2025-11-10 11:32:40,910 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:32:40] "OPTIONS /display_user_reviews HTTP/1.1" 200 -
+2025-11-10 11:32:40,981 - root - INFO - Database connection established.
+2025-11-10 11:32:40,984 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:32:40] "[31m[1mGET /display_user_reviews HTTP/1.1[0m" 403 -
+2025-11-10 11:37:55,161 - root - INFO - Database connection established.
+2025-11-10 11:37:56,157 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:37:56] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-10 11:38:08,862 - root - INFO - Database connection established.
+2025-11-10 11:38:09,855 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:38:09] "POST /login HTTP/1.1" 200 -
+2025-11-10 11:38:10,233 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:38:10] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 11:38:10,501 - root - INFO - Database connection established.
+2025-11-10 11:38:10,506 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:38:10] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 11:38:15,827 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:38:15] "OPTIONS /canteen_info?canteen_id=39 HTTP/1.1" 200 -
+2025-11-10 11:38:16,152 - root - INFO - Database connection established.
+2025-11-10 11:38:16,155 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:38:16] "GET /canteen_info?canteen_id=39 HTTP/1.1" 200 -
+2025-11-10 11:38:16,398 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:38:16] "OPTIONS /canteen_menu_details?canteen_id=39 HTTP/1.1" 200 -
+2025-11-10 11:38:16,476 - root - INFO - Database connection established.
+2025-11-10 11:38:16,479 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:38:16] "GET /canteen_menu_details?canteen_id=39 HTTP/1.1" 200 -
+2025-11-10 11:38:16,707 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:38:16] "OPTIONS /canteen_review_ratings?canteen_id=39 HTTP/1.1" 200 -
+2025-11-10 11:38:16,802 - root - INFO - Database connection established.
+2025-11-10 11:38:16,809 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:38:16] "GET /canteen_review_ratings?canteen_id=39 HTTP/1.1" 200 -
+2025-11-10 11:38:31,455 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:38:31] "OPTIONS /display_user_info HTTP/1.1" 200 -
+2025-11-10 11:38:31,777 - root - INFO - Got user_id from JWT: 32
+2025-11-10 11:38:31,782 - root - INFO - Database connection established.
+2025-11-10 11:38:31,785 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:38:31] "GET /display_user_info HTTP/1.1" 200 -
+2025-11-10 11:38:32,026 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:38:32] "OPTIONS /display_user_reviews HTTP/1.1" 200 -
+2025-11-10 11:38:32,124 - root - INFO - Database connection established.
+2025-11-10 11:38:32,131 - root - INFO - Database connection established.
+2025-11-10 11:38:32,132 - root - ERROR - DB error in get_top_reviews_by_user for user_id 32: name 'limit' is not defined
+Traceback (most recent call last):
+  File "D:\CIC\SEM V\sd\DU_canteen_connect1\Backend\app\models.py", line 1106, in get_reviews_by_id_db
+    cursor.execute(query, (user_id, limit))
+                                    ^^^^^
+NameError: name 'limit' is not defined. Did you mean: 'list'?
+2025-11-10 11:38:32,139 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:38:32] "[33mGET /display_user_reviews HTTP/1.1[0m" 404 -
+2025-11-10 11:38:40,953 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:38:40] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 11:38:41,277 - root - INFO - Database connection established.
+2025-11-10 11:38:41,284 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:38:41] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 11:39:20,495 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:39:20] "OPTIONS /display_user_info HTTP/1.1" 200 -
+2025-11-10 11:39:20,811 - root - INFO - Got user_id from JWT: 32
+2025-11-10 11:39:20,815 - root - INFO - Database connection established.
+2025-11-10 11:39:20,818 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:39:20] "GET /display_user_info HTTP/1.1" 200 -
+2025-11-10 11:39:21,074 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:39:21] "OPTIONS /display_user_reviews HTTP/1.1" 200 -
+2025-11-10 11:39:21,138 - root - INFO - Database connection established.
+2025-11-10 11:39:21,144 - root - INFO - Database connection established.
+2025-11-10 11:39:21,145 - root - ERROR - DB error in get_top_reviews_by_user for user_id 32: name 'limit' is not defined
+Traceback (most recent call last):
+  File "D:\CIC\SEM V\sd\DU_canteen_connect1\Backend\app\models.py", line 1106, in get_reviews_by_id_db
+    cursor.execute(query, (user_id, limit))
+                                    ^^^^^
+NameError: name 'limit' is not defined. Did you mean: 'list'?
+2025-11-10 11:39:21,150 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:39:21] "[33mGET /display_user_reviews HTTP/1.1[0m" 404 -
+2025-11-10 11:39:30,207 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:39:30] "OPTIONS /report_app_issue HTTP/1.1" 200 -
+2025-11-10 11:39:30,532 - root - INFO - Database connection established.
+2025-11-10 11:39:30,537 - root - INFO - Database connection established.
+2025-11-10 11:39:30,543 - root - INFO - Database connection established.
+2025-11-10 11:39:30,548 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:39:30] "[35m[1mPOST /report_app_issue HTTP/1.1[0m" 201 -
+2025-11-10 11:39:48,599 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:39:48] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 11:39:48,914 - root - INFO - Database connection established.
+2025-11-10 11:39:48,919 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:39:48] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 11:41:46,320 - root - INFO - Database connection established.
+2025-11-10 11:41:46,821 - root - INFO - Database connection established.
+2025-11-10 11:41:46,837 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:41:46] "[35m[1mPOST /signup HTTP/1.1[0m" 201 -
+2025-11-10 11:41:48,579 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:41:48] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 11:41:48,889 - root - INFO - Database connection established.
+2025-11-10 11:41:48,895 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:41:48] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 11:42:32,531 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:42:32] "OPTIONS /display_user_info HTTP/1.1" 200 -
+2025-11-10 11:42:32,848 - root - INFO - Got user_id from JWT: 37
+2025-11-10 11:42:32,853 - root - INFO - Database connection established.
+2025-11-10 11:42:32,855 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:42:32] "[31m[1mGET /display_user_info HTTP/1.1[0m" 403 -
+2025-11-10 11:42:33,112 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:42:33] "OPTIONS /display_user_reviews HTTP/1.1" 200 -
+2025-11-10 11:42:33,177 - root - INFO - Database connection established.
+2025-11-10 11:42:33,182 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:42:33] "[31m[1mGET /display_user_reviews HTTP/1.1[0m" 403 -
+2025-11-10 11:42:43,705 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:42:43] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 11:42:44,295 - root - INFO - Database connection established.
+2025-11-10 11:42:44,305 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:42:44] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 11:48:31,856 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:48:31] "OPTIONS /display_user_info HTTP/1.1" 200 -
+2025-11-10 11:48:32,107 - root - INFO - Got user_id from JWT: 37
+2025-11-10 11:48:32,111 - root - INFO - Database connection established.
+2025-11-10 11:48:32,114 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:48:32] "[31m[1mGET /display_user_info HTTP/1.1[0m" 403 -
+2025-11-10 11:49:23,092 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:49:23] "OPTIONS /display_user_info HTTP/1.1" 200 -
+2025-11-10 11:49:23,395 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:49:23] "OPTIONS /display_user_info HTTP/1.1" 200 -
+2025-11-10 11:49:23,401 - root - INFO - Got user_id from JWT: 37
+2025-11-10 11:49:23,406 - root - INFO - Database connection established.
+2025-11-10 11:49:23,409 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:49:23] "[31m[1mGET /display_user_info HTTP/1.1[0m" 403 -
+2025-11-10 11:49:23,716 - root - INFO - Got user_id from JWT: 37
+2025-11-10 11:49:23,720 - root - INFO - Database connection established.
+2025-11-10 11:49:23,723 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:49:23] "[31m[1mGET /display_user_info HTTP/1.1[0m" 403 -
+2025-11-10 11:49:24,042 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:49:24] "OPTIONS /display_user_reviews HTTP/1.1" 200 -
+2025-11-10 11:49:24,314 - root - INFO - Database connection established.
+2025-11-10 11:49:24,317 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:49:24] "[31m[1mGET /display_user_reviews HTTP/1.1[0m" 403 -
+2025-11-10 11:49:26,996 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:49:26] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 11:49:27,302 - root - INFO - Got user_id from JWT: 37
+2025-11-10 11:49:27,309 - root - INFO - Database connection established.
+2025-11-10 11:49:27,309 - root - INFO - Database connection established.
+2025-11-10 11:49:27,312 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:49:27] "[31m[1mGET /display_user_info HTTP/1.1[0m" 403 -
+2025-11-10 11:49:27,318 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:49:27] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 11:49:31,016 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:49:31] "OPTIONS /display_user_info HTTP/1.1" 200 -
+2025-11-10 11:49:31,018 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:49:31] "OPTIONS /display_user_info HTTP/1.1" 200 -
+2025-11-10 11:49:31,273 - root - INFO - Got user_id from JWT: 37
+2025-11-10 11:49:31,277 - root - INFO - Database connection established.
+2025-11-10 11:49:31,280 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:49:31] "[31m[1mGET /display_user_info HTTP/1.1[0m" 403 -
+2025-11-10 11:49:31,335 - root - INFO - Got user_id from JWT: 37
+2025-11-10 11:49:31,339 - root - INFO - Database connection established.
+2025-11-10 11:49:31,343 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:49:31] "[31m[1mGET /display_user_info HTTP/1.1[0m" 403 -
+2025-11-10 11:49:31,601 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:49:31] "OPTIONS /display_user_reviews HTTP/1.1" 200 -
+2025-11-10 11:49:31,667 - root - INFO - Database connection established.
+2025-11-10 11:49:31,669 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:49:31] "[31m[1mGET /display_user_reviews HTTP/1.1[0m" 403 -
+2025-11-10 11:49:32,204 - root - INFO - Got user_id from JWT: 37
+2025-11-10 11:49:32,208 - root - INFO - Database connection established.
+2025-11-10 11:49:32,212 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:49:32] "[31m[1mGET /display_user_info HTTP/1.1[0m" 403 -
+2025-11-10 11:49:32,518 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:49:32] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 11:49:32,833 - root - INFO - Database connection established.
+2025-11-10 11:49:32,840 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:49:32] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 11:50:59,167 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:50:59] "OPTIONS /display_user_info HTTP/1.1" 200 -
+2025-11-10 11:50:59,172 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:50:59] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 11:50:59,430 - root - INFO - Got user_id from JWT: 37
+2025-11-10 11:50:59,434 - root - INFO - Database connection established.
+2025-11-10 11:50:59,438 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:50:59] "[31m[1mGET /display_user_info HTTP/1.1[0m" 403 -
+2025-11-10 11:50:59,479 - root - INFO - Database connection established.
+2025-11-10 11:50:59,485 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:50:59] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 11:51:01,642 - root - INFO - Got user_id from JWT: 37
+2025-11-10 11:51:01,646 - root - INFO - Database connection established.
+2025-11-10 11:51:01,648 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:51:01] "[31m[1mGET /display_user_info HTTP/1.1[0m" 403 -
+2025-11-10 11:51:01,968 - root - INFO - Got user_id from JWT: 37
+2025-11-10 11:51:01,972 - root - INFO - Database connection established.
+2025-11-10 11:51:01,975 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:51:01] "[31m[1mGET /display_user_info HTTP/1.1[0m" 403 -
+2025-11-10 11:51:02,296 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:51:02] "OPTIONS /display_user_reviews HTTP/1.1" 200 -
+2025-11-10 11:51:02,562 - root - INFO - Database connection established.
+2025-11-10 11:51:02,566 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:51:02] "[31m[1mGET /display_user_reviews HTTP/1.1[0m" 403 -
+2025-11-10 11:51:32,211 - root - INFO - Database connection established.
+2025-11-10 11:51:33,215 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:51:33] "POST /login HTTP/1.1" 200 -
+2025-11-10 11:51:33,587 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:51:33] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 11:51:33,858 - root - INFO - Database connection established.
+2025-11-10 11:51:33,867 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:51:33] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 11:51:37,449 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:51:37] "OPTIONS /canteen_info?canteen_id=39 HTTP/1.1" 200 -
+2025-11-10 11:51:37,767 - root - INFO - Database connection established.
+2025-11-10 11:51:37,775 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:51:37] "GET /canteen_info?canteen_id=39 HTTP/1.1" 200 -
+2025-11-10 11:51:38,023 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:51:38] "OPTIONS /canteen_menu_details?canteen_id=39 HTTP/1.1" 200 -
+2025-11-10 11:51:38,104 - root - INFO - Database connection established.
+2025-11-10 11:51:38,108 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:51:38] "GET /canteen_menu_details?canteen_id=39 HTTP/1.1" 200 -
+2025-11-10 11:51:38,333 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:51:38] "OPTIONS /canteen_review_ratings?canteen_id=39 HTTP/1.1" 200 -
+2025-11-10 11:51:38,430 - root - INFO - Database connection established.
+2025-11-10 11:51:38,435 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:51:38] "GET /canteen_review_ratings?canteen_id=39 HTTP/1.1" 200 -
+2025-11-10 11:51:42,122 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:51:42] "OPTIONS /display_user_info HTTP/1.1" 200 -
+2025-11-10 11:51:42,443 - root - INFO - Got user_id from JWT: 32
+2025-11-10 11:51:42,448 - root - INFO - Database connection established.
+2025-11-10 11:51:42,451 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:51:42] "GET /display_user_info HTTP/1.1" 200 -
+2025-11-10 11:51:42,692 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:51:42] "OPTIONS /display_user_reviews HTTP/1.1" 200 -
+2025-11-10 11:51:42,773 - root - INFO - Database connection established.
+2025-11-10 11:51:42,778 - root - INFO - Database connection established.
+2025-11-10 11:51:42,779 - root - ERROR - DB error in get_top_reviews_by_user for user_id 32: name 'limit' is not defined
+Traceback (most recent call last):
+  File "D:\CIC\SEM V\sd\DU_canteen_connect1\Backend\app\models.py", line 1106, in get_reviews_by_id_db
+    cursor.execute(query, (user_id, limit))
+                                    ^^^^^
+NameError: name 'limit' is not defined. Did you mean: 'list'?
+2025-11-10 11:51:42,784 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:51:42] "[33mGET /display_user_reviews HTTP/1.1[0m" 404 -
+2025-11-10 11:51:48,988 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:51:48] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 11:51:49,310 - root - INFO - Database connection established.
+2025-11-10 11:51:49,315 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:51:49] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 11:57:07,233 - root - INFO - Database connection established.
+2025-11-10 11:57:08,201 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:57:08] "POST /login HTTP/1.1" 200 -
+2025-11-10 11:57:08,252 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:57:08] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 11:57:08,571 - root - INFO - Database connection established.
+2025-11-10 11:57:08,576 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:57:08] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 11:57:18,184 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:57:18] "OPTIONS /canteen_info?canteen_id=39 HTTP/1.1" 200 -
+2025-11-10 11:57:18,506 - root - INFO - Database connection established.
+2025-11-10 11:57:18,514 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:57:18] "GET /canteen_info?canteen_id=39 HTTP/1.1" 200 -
+2025-11-10 11:57:18,769 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:57:18] "OPTIONS /canteen_menu_details?canteen_id=39 HTTP/1.1" 200 -
+2025-11-10 11:57:18,834 - root - INFO - Database connection established.
+2025-11-10 11:57:18,852 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:57:18] "GET /canteen_menu_details?canteen_id=39 HTTP/1.1" 200 -
+2025-11-10 11:57:19,081 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:57:19] "OPTIONS /canteen_review_ratings?canteen_id=39 HTTP/1.1" 200 -
+2025-11-10 11:57:19,178 - root - INFO - Database connection established.
+2025-11-10 11:57:19,183 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:57:19] "GET /canteen_review_ratings?canteen_id=39 HTTP/1.1" 200 -
+2025-11-10 11:59:17,498 - root - INFO - Database connection established.
+2025-11-10 11:59:18,512 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:59:18] "POST /login HTTP/1.1" 200 -
+2025-11-10 11:59:18,571 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:59:18] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 11:59:18,890 - root - INFO - Database connection established.
+2025-11-10 11:59:18,897 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:59:18] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 11:59:23,447 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:59:23] "OPTIONS /admin/app_issues/open HTTP/1.1" 200 -
+2025-11-10 11:59:23,762 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:59:23] "OPTIONS /admin/app_feedbacks HTTP/1.1" 200 -
+2025-11-10 11:59:23,769 - root - INFO - Database connection established.
+2025-11-10 11:59:23,775 - root - INFO - Database connection established.
+2025-11-10 11:59:23,779 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:59:23] "GET /admin/app_issues/open HTTP/1.1" 200 -
+2025-11-10 11:59:24,089 - root - INFO - Database connection established.
+2025-11-10 11:59:24,093 - root - INFO - Database connection established.
+2025-11-10 11:59:24,106 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 11:59:24] "GET /admin/app_feedbacks HTTP/1.1" 200 -
+2025-11-10 12:01:52,354 - root - INFO - Database connection established.
+2025-11-10 12:01:52,357 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 12:01:52] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-10 12:02:03,821 - root - INFO - Database connection established.
+2025-11-10 12:02:04,808 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 12:02:04] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-10 12:02:30,200 - root - INFO - Database connection established.
+2025-11-10 12:02:31,201 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 12:02:31] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-10 12:02:31,709 - root - INFO - Database connection established.
+2025-11-10 12:02:32,710 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 12:02:32] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-11-10 12:03:11,718 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 12:03:11] "[31m[1mPOST /signup HTTP/1.1[0m" 400 -
+2025-11-10 12:03:27,137 - root - INFO - Database connection established.
+2025-11-10 12:03:27,640 - root - INFO - Database connection established.
+2025-11-10 12:03:27,656 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 12:03:27] "[35m[1mPOST /signup HTTP/1.1[0m" 201 -
+2025-11-10 12:04:01,652 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 12:04:01] "OPTIONS /create_canteen_profile HTTP/1.1" 200 -
+2025-11-10 12:04:01,920 - root - INFO - Database connection established.
+2025-11-10 12:04:01,930 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 12:04:01] "[35m[1mPOST /create_canteen_profile HTTP/1.1[0m" 201 -
+2025-11-10 12:04:02,177 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 12:04:02] "OPTIONS /canteens HTTP/1.1" 200 -
+2025-11-10 12:04:02,495 - root - INFO - Database connection established.
+2025-11-10 12:04:02,502 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 12:04:02] "GET /canteens HTTP/1.1" 200 -
+2025-11-10 12:04:07,267 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 12:04:07] "OPTIONS /display_user_info HTTP/1.1" 200 -
+2025-11-10 12:04:07,575 - root - INFO - Got user_id from JWT: 38
+2025-11-10 12:04:07,578 - root - INFO - Database connection established.
+2025-11-10 12:04:07,581 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 12:04:07] "[31m[1mGET /display_user_info HTTP/1.1[0m" 403 -
+2025-11-10 12:04:07,848 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 12:04:07] "OPTIONS /display_user_reviews HTTP/1.1" 200 -
+2025-11-10 12:04:07,898 - root - INFO - Database connection established.
+2025-11-10 12:04:07,901 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 12:04:07] "[31m[1mGET /display_user_reviews HTTP/1.1[0m" 403 -
+2025-11-10 12:07:34,384 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 12:07:34] "OPTIONS /display_user_info HTTP/1.1" 200 -
+2025-11-10 12:07:34,648 - werkzeug - INFO - 127.0.0.1 - - [10/Nov/2025 12:07:34] "OPTIONS /display_user_reviews HTTP/1.1" 200 -

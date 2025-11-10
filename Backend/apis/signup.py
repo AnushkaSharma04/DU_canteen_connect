@@ -78,7 +78,6 @@ def create_canteen_profile_api():
         owner_id = request.form.get("owner_id")
         data = request.form
 
-        
         canteen_name = data.get("canteen_name")
         location = data.get("location")
         description = data.get("description")
@@ -88,20 +87,20 @@ def create_canteen_profile_api():
         closing_time = data.get("closing_time")
         peak_hr_start_time = data.get("peak_hr_start_time")
         peak_hr_end_time = data.get("peak_hr_end_time")
+        
         required_fields = [
             canteen_name, location, description, contact_number,
             days_open, opening_time, closing_time,
             peak_hr_start_time, peak_hr_end_time
         ]
         if not all(required_fields):
-         return jsonify({"message": "All fields are required"}), 400
+            return jsonify({"message": "All fields are required"}), 400
         
         if len(contact_number) != 10 or not contact_number.isdigit():
             return jsonify({"message": "Invalid phone number format"}), 400
 
         profile_data = {
             "owner_id": owner_id,
-            
             "canteen_name": canteen_name,
             "location": location,
             "description": description,
@@ -112,13 +111,13 @@ def create_canteen_profile_api():
             "peak_hr_start_time": peak_hr_start_time,
             "peak_hr_end_time": peak_hr_end_time
         }
-
-        canteen_id, response = add_canteen_profile(profile_data)
+        
+        canteen_id, menu_id, response = add_canteen_profile(profile_data)
         if canteen_id is None:
             return jsonify({"message": response.get("message", "Failed to create canteen profile")}), 500
 
         access_token = create_access_token(
-            identity=str(owner_id),  # Convert to string for JWT
+            identity=str(owner_id),
             expires_delta=timedelta(hours=24)
         )
 
@@ -130,7 +129,7 @@ def create_canteen_profile_api():
         }), 201
 
     except Exception as e:
-        logging.error(f"Error creating canteen profile: {str(e)}")
+        logging.exception(f"Error creating canteen profile: {str(e)}")
         return jsonify({"message": "Internal Server Error"}), 500
 
     

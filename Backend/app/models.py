@@ -70,40 +70,46 @@ def add_user(user_data):
 
 
 def add_canteen_profile(profile_data):
+    """
+    Returns (canteen_id, menu_id, {"message": ...})
+    On failure returns (None, None, {"message": ...})
+    """
+    if not isinstance(profile_data, dict):
+        logging.error("add_canteen_profile called with non-dict profile_data: %r", profile_data)
+        return None, None, {"message": "Invalid profile_data provided"}
+
     conn = None
     cursor = None
     try:
         conn = get_db_connection()
         cursor = conn.cursor()
 
-        # Insert canteen
+        # 1) Insert canteen
         canteen_query = """
             INSERT INTO canteens (
                 owner_id, name, location, description, contact_no,
                 days_open, opening_time, closing_time, peak_hr_start_time, peak_hr_end_time
-            )
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
         cursor.execute(canteen_query, (
             profile_data["owner_id"],
             profile_data["canteen_name"],
             profile_data["location"],
             profile_data["description"],
-            profile_data["contact_number"],
+            str(profile_data["contact_number"]).strip(),
             profile_data["days_open"],
             profile_data["opening_time"],
             profile_data["closing_time"],
             profile_data["peak_hr_start_time"],
             profile_data["peak_hr_end_time"]
         ))
-
-        # Commit the canteen insert so we can reliably get lastrowid (driver-dependent)
         conn.commit()
         canteen_id = cursor.lastrowid
 
-        # Now create an initial menu row for this canteen with NULL values (except timestamps)
-        # Table name: menu (columns as you specified). If your table is 'menus', change the name below.
+        # 2) Insert initial menu row
         now = datetime.utcnow()
+
+        # NOTE: do NOT include comments like "(yes/no)" in the column list.
         menu_insert_query = """
             INSERT INTO menu (
                 canteen_id,
@@ -119,12 +125,12 @@ def add_canteen_profile(profile_data):
                 created_at,
                 updated_at
             )
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
-        # Prepare a tuple with canteen_id followed by NULLs for all menu fields (use None)
+
         menu_values = (
             canteen_id,   # canteen_id
-            None,         # day_wise (yes/no) -> NULL
+            "No",         # day_wise
             None, None,   # Monday, monday_price
             None, None,   # Tuesday, tuesday_price
             None, None,   # Wednesday, wednesday_price
@@ -137,30 +143,33 @@ def add_canteen_profile(profile_data):
             now           # updated_at
         )
 
+        # Debug (optional): ensure placeholders match values
+        # Uncomment the next two lines to print debug info to console/log
+        # logging.debug("placeholders count: %d", menu_insert_query.count("%s"))
+        # logging.debug("menu_values length: %d", len(menu_values))
+
+        if menu_insert_query.count("%s") != len(menu_values):
+            logging.error("Placeholder/value mismatch in add_canteen_profile: %s placeholders vs %s values",
+                          menu_insert_query.count("%s"), len(menu_values))
+            # don't attempt execution if mismatch
+            return None, None, {"message": "Internal server error (menu insert mismatch)"}
+
         cursor.execute(menu_insert_query, menu_values)
         conn.commit()
         menu_id = cursor.lastrowid
-
-        # Close cursors / connection
-        try:
-            cursor.close()
-        except Exception:
-            pass
-        try:
-            conn.close()
-        except Exception:
-            pass
 
         return canteen_id, menu_id, {"message": "Canteen profile created successfully"}
 
     except Exception as e:
         logging.exception(f"Error adding canteen profile: {str(e)}")
-        # Attempt rollback and close
         try:
             if conn:
                 conn.rollback()
         except Exception:
             pass
+        return None, None, {"message": "Failed to create canteen profile"}
+
+    finally:
         try:
             if cursor:
                 cursor.close()
@@ -171,8 +180,6 @@ def add_canteen_profile(profile_data):
                 conn.close()
         except Exception:
             pass
-
-        return {"message": "Failed to create canteen profile"}, 500
     
 def get_user_by_phone(phone_number):
     """

@@ -8,6 +8,7 @@ import desktop9 from '@/views/Desktop 9.vue'
 import desktop10 from '@/views/Desktop 10.vue'
 import desktop11 from '@/views/Desktop 11.vue'
 import Desktop27 from '@/views/Desktop 27.vue'
+import CreateCanteenProfile from '@/views/CreateCanteenProfile.vue'
 
 const routes = [
   { path: '/', redirect: '/desktop1' },
@@ -17,7 +18,10 @@ const routes = [
   { path: '/account', component: Account },
   { path: '/Desktop345', component: Desktop345},
   { path: '/signup', component: Desktop345},
+  { path: '/signup/canteenprofile', component: CreateCanteenProfile},
   { path:'/desktop27', component: Desktop27},
+  { path: '/canteenpage', component: Desktop1},
+
   {path: '/desktop8', component: desktop8},
   {path: '/desktop9', component: desktop9},
   {path: '/desktop10', component: desktop10},
