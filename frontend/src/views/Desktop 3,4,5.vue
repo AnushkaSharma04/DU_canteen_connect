@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="page-wrapper">
     <Header />
 
     <div class="signup-container">
@@ -65,8 +65,10 @@
         <router-link to="/desktop6" class="signup-link">Login</router-link>
       </div>
     </div>
+   
     <Footer />
   </div>
+  
 </template>
 
 <script>
@@ -159,11 +161,10 @@ export default {
 
 <style scoped>
 
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .error-text {

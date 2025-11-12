@@ -1,7 +1,7 @@
 <template>
-  <div class="home-dashboard">
+  <div class="page-wrapper">
     <Header />
-
+    <div class="home-dashboard">
     <!-- Main Content -->
     <main class="main-panels">
       <!-- Canteens Around You -->
@@ -29,8 +29,10 @@
         </div>
       </section> -->
     </main>
+    </div>
+
+    <Footer />
   </div>
-  <Footer />
 </template>
 
 <script>
@@ -83,20 +85,20 @@ export default {
 </script>
 
 <style scoped>
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .home-dashboard {
+  flex-grow: 1; 
+  width: 100%;      
+  max-width: 1200px; 
+  margin: 0 auto;   
   padding-top: 100px;
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
   gap: 2rem;
+  display: block; 
 }
 
 /* Panels */

@@ -1,8 +1,8 @@
 <template>
-  <div class="search-results-wrapper">
+  <div class="page-wrapper">
     <!-- Header -->
     <Header />
-
+  <div class="search-results-wrapper">
     <!-- Results Panels -->
     <main class="results-panels">
       <!-- Canteens Panel -->
@@ -34,8 +34,8 @@
 </section>
     </main>
 
-    <!-- Footer -->
-    <Footer />
+  </div>
+  <Footer />
   </div>
 </template>
 
@@ -172,9 +172,15 @@ export default {
 </script>
 
 <style scoped>
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 .search-results-wrapper {
   padding-top: 100px;
   max-width: 1200px;
+  width: 100%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -273,21 +279,9 @@ export default {
   color: #474747;
 }
 
-/* Footer */
-.footer {
-  width: 100%;
-  background: #474747;
-  color: #DBDFD0;
-  display: flex;
-  justify-content: space-between;
-  padding: 2rem;
-  border-radius: 20px;
+.footer{
+  margin-top: auto;       
+  position: relative; 
 }
 
-.footer-left,
-.footer-right {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
 </style>

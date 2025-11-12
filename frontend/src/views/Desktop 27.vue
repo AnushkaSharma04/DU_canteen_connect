@@ -1,4 +1,5 @@
 <template>
+  <div class="page-wrapper">
   <Header />
 
   <div class="canteen-page">
@@ -151,9 +152,8 @@
       </div>
     </div>
     </div>
-
-
   <Footer />
+  </div>
 </template>
 
 <script>
@@ -273,18 +273,17 @@ export default {
 </script>
 
 <style> 
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
-
 .canteen-page { 
 display: flex; 
 flex-direction: column; 
 gap: 2rem; 
 padding: 2rem; 
+width: 100%;
 background: rgba(219, 223, 208, 0.18); 
 border-radius: 25px; 
 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); 

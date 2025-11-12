@@ -43,6 +43,9 @@ export default {
   box-sizing: border-box;
   flex-wrap: wrap; 
   gap: 1.5rem;
+  margin-top: auto;        /* pushes footer to bottom */
+  position: relative; 
+  
 }
 
 .footer-left {

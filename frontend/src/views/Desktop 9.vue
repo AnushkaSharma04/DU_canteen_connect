@@ -1,8 +1,8 @@
 <template>
-  <div class="dashboard-wrapper">
+  <div class="page-wrapper">
     <!-- Header -->
     <Header />
-
+    <div class="dashboard-wrapper">
     <!-- canteen Profile Section -->
     <section class="card profile-section">
       <h2>Profile</h2>
@@ -198,10 +198,7 @@
         </button>
       </div>
     </section>
-
-    <!-- Footer -->
     
-  <Footer />
   </div>
   <transition name="fade">
     <div v-if="showReviewDialog" class="dialog-overlay" @click.self="showReviewDialog = false">
@@ -218,6 +215,9 @@
       </div>
     </div>
   </transition>
+  
+  <Footer />
+  </div>
 
 </template>
 
@@ -602,6 +602,12 @@ export default {
 </script>
 
 <style scoped>
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .dialog-overlay {
   position: fixed;
   top: 0;
@@ -667,10 +673,16 @@ body.dialog-open {
 .dashboard-wrapper {
   padding-top: 100px;
   max-width: 1200px;
+  min-height: 100vh;
   margin: auto;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.footer {
+  margin-top: auto;        /* pushes footer to bottom */
+  position: relative;      /* ensure it doesn’t overlap */
 }
 
 /* Header */

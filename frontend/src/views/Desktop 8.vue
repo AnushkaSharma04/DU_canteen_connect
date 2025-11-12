@@ -1,8 +1,8 @@
 <template>
-  <div class="dashboard-wrapper">
+  <div class="page-wrapper">
     <!-- Header -->
     <Header />
-
+    <div class="dashboard-wrapper">
     <!-- Profile Section -->
     <section class="card profile-section">
       <h2>Profile</h2>
@@ -86,8 +86,7 @@
         </li>
       </ul>
     </section>
-
-    <!-- Footer -->
+    </div>
     <Footer />
   </div>
 </template>
@@ -207,9 +206,15 @@ export default {
 </script>
 
 <style scoped>
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 .dashboard-wrapper {
   padding-top: 100px;
   max-width: 1200px;
+  width: 100%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -369,13 +374,8 @@ export default {
 
 /* Footer */
 .footer {
-  width: 100%;
-  background: #474747;
-  color: #DBDFD0;
-  display: flex;
-  justify-content: space-between;
-  padding: 2rem;
-  border-radius: 20px;
+  margin-top: auto;        /* pushes footer to bottom */
+  position: relative; 
 }
 
 .footer-left {

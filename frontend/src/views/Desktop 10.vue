@@ -1,8 +1,8 @@
 <template>
-  <div class="admin-dashboard">
+  <div class="page-wrapper">
     <!-- Header -->
     <Header />
-
+    <div class="admin-dashboard">
     <!-- Loading State -->
     <div v-if="loading" class="loading-message">
       <p>Loading admin data...</p>
@@ -55,8 +55,8 @@
       </section>
     </template>
 
-    <!-- Footer -->
-    <Footer />
+  </div>
+  <Footer />
   </div>
 </template>
 
@@ -150,6 +150,11 @@ export default {
 </script>
 
 <style scoped>
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 .admin-dashboard {
   padding-top: 100px;
   max-width: 1200px;
@@ -301,21 +306,8 @@ export default {
   color: #474747;
 }
 
-/* Footer */
-.footer {
-  width: 100%;
-  background: #474747;
-  color: #DBDFD0;
-  display: flex;
-  justify-content: space-between;
-  padding: 2rem;
-  border-radius: 20px;
-}
-
-.footer-left,
-.footer-right {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.footer{
+  margin-top: auto;        /* pushes footer to bottom */
+  position: relative; 
 }
 </style>

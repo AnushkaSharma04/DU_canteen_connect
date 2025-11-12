@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="page-wrapper">
     <Header />
 
     <div class="login-container">
@@ -28,9 +28,8 @@
         <router-link to="/Desktop345" class="signup-link">Sign up</router-link>
       </div>
     </div>
-    
+    <Footer />
   </div>
-  <Footer />
 </template>
 
 
@@ -74,21 +73,17 @@ export default {
   
 
 <style scoped>
-.footer {
-  width: 100%;
-  padding: 2rem;
-  background-color: #474747;
-  color: white;
-  text-align: center;
+
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-
-.wrapper{
-    padding-top: 60px;
-}
 .login-container {
   position:relative;
   max-width: 500px;
+  width: 100%;
   margin: 5rem auto;
   padding: 2rem;
   background: rgba(219, 223, 208, 0.18);
