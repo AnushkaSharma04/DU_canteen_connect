@@ -75,12 +75,31 @@
 
         <!-- Right: Image Upload -->
         <div class="menu-images">
-        <label for="menuImageUpload">Upload Menu Image</label>
-        <input type="file" id="menuImageUpload" @change="handleImageUpload" />
-        <div v-if="uploadedImage" class="image-preview">
-            <img :src="uploadedImage" alt="Menu Preview" />
+        <label for="menuImageUpload">Upload Menu Image(s) (max 2)</label>
+        <input type="file" id="menuImageUpload" @change="handleMenuImageSelect" accept="image/*" multiple />
+        <div class="image-preview" v-if="menuSelectedPreviews.length">
+          <div v-for="(src, i) in menuSelectedPreviews" :key="'m'+i" style="margin-bottom:8px;">
+            <img :src="src" :alt="'Menu Preview ' + (i+1)" />
+          </div>
         </div>
+        <button @click="uploadSelectedMenuImages" :disabled="loading || menuSelectedFiles.length === 0">
+          {{ loading ? 'Uploading...' : 'Upload Menu Image(s)' }}
+        </button>
+
+        <hr style="margin:12px 0;" />
+
+        <!-- NEW: Canteen Images Upload -->
+        <label for="canteenImageUpload">Upload Canteen Image(s) (max 2)</label>
+        <input type="file" id="canteenImageUpload" @change="handleCanteenImageSelect" accept="image/*" multiple />
+        <div class="image-preview" v-if="canteenSelectedPreviews.length">
+          <div v-for="(src, i) in canteenSelectedPreviews" :key="'c'+i" style="margin-bottom:8px;">
+            <img :src="src" :alt="'Canteen Preview ' + (i+1)" />
+          </div>
         </div>
+        <button @click="uploadSelectedCanteenImages" :disabled="loading || canteenSelectedFiles.length === 0">
+          {{ loading ? 'Uploading...' : 'Upload Canteen Image(s)' }}
+        </button>
+      </div>
     </div>
     </section>
 
@@ -137,7 +156,9 @@ import {
   reportIssueByOwner, 
   getCanteenReviewsOwner,
   getFoodItemsOwner,
-  updateDayWiseMenu 
+  updateDayWiseMenu,
+  uploadMenuImages,          // <--- NEW
+  uploadCanteenImages
 } from '@/services/canteenOwner'
 
 export default {
@@ -170,8 +191,11 @@ export default {
       // Issue reporting
       issueText: '',
       
-      // Image upload (UI only, not saved to backend)
-      uploadedImage: null,
+      uploadedImage: null,         // legacy single-menu preview (you can ignore)
+      menuSelectedFiles: [],      // File objects selected for menu upload
+      menuSelectedPreviews: [],   // preview URLs
+      canteenSelectedFiles: [],   // File objects selected for canteen images
+      canteenSelectedPreviews: [],
       
       // Loading and error states
       loading: false,
@@ -378,14 +402,85 @@ export default {
     },
 
     
-    //  IMAGE UPLOAD (UI only)
     
-    handleImageUpload(event) {
-      const file = event.target.files[0]
-      if (file) {
-        this.uploadedImage = URL.createObjectURL(file)
-      }
+
+    handleMenuImageSelect(event) {
+    const files = Array.from(event.target.files || []).slice(0, 2)
+    this.menuSelectedFiles = files
+    // release old preview object URLs to avoid memory leaks
+    if (this.menuSelectedPreviews.length) {
+      this.menuSelectedPreviews.forEach(url => URL.revokeObjectURL(url))
     }
+    this.menuSelectedPreviews = files.map(f => URL.createObjectURL(f))
+  },
+
+  handleCanteenImageSelect(event) {
+    const files = Array.from(event.target.files || []).slice(0, 2)
+    this.canteenSelectedFiles = files
+    if (this.canteenSelectedPreviews.length) {
+      this.canteenSelectedPreviews.forEach(url => URL.revokeObjectURL(url))
+    }
+    this.canteenSelectedPreviews = files.map(f => URL.createObjectURL(f))
+  },
+
+  // --- Upload handlers (call service functions you added) ---
+  async uploadSelectedMenuImages() {
+    if (!this.canteenInfo?.canteen_id) {
+      alert('Canteen ID missing. Refresh page.')
+      return
+    }
+    if (this.menuSelectedFiles.length === 0) {
+      alert('Select up to 2 menu images to upload.')
+      return
+    }
+    try {
+      this.loading = true
+      const res = await uploadMenuImages(this.canteenInfo.canteen_id, this.menuSelectedFiles)
+      console.log('uploadMenuImages response:', res)
+      alert('Menu image(s) uploaded successfully!')
+      // clear selection + previews
+      this.menuSelectedFiles = []
+      this.menuSelectedPreviews.forEach(url => URL.revokeObjectURL(url))
+      this.menuSelectedPreviews = []
+      // refresh menu info so frontend picks up new menu image URLs (if you show them elsewhere)
+      await this.loadCanteenInfo()
+      // optionally reload menu list if you have a fetch endpoint for menu
+      // const menuData = await getFoodItemsOwner() or fetchCanteenMenu...
+    } catch (err) {
+      console.error('Failed to upload menu images:', err)
+      alert('Failed to upload menu image(s)')
+    } finally {
+      this.loading = false
+    }
+  },
+
+  async uploadSelectedCanteenImages() {
+    if (!this.canteenInfo?.canteen_id) {
+      alert('Canteen ID missing. Refresh page.')
+      return
+    }
+    if (this.canteenSelectedFiles.length === 0) {
+      alert('Select up to 2 canteen images to upload.')
+      return
+    }
+    try {
+      this.loading = true
+      const res = await uploadCanteenImages(this.canteenInfo.canteen_id, this.canteenSelectedFiles)
+      console.log('uploadCanteenImages response:', res)
+      alert('Canteen image(s) uploaded successfully!')
+      // clear selection + previews
+      this.canteenSelectedFiles = []
+      this.canteenSelectedPreviews.forEach(url => URL.revokeObjectURL(url))
+      this.canteenSelectedPreviews = []
+      // refresh canteen info to show updated images
+      await this.loadCanteenInfo()
+    } catch (err) {
+      console.error('Failed to upload canteen images:', err)
+      alert('Failed to upload canteen image(s)')
+    } finally {
+      this.loading = false
+    }
+  },
   }
 }
 </script>
