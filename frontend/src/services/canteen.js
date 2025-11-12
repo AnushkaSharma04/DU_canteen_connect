@@ -32,7 +32,7 @@ export const fetchCanteenMenu = async (canteenId) => {
            }
          })
     console.log('menu: ', menu)
-    return menu || {}
+    return {menu, menu_files : res.data.data.menu_files} || {}
   } catch (error) {
     console.log(error)
     return null;

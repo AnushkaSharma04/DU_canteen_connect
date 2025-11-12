@@ -58,16 +58,30 @@ export const createCanteenProfile = async (ownerId, profileData) => {
     formData.append("closing_time", profileData.closing_time);
     formData.append("peak_hr_start_time", profileData.peak_hr_start_time);
     formData.append("peak_hr_end_time", profileData.peak_hr_end_time);
-
+    
     // If menu file exists, append it
-    if (profileData.menu_file) {
-      formData.append("menu_file", profileData.menu_file);
+   
+     
+    if (profileData.menu_file_1) {
+        console.log("appending menu_file_1");
+        formData.append("menu_file_1", profileData.menu_file_1);
+      }
+    if (profileData.menu_file_2) {
+        console.log("appending menu_file_2");
+        formData.append("menu_file_2", profileData.menu_file_2);
+      }
+    
+    
+    for (let [key, value] of
+      formData.entries()) {
+      console.log(`${key}: ${value}`);
     }
+
 
     // ✅ Use api.post instead of axios.post
     const response = await api.post('/create_canteen_profile', formData, {
       headers: {
-        "Content-Type": "multipart/form-data",
+        
         "Authorization": `Bearer ${localStorage.getItem("token") || ""}`
       }
     });

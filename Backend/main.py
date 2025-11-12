@@ -16,6 +16,9 @@ from flask_cors import CORS
 from app.models import get_user_by_id_db
 import bcrypt
 import logging
+from app.cloudinary_setup import cloudinary
+import cloudinary.uploader
+
 app = create_app()
 CORS(app)
 

@@ -11,8 +11,36 @@ import logging
 import base64
 import random
 import json
+from app.cloudinary_setup import cloudinary
 
+
+import cloudinary.uploader
 bcrypt = Bcrypt()
+
+
+
+            
+def _upload_to_cloudinary(file_obj):
+    try:
+        print("This cloudinary block runs")
+        
+        # Upload the file without providing a public_id
+        result = cloudinary.uploader.upload(
+            file_obj,
+            folder="du_canteen/menu",  # optional folder
+            overwrite=False,
+            resource_type="image"
+        )
+        
+        # The URL of the uploaded file
+        url = result.get('secure_url')
+        print("Uploaded file URL:", url)
+        return url
+    
+    except Exception as e:
+        logging.exception("Cloudinary upload failed: %s", e)
+        return None
+
 
 def get_db_connection():
     try:
@@ -105,11 +133,8 @@ def add_canteen_profile(profile_data):
         ))
         conn.commit()
         canteen_id = cursor.lastrowid
-
-        # 2) Insert initial menu row
         now = datetime.utcnow()
-
-        # NOTE: do NOT include comments like "(yes/no)" in the column list.
+        # 2) Insert initial menu row
         menu_insert_query = """
             INSERT INTO menu (
                 canteen_id,
@@ -121,32 +146,48 @@ def add_canteen_profile(profile_data):
                 Friday, friday_price,
                 Saturday, saturday_price,
                 Sunday, sunday_price,
-                menu_file,
+                menu_file_1,
+                menu_file_2,
                 created_at,
                 updated_at
             )
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            VALUES (
+                %s, %s,   -- canteen_id, day_wise
+                %s, %s,   -- Monday, monday_price
+                %s, %s,   -- Tuesday, tuesday_price
+                %s, %s,   -- Wednesday, wednesday_price
+                %s, %s,   -- Thursday, thursday_price
+                %s, %s,   -- Friday, friday_price
+                %s, %s,   -- Saturday, saturday_price
+                %s, %s,   -- Sunday, sunday_price
+                %s, %s,   -- menu_file1, menu_file2
+                %s, %s    -- created_at, updated_at
+            )
         """
 
         menu_values = (
-            canteen_id,   # canteen_id
-            "Yes",         # day_wise
-            None, None,   # Monday, monday_price
-            None, None,   # Tuesday, tuesday_price
-            None, None,   # Wednesday, wednesday_price
-            None, None,   # Thursday, thursday_price
-            None, None,   # Friday, friday_price
-            None, None,   # Saturday, saturday_price
-            None, None,   # Sunday, sunday_price
-            None,         # menu_file
-            now,          # created_at
-            now           # updated_at
+            canteen_id,                          # canteen_id
+            "Yes",                                # day_wise
+            None, None,                           # Monday, monday_price
+            None, None,                           # Tuesday, tuesday_price
+            None, None,                           # Wednesday, wednesday_price
+            None, None,                           # Thursday, thursday_price
+            None, None,                           # Friday, friday_price
+            None, None,                           # Saturday, saturday_price
+            None, None,                           # Sunday, sunday_price
+            profile_data.get("menu_file_1"),      # menu_file1 (URL or None)
+            profile_data.get("menu_file_2"),      # menu_file2 (URL or None)
+            now,                                  # created_at
+            now                                   # updated_at
         )
 
         # Debug (optional): ensure placeholders match values
         # Uncomment the next two lines to print debug info to console/log
         # logging.debug("placeholders count: %d", menu_insert_query.count("%s"))
         # logging.debug("menu_values length: %d", len(menu_values))
+        logging.debug("placeholders count: %d", menu_insert_query.count("%s"))
+        logging.debug("menu_values length: %d", len(menu_values))
+        logging.debug("menu_values preview: %r", menu_values[:6])
 
         if menu_insert_query.count("%s") != len(menu_values):
             logging.error("Placeholder/value mismatch in add_canteen_profile: %s placeholders vs %s values",
@@ -565,6 +606,8 @@ def get_all_canteens_from_db():
         logging.error(f"Error fetching canteens from DB: {str(e)}")
         return None
     
+
+    
 def get_canteen_menu_from_db(canteen_id):
     try:
         conn = get_db_connection()
@@ -582,18 +625,13 @@ def get_canteen_menu_from_db(canteen_id):
         if not menu:
             cursor.close()
             conn.close()
-            return {"message": "Menu not found for this canteen"}
+            return None # it is changed from {"message": "Menu not found for this canteen"} as we are already handling menu not found in parent functions
 
-        # Step 2: If menu_file exists, return it directly
-        if menu["menu_file"]:
-            encoded_file = base64.b64encode(menu["menu_file"]).decode("utf-8")
-            cursor.close()
-            conn.close()
-            return {
-                "canteen_id": canteen_id,
-                "menu_type": "file",
-                "menu_file": encoded_file
-            }
+        menu_files = []
+        if menu.get("menu_file_1"):
+            menu_files.append(menu.get("menu_file_1"))
+        if menu.get("menu_file_2"):
+            menu_files.append(menu.get("menu_file_2"))
 
         menu_id = menu["menu_id"]
 
@@ -608,7 +646,7 @@ def get_canteen_menu_from_db(canteen_id):
                 ("Saturday", "saturday_price"),
                 ("Sunday", "sunday_price")
             ]
-            day_wise_menu = {}
+            day_wise_menu = [] # changed from {}
 
             for day, price_col in day_columns:
                 food_ids_text = menu.get(day)
@@ -617,23 +655,31 @@ def get_canteen_menu_from_db(canteen_id):
                 if not food_ids_text:
                     continue
 
-                # Convert comma-separated food_ids into list
-                food_ids = [fid.strip() for fid in food_ids_text.split(",") if fid.strip().isdigit()]
+                # # Convert comma-separated food_ids into list
+                # food_ids = [fid.strip() for fid in food_ids_text.split(",") if fid.strip().isdigit()]
 
-                if not food_ids:
-                    continue
+                # if not food_ids:
+                #     continue
 
-                # Fetch food item names
-                format_strings = ','.join(['%s'] * len(food_ids))
-                query_foods = f"SELECT name FROM food_items WHERE food_id IN ({format_strings}) AND menu_id = %s"
-                cursor.execute(query_foods, (*food_ids, menu_id))
-                food_names = [row["name"] for row in cursor.fetchall()]
+                # # Fetch food item names
+                # format_strings = ','.join(['%s'] * len(food_ids))
+                # query_foods = f"SELECT name FROM food_items WHERE food_id IN ({format_strings}) AND menu_id = %s"
+                # cursor.execute(query_foods, (*food_ids, menu_id))
+                # food_names = [row["name"] for row in cursor.fetchall()]
 
-                # Combine food names with price info
-                day_wise_menu[day] = {
-                    "items": ", ".join(food_names),
-                    "price": prices_text
+                # # Combine food names with price info
+                # day_wise_menu[day] = {
+                #     "items": ", ".join(food_names),
+                #     "price": prices_text
+                # }
+
+                newEntry = {
+                    "day": day,
+                    "items": food_ids_text,
+                    "price": prices_text,
                 }
+
+                day_wise_menu.append(newEntry)
 
             cursor.close()
             conn.close()
@@ -641,32 +687,15 @@ def get_canteen_menu_from_db(canteen_id):
             return {
                 "canteen_id": canteen_id,
                 "menu_type": "day_wise",
-                "menu": day_wise_menu
+                "menu": day_wise_menu,
+                "menu_files": menu_files
             }
 
-        else:
-            # Step 4: If day_wise = no, return full food list for that menu
-            query_food_items = """
-                SELECT name, price
-                FROM food_items
-                WHERE menu_id = %s
-            """
-            cursor.execute(query_food_items, (menu_id,))
-            items = cursor.fetchall()
-
-            cursor.close()
-            conn.close()
-
-            return {
-                "canteen_id": canteen_id,
-                "menu_type": "standard",
-                "menu": items
-            }
+        
 
     except Exception as e:
         logging.error(f"Error fetching canteen menu for canteen_id {canteen_id}: {str(e)}")
         return None
-    
 
 
 
@@ -688,12 +717,22 @@ def get_canteen_info_from_db(canteen_id):
                 closing_time,
                 peak_hr_start_time,
                 peak_hr_end_time,
-                overall_rating
+                overall_rating,
+                canteen_image_1,
+                canteen_image_2
             FROM canteens
             WHERE canteen_id = %s
         """
         cursor.execute(query, (canteen_id,))
         canteen_info = cursor.fetchone()
+
+        canteen_info["images"] = []
+        if canteen_info.get("canteen_image_1"):
+            canteen_info["images"].append(canteen_info["canteen_image_1"])
+        if canteen_info.get("canteen_image_2"):
+            canteen_info["images"].append(canteen_info["canteen_image_2"])
+
+        print("Canteen images array:", canteen_info)
 
         cursor.close()
         conn.close()
@@ -798,7 +837,8 @@ def get_menu_by_canteen_id(canteen_id):
                 Friday, friday_price,
                 Saturday, saturday_price,
                 Sunday, sunday_price,
-                menu_file,
+                menu_fil_1,
+                menu_file_2,
                 created_at,
                 updated_at
             FROM menu
@@ -874,147 +914,8 @@ def get_all_canteens_from_db():
         logging.error(f"Error fetching canteens from DB: {str(e)}")
         return None
 
-def get_canteen_info_from_db(canteen_id):
-    try:
-        conn = get_db_connection()
-        cursor = conn.cursor(dictionary=True)  
 
-        query = """
-            SELECT 
-                canteen_id,
-                name,
-                location,
-                description,
-                contact_no,
-                days_open,
-                opening_time,
-                closing_time,
-                peak_hr_start_time,
-                peak_hr_end_time,
-                overall_rating
-            FROM canteens
-            WHERE canteen_id = %s
-        """
-        cursor.execute(query, (canteen_id,))
-        canteen_info = cursor.fetchone()
 
-        cursor.close()
-        conn.close()
-
-        return canteen_info
-
-    except Exception as e:
-        logging.error(f"Error fetching canteen info from DB: {str(e)}")
-        return None
-def get_canteen_menu_from_db(canteen_id):
-    try:
-        conn = get_db_connection()
-        cursor = conn.cursor(dictionary=True)
-
-        # Step 1: Fetch the menu row for this canteen
-        query_menu = """
-            SELECT *
-            FROM menu
-            WHERE canteen_id = %s
-        """
-        cursor.execute(query_menu, (canteen_id,))
-        menu = cursor.fetchone()
-
-        if not menu:
-            cursor.close()
-            conn.close()
-            return None # it is changed from {"message": "Menu not found for this canteen"} as we are already handling menu not found in parent functions
-
-        # Step 2: If menu_file exists, return it directly
-        if menu["menu_file"]:
-            encoded_file = base64.b64encode(menu["menu_file"]).decode("utf-8")
-            cursor.close()
-            conn.close()
-            return {
-                "canteen_id": canteen_id,
-                "menu_type": "file",
-                "menu_file": encoded_file
-            }
-
-        menu_id = menu["menu_id"]
-
-        # Step 3: If menu_file is null, handle based on day_wise
-        if menu["day_wise"].lower() == "yes":
-            day_columns = [
-                ("Monday", "monday_price"),
-                ("Tuesday", "tuesday_price"),
-                ("Wednesday", "wednesday_price"),
-                ("Thursday", "thursday_price"),
-                ("Friday", "friday_price"),
-                ("Saturday", "saturday_price"),
-                ("Sunday", "sunday_price")
-            ]
-            day_wise_menu = [] # changed from {}
-
-            for day, price_col in day_columns:
-                food_ids_text = menu.get(day)
-                prices_text = menu.get(price_col)
-
-                if not food_ids_text:
-                    continue
-
-                # # Convert comma-separated food_ids into list
-                # food_ids = [fid.strip() for fid in food_ids_text.split(",") if fid.strip().isdigit()]
-
-                # if not food_ids:
-                #     continue
-
-                # # Fetch food item names
-                # format_strings = ','.join(['%s'] * len(food_ids))
-                # query_foods = f"SELECT name FROM food_items WHERE food_id IN ({format_strings}) AND menu_id = %s"
-                # cursor.execute(query_foods, (*food_ids, menu_id))
-                # food_names = [row["name"] for row in cursor.fetchall()]
-
-                # # Combine food names with price info
-                # day_wise_menu[day] = {
-                #     "items": ", ".join(food_names),
-                #     "price": prices_text
-                # }
-
-                newEntry = {
-                    "day": day,
-                    "items": food_ids_text,
-                    "price": prices_text,
-                }
-
-                day_wise_menu.append(newEntry)
-
-            cursor.close()
-            conn.close()
-
-            return {
-                "canteen_id": canteen_id,
-                "menu_type": "day_wise",
-                "menu": day_wise_menu
-            }
-
-        else:
-            # Step 4: If day_wise = no, return full food list for that menu
-            query_food_items = """
-                SELECT name, price
-                FROM food_items
-                WHERE menu_id = %s
-            """
-            cursor.execute(query_food_items, (menu_id,))
-            items = cursor.fetchall()
-
-            cursor.close()
-            conn.close()
-
-            return {
-                "canteen_id": canteen_id,
-                "menu_type": "standard",
-                "menu": items
-            }
-
-    except Exception as e:
-        logging.error(f"Error fetching canteen menu for canteen_id {canteen_id}: {str(e)}")
-        return None
     
 def get_reviews_by_id_db(user_id):
 
@@ -1663,7 +1564,7 @@ def get_menu_by_canteen_id(canteen_id):
                    Monday, monday_price, Tuesday, tuesday_price,
                    Wednesday, wednesday_price, Thursday, thursday_price,
                    Friday, friday_price, Saturday, saturday_price,
-                   Sunday, sunday_price, menu_file, created_at, updated_at
+                   Sunday, sunday_price, menu_file_1, menu_file_2, created_at, updated_at
             FROM menu
             WHERE canteen_id = %s
             LIMIT 1

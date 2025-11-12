@@ -6,9 +6,10 @@ import jwt
 from flask_jwt_extended import create_access_token
 from datetime import timedelta
 import re
+from app.cloudinary_setup import cloudinary
 
-
-
+from app.models import _upload_to_cloudinary
+import cloudinary.uploader
     
 def signup_api():
     try:
@@ -98,6 +99,20 @@ def create_canteen_profile_api():
         
         if len(contact_number) != 10 or not contact_number.isdigit():
             return jsonify({"message": "Invalid phone number format"}), 400
+        menu_file_1_url = None
+        menu_file_2_url = None
+
+        file1 = request.files.get('menu_file_1')
+        file2 = request.files.get('menu_file_2')
+
+        if file1:
+            print("got file1")
+            menu_file_1_url = _upload_to_cloudinary(file1)
+            logging.info("Cloudinary upload result 1: %r", menu_file_1_url)
+        if file2:
+            print("got file2")
+            menu_file_2_url = _upload_to_cloudinary(file2)
+            logging.info("Cloudinary upload result 1: %r", menu_file_2_url)
 
         profile_data = {
             "owner_id": owner_id,
@@ -109,7 +124,10 @@ def create_canteen_profile_api():
             "opening_time": opening_time,
             "closing_time": closing_time,
             "peak_hr_start_time": peak_hr_start_time,
-            "peak_hr_end_time": peak_hr_end_time
+            "peak_hr_end_time": peak_hr_end_time,
+
+            "menu_file_1": menu_file_1_url,
+            "menu_file_2": menu_file_2_url
         }
         
         canteen_id, menu_id, response = add_canteen_profile(profile_data)

@@ -57,6 +57,7 @@ def get_canteen_review_ratings_api(canteen_id):
 def get_canteen_menu_details_api(canteen_id):
     try:    
         menu_data = get_canteen_menu_from_db(canteen_id)
+        print("Menu data fetched:", menu_data)
         if not menu_data:
                 return jsonify({"message": "Menu not found"}), 404
 

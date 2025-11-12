@@ -40,7 +40,22 @@
         </div>
 
         <div class="info-images">
-          <div class="image-square" v-for="n in 4" :key="n"></div>
+          <!-- If there are images, loop and display them -->
+          <div 
+            class="image-square" 
+            v-for="(image, index) in canteenInfo.images" 
+            :key="index"
+          >
+            <img :src="image" :alt="'Canteen Image ' + (index + 1)" />
+          </div>
+
+          <!-- If no images, show placeholders -->
+          <div 
+            class="image-square" 
+            v-if="!canteenInfo.images || canteenInfo.images.length === 0"
+          >
+            <span>No image available</span>
+          </div>
         </div>
       </div>
     </div>
@@ -67,7 +82,8 @@
         <div class="divider-line"></div>
         <div class="image-grid-wrapper">
           <div class="image-grid">
-            <div class="image-square" v-for="n in 4" :key="n"></div>
+            <div class="image-square" v-for="(image, index) of menuFiles" :key="index">
+            <img :src="image" :alt="'Image ' + (index + 1)" /></div>
           </div>
         </div>
       </div>
@@ -153,6 +169,7 @@ export default {
     return {
       canteenInfo: null,
       menu: [],
+      menuFiles: [],
       reviews: [],
       ratings: null,
       errorMsg: '',
@@ -242,7 +259,9 @@ export default {
 
       this.canteenInfo = info
       console.log('menu data: ', menuData)
-      this.menu = menuData
+      this.menu = menuData.menu
+      this.menuFiles = Array.isArray(menuData.menu_files) ? menuData.menu_files : [];
+      console.log('menuFiles:', this.menuFiles) 
       this.reviews = reviewsData?.top_reviews || []
       this.ratings = reviewsData || null
     } catch (err) {
@@ -320,6 +339,8 @@ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   height: 100%; 
   align-self: stretch; 
   margin-top: 70px; } 
+
+
 
 .image-square { 
   width: 100%; 

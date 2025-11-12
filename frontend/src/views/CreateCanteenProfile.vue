@@ -58,8 +58,13 @@
 
 
         <div class="form-group">
-          <label for="menuUpload">Upload Menu</label>
-          <input type="file" id="menuUpload" @change="handleFileUpload" />
+          <label for="menuUpload">Upload Menu (max 2 files)</label>
+          <!-- allow selecting multiple files, we'll keep only first 2 -->
+          <input type="file" id="menuUpload" @change="handleFileUpload" multiple />
+          <div v-if="menuFiles.length" style="margin-top:8px; font-size:0.95rem;">
+            <div v-for="(f, i) in menuFiles" :key="i">File {{ i+1 }}: {{ f.name }}</div>
+            <div v-if="menuFiles.length === 2" style="color: #666; font-size:0.85rem;">(2 files attached)</div>
+          </div>
         </div>
 
         <button type="submit" class="create-btn">Create</button>
@@ -94,10 +99,14 @@ export default {
     const closingTime = ref('')
     const peakStart = ref('')
     const peakEnd = ref('')
-    const menuFile = ref(null)
+    const menuFiles = ref([])
 
     function handleFileUpload(event) {
-      menuFile.value = event.target.files[0]
+      console.log(event.target.files)
+      const files = Array.from(event.target.files || [])
+      console.log(files)
+      // keep only first two files
+      menuFiles.value = files.slice(0, 2)
     }
 
     const handleCanteenProfile = async () => {
@@ -124,9 +133,12 @@ export default {
           
 
         }
-        if (menuFile.value) {
-      profileData.menu_file = menuFile.value
-    }
+        if (menuFiles.value.length > 0) {
+          profileData.menu_file_1 = menuFiles.value[0]
+        }
+        if (menuFiles.value.length > 1) {
+          profileData.menu_file_2 = menuFiles.value[1]
+        }
 
         const res = await createCanteenProfile(owner_id, profileData)
 
@@ -135,8 +147,8 @@ export default {
           localStorage.setItem('token', res.token)
         }
         if (res.redirect_url) {
-        window.location.href = res.redirect_url
-        return
+          window.location.href = res.redirect_url
+          return
       }
 
 
@@ -154,7 +166,7 @@ export default {
 
     return {
       name, location, description, contact, daysOpen,
-      openingTime, closingTime, peakStart, peakEnd, menuFile,
+      openingTime, closingTime, peakStart, peakEnd, menuFiles,
       handleFileUpload, handleCanteenProfile, errorMsg
     }
   }
