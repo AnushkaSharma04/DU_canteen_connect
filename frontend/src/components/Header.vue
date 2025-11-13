@@ -127,17 +127,17 @@ export default {
 
 <style scoped>
 .header {
-  position: absolute;
-  width: 100%;
+  position: fixed; /* or absolute if you prefer */
   top: 0;
   left: 0;
-  background: #ffffff;
+  width: 100%;
+  background: #fff;
   box-sizing: border-box;
   z-index: 1000;
-  padding: 1rem 2rem;
+  padding: 0.5rem 1rem;   /* smaller padding */
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  align-items: center;    /* single row */
+  justify-content: space-between;
 }
 
 .header.centered {
@@ -209,7 +209,12 @@ export default {
 }
 
 .searchbar {
-  width: 30%;
+  position: absolute;       /* take it out of the flex flow */
+  left: 50%;                /* center horizontally */
+  transform: translateX(-50%);
+  bottom: -25px;            /* half of its height hangs below header */
+  
+  width: 30%;               /* adjust width as needed */
   height: 50px;
   background: #d9d9d9;
   border-radius: 25px;
