@@ -112,6 +112,16 @@ def add_canteen_profile(profile_data):
         conn = get_db_connection()
         cursor = conn.cursor()
 
+        # Check if canteen already exists for this owner
+        check_query = "SELECT canteen_id FROM canteens WHERE owner_id = %s"
+        cursor.execute(check_query, (profile_data["owner_id"],))
+        existing = cursor.fetchone()
+        
+        if existing:
+            cursor.close()
+            conn.close()
+            return None, None, {"message": "Canteen profile already exists for this owner"}
+
         # 1) Insert canteen
         canteen_query = """
             INSERT INTO canteens (

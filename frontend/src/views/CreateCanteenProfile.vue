@@ -67,7 +67,9 @@
           </div>
         </div>
 
-        <button type="submit" class="create-btn">Create</button>
+        <button type="submit" class="create-btn" :disabled="loading">
+          {{ loading ? 'Creating...' : 'Create' }}
+        </button>
       </form>
       <p v-if="errorMsg" style="color:red; text-align:center;">{{ errorMsg }}</p>
     </div>
@@ -100,6 +102,7 @@ export default {
     const peakStart = ref('')
     const peakEnd = ref('')
     const menuFiles = ref([])
+    const loading = ref(false)
 
     function handleFileUpload(event) {
       console.log(event.target.files)
@@ -110,6 +113,11 @@ export default {
     }
 
     const handleCanteenProfile = async () => {
+      if (loading.value) return // Prevent duplicate submissions
+      
+      loading.value = true
+      errorMsg.value = ''
+      
       try {
         // Get owner_id from query params (from signup redirect)
         const urlParams = new URLSearchParams(window.location.search)
@@ -117,6 +125,7 @@ export default {
 
         if (!owner_id) {
           errorMsg.value = "Owner ID missing"
+          loading.value = false
           return
         }
 
@@ -142,9 +151,14 @@ export default {
 
         const res = await createCanteenProfile(owner_id, profileData)
 
-        // Save JWT token returned from backend
+        // Save JWT token and user data returned from backend
         if (res.token) {
           localStorage.setItem('token', res.token)
+        }
+        if (res.user) {
+          localStorage.setItem('user', JSON.stringify(res.user))
+          console.log('💾 [Canteen Profile] Stored user data:', localStorage.getItem('user'))
+          console.log('📍 [Canteen Profile] User role:', res.user.role)
         }
         if (res.redirect_url) {
           window.location.href = res.redirect_url
@@ -161,13 +175,14 @@ export default {
         catch (err) {
         console.error(err)
         errorMsg.value = err.response?.data?.message || "Failed to create profile"
+        loading.value = false
       }
     }
 
     return {
       name, location, description, contact, daysOpen,
       openingTime, closingTime, peakStart, peakEnd, menuFiles,
-      handleFileUpload, handleCanteenProfile, errorMsg
+      handleFileUpload, handleCanteenProfile, errorMsg, loading
     }
   }
 }

@@ -124,6 +124,11 @@ export default {
 
         if (selectedRole.value === "General" && data.token) {
           localStorage.setItem("token", data.token)
+          localStorage.setItem("user", JSON.stringify(data.user))
+          
+          console.log(' [Signup] Stored user data:', localStorage.getItem('user'))
+          console.log(' [Signup] User role:', data.user.role)
+          
           alert("Signup successful!")
           router.push("/Desktop1")
         } else if (selectedRole.value === "Canteen Owner" && data.user?.user_id) {

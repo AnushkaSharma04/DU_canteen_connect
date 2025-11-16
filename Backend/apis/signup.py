@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify, redirect, url_for
-from app.models import add_user, check_user_exists, add_canteen_profile, get_user_by_phone
+from app.models import add_user, check_user_exists, add_canteen_profile, get_user_by_phone, get_user_by_id_db
 import bcrypt
 import logging
 import jwt
@@ -134,6 +134,11 @@ def create_canteen_profile_api():
         if canteen_id is None:
             return jsonify({"message": response.get("message", "Failed to create canteen profile")}), 500
 
+        # Get user data to return with token
+        user = get_user_by_id_db(owner_id)
+        if not user:
+            return jsonify({"message": "User not found"}), 404
+        
         access_token = create_access_token(
             identity=str(owner_id),
             expires_delta=timedelta(hours=24)
@@ -142,6 +147,13 @@ def create_canteen_profile_api():
         return jsonify({
             "message": response.get("message", "Canteen profile created successfully"),
             "token": access_token,
+            "user": {
+                "user_id": user["user_id"],
+                "name": user["name"],
+                "phone_number": user["phone_number"],
+                "role": user["role"],
+                "email": user["email"]
+            },
             "canteen_id": canteen_id,
             "redirect_url": f"http://localhost:5173/canteenpage?canteen_id={canteen_id}"
         }), 201
