@@ -25,3 +25,15 @@ export const submitAppIssue = async (payload) => {
   const res = await api.post('/report_app_issue', payload)
   return res.data
 }
+
+// Update user profile (name, email, phone_number, password)
+export const updateUserProfile = async (payload) => {
+  const formData = new FormData()
+  for (const key in payload) {
+    if (payload[key] !== null && payload[key] !== undefined && payload[key] !== '') {
+      formData.append(key, payload[key])
+    }
+  }
+  const res = await api.post('/user_profile_update', formData)
+  return res.data
+}

@@ -94,7 +94,7 @@
 <script>
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
-import { fetchUserInfo, fetchUserReviews, submitAppIssue, submitAppFeedback } from '@/services/user'
+import { fetchUserInfo, fetchUserReviews, submitAppIssue, submitAppFeedback, updateUserProfile } from '@/services/user'
 
 export default {
   name: 'DashboardPage',
@@ -172,19 +172,35 @@ export default {
     },
     async toggleEditProfile() {
       if (this.isEditingProfile) {
-        // Save changes
+        // Save changes - only send changed fields
         try {
-          // Replace with your actual update API
-          await updateUserProfile(this.editableUserInfo)
-          this.userInfo = { ...this.editableUserInfo }
-          alert('Profile updated successfully!')
+          const updates = {}
+          if (this.editableUserInfo.name !== this.userInfo.name) {
+            updates.name = this.editableUserInfo.name
+          }
+          if (this.editableUserInfo.email !== this.userInfo.email) {
+            updates.email = this.editableUserInfo.email
+          }
+          if (this.editableUserInfo.phone_number !== this.userInfo.phone_number) {
+            updates.phone_number = this.editableUserInfo.phone_number
+          }
+          if (this.editableUserInfo.password && this.editableUserInfo.password !== '********') {
+            updates.password = this.editableUserInfo.password
+          }
+
+          if (Object.keys(updates).length > 0) {
+            await updateUserProfile(updates)
+            await this.loadUserProfile() // Reload to show updated data
+            alert('Profile updated successfully!')
+          }
         } catch (error) {
           console.error('Failed to update profile:', error)
-          alert('Failed to save changes')
+          alert(error.response?.data?.message || 'Failed to save changes')
+          return
         }
       } else {
         // Enter edit mode
-        this.editableUserInfo = { ...this.userInfo }
+        this.editableUserInfo = { ...this.userInfo, password: '' }
       }
       this.isEditingProfile = !this.isEditingProfile
     }
