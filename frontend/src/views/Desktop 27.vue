@@ -40,15 +40,16 @@
           </div>
         </div>
 
-        <div class="info-images">
-          <!-- If there are images, loop and display them -->
-          <div 
-            class="image-square" 
-            v-for="(image, index) in canteenInfo.images" 
-            :key="index"
-          >
-            <img :src="image" :alt="'Canteen Image ' + (index + 1)" />
-          </div>
+        <div 
+          class="image-square" 
+          v-for="(image, index) in canteenInfo.images" 
+          :key="index"
+        >
+          <img 
+            :src="image" 
+            :alt="'Canteen Image ' + (index + 1)" 
+            @click="openFullscreen(image)" 
+          />
 
           <!-- If no images, show placeholders -->
           <div 
@@ -84,7 +85,12 @@
         <div class="image-grid-wrapper">
           <div class="image-grid">
             <div class="image-square" v-for="(image, index) of menuFiles" :key="index">
-            <img :src="image" :alt="'Image ' + (index + 1)" /></div>
+            <img 
+              :src="image" 
+              :alt="'Image ' + (index + 1)" 
+              @click="openFullscreen(image)" 
+            />
+          </div>
           </div>
         </div>
       </div>
@@ -152,6 +158,11 @@
       </div>
     </div>
     </div>
+    <transition name="fade">
+      <div v-if="fullscreenImage" class="fullscreen-overlay" @click="closeFullscreen">
+        <img :src="fullscreenImage" class="fullscreen-img" />
+      </div>
+    </transition>
   <Footer />
   </div>
 </template>
@@ -179,6 +190,7 @@ export default {
       newStaffRating: '',
       newHygieneRating: '',
       newFacilityRating: '',
+      fullscreenImage: null,
 
     }
   },
@@ -191,6 +203,12 @@ export default {
     getStars(rating) {
       if (!rating) return 'N/A'
       return '★'.repeat(Math.round(rating))
+    },
+    openFullscreen(src) {
+      this.fullscreenImage = src
+    },
+    closeFullscreen() {
+      this.fullscreenImage = null
     },
 
     zip(a, b) {
@@ -273,6 +291,27 @@ export default {
 </script>
 
 <style> 
+.fullscreen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  cursor: zoom-out;
+}
+
+.fullscreen-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
 .page-wrapper {
   min-height: 100vh;
   display: flex;
