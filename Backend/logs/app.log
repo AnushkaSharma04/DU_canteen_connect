@@ -5870,3 +5870,68 @@ AttributeError: 'NoneType' object has no attribute 'cursor'
 2025-11-23 12:26:04,868 - app - INFO - Flask application created successfully
 2025-11-23 12:26:04,980 - werkzeug - WARNING -  * Debugger is active!
 2025-11-23 12:26:04,986 - werkzeug - INFO -  * Debugger PIN: 126-030-982
+2025-11-24 12:35:08,100 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-24 12:35:08,100 - app - INFO - Starting Flask application...
+2025-11-24 12:35:08,102 - app - INFO - Flask application created successfully
+2025-11-24 12:35:09,632 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.6:5000
+2025-11-24 12:35:09,646 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-24 12:35:09,649 - werkzeug - INFO -  * Restarting with stat
+2025-11-24 12:35:10,336 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-24 12:35:10,336 - app - INFO - Starting Flask application...
+2025-11-24 12:35:10,337 - app - INFO - Flask application created successfully
+2025-11-24 12:35:10,376 - werkzeug - WARNING -  * Debugger is active!
+2025-11-24 12:35:10,379 - werkzeug - INFO -  * Debugger PIN: 126-030-982
+2025-11-24 12:36:57,701 - root - INFO - Database connection established.
+2025-11-24 12:36:57,716 - werkzeug - INFO - 127.0.0.1 - - [24/Nov/2025 12:36:57] "GET /canteens HTTP/1.1" 200 -
+2025-11-24 12:37:49,650 - root - INFO - Database connection established.
+2025-11-24 12:37:49,657 - werkzeug - INFO - 127.0.0.1 - - [24/Nov/2025 12:37:49] "GET /canteens HTTP/1.1" 200 -
+2025-11-24 12:38:47,160 - werkzeug - INFO - 127.0.0.1 - - [24/Nov/2025 12:38:47] "[35m[1mGET /canteen_info?canteen_id=70 HTTP/1.1[0m" 500 -
+2025-11-24 12:38:47,482 - root - INFO - Database connection established.
+2025-11-24 12:38:47,500 - werkzeug - INFO - 127.0.0.1 - - [24/Nov/2025 12:38:47] "GET /canteen_menu_details?canteen_id=70 HTTP/1.1" 200 -
+2025-11-24 12:38:47,742 - root - INFO - Database connection established.
+2025-11-24 12:38:47,748 - werkzeug - INFO - 127.0.0.1 - - [24/Nov/2025 12:38:47] "GET /canteen_review_ratings?canteen_id=70 HTTP/1.1" 200 -
+2025-11-24 12:39:08,651 - werkzeug - INFO -  * Detected change in 'E:\\Soft Eng\\Project\\DU_canteen_connect\\Backend\\main.py', reloading
+2025-11-24 12:39:08,751 - werkzeug - INFO -  * Restarting with stat
+2025-11-24 12:39:09,888 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-24 12:39:09,888 - app - INFO - Starting Flask application...
+2025-11-24 12:39:09,891 - app - INFO - Flask application created successfully
+2025-11-24 12:39:09,931 - werkzeug - WARNING -  * Debugger is active!
+2025-11-24 12:39:09,934 - werkzeug - INFO -  * Debugger PIN: 126-030-982
+2025-11-24 12:39:18,706 - root - INFO - Database connection established.
+2025-11-24 12:39:18,713 - werkzeug - INFO - 127.0.0.1 - - [24/Nov/2025 12:39:18] "GET /canteen_info?canteen_id=70 HTTP/1.1" 200 -
+2025-11-24 12:39:18,946 - root - INFO - Database connection established.
+2025-11-24 12:39:18,950 - werkzeug - INFO - 127.0.0.1 - - [24/Nov/2025 12:39:18] "GET /canteen_menu_details?canteen_id=70 HTTP/1.1" 200 -
+2025-11-24 12:39:19,028 - root - INFO - Database connection established.
+2025-11-24 12:39:19,032 - werkzeug - INFO - 127.0.0.1 - - [24/Nov/2025 12:39:19] "GET /canteen_review_ratings?canteen_id=70 HTTP/1.1" 200 -
+2025-11-24 12:40:05,253 - werkzeug - INFO -  * Detected change in 'E:\\Soft Eng\\Project\\DU_canteen_connect\\Backend\\main.py', reloading
+2025-11-24 12:40:05,352 - werkzeug - INFO -  * Restarting with stat
+2025-11-24 12:40:06,233 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-24 12:40:06,234 - app - INFO - Starting Flask application...
+2025-11-24 12:40:06,235 - app - INFO - Flask application created successfully
+2025-11-24 12:40:06,272 - werkzeug - WARNING -  * Debugger is active!
+2025-11-24 12:40:06,275 - werkzeug - INFO -  * Debugger PIN: 126-030-982
+2025-11-24 12:40:33,281 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-24 12:40:33,281 - app - INFO - Starting Flask application...
+2025-11-24 12:40:33,283 - app - INFO - Flask application created successfully
+2025-11-24 12:40:34,829 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.6:5000
+2025-11-24 12:40:34,830 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-24 12:40:34,833 - werkzeug - INFO -  * Restarting with stat
+2025-11-24 12:40:36,442 - app.logging_config - INFO - Logging initialized. Logs will be saved to logs\app.log
+2025-11-24 12:40:36,443 - app - INFO - Starting Flask application...
+2025-11-24 12:40:36,444 - app - INFO - Flask application created successfully
+2025-11-24 12:40:36,509 - werkzeug - WARNING -  * Debugger is active!
+2025-11-24 12:40:36,512 - werkzeug - INFO -  * Debugger PIN: 126-030-982
+2025-11-24 12:40:36,920 - root - INFO - Database connection established.
+2025-11-24 12:40:36,927 - werkzeug - INFO - 127.0.0.1 - - [24/Nov/2025 12:40:36] "GET /canteen_info?canteen_id=70 HTTP/1.1" 200 -
+2025-11-24 12:40:37,170 - root - INFO - Database connection established.
+2025-11-24 12:40:37,173 - werkzeug - INFO - 127.0.0.1 - - [24/Nov/2025 12:40:37] "GET /canteen_menu_details?canteen_id=70 HTTP/1.1" 200 -
+2025-11-24 12:40:37,255 - root - INFO - Database connection established.
+2025-11-24 12:40:37,257 - werkzeug - INFO - 127.0.0.1 - - [24/Nov/2025 12:40:37] "GET /canteen_review_ratings?canteen_id=70 HTTP/1.1" 200 -
+2025-11-24 12:41:36,847 - werkzeug - INFO -  * Detected change in 'E:\\Soft Eng\\Project\\DU_canteen_connect\\Backend\\apis\\no_login.py', reloading
+2025-11-24 12:41:36,944 - werkzeug - INFO -  * Restarting with stat
